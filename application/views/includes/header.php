@@ -103,7 +103,7 @@
           <li class="treeview">
             <a href="<?php echo base_url(); ?>manage_admin/">
             <i class="fa fa-file"></i>
-            <span>Manage Admin</span>
+            <span>Manage Admin User</span>
             </a>
           </li>
 
@@ -119,13 +119,11 @@
 
 
           <li class="treeview">
-            <a href="<?php echo base_url(); ?>manage_user/">
+            <a href="<?php echo base_url(); ?>manage_banner/">
             <i class="fa fa-file"></i>
-            <span>Manage User</span>
+            <span>Manage Banner</span>
             </a>
           </li>
-
-
 
 
 
@@ -146,12 +144,7 @@
           </li>
 
 
-           <li class="treeview">
-            <a href="<?php echo base_url(); ?>manage_banner/">
-            <i class="fa fa-file"></i>
-            <span>Manage Banner</span>
-            </a>
-          </li>
+           
 
 
 

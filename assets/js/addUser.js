@@ -21,7 +21,7 @@ $(document).ready(function(){
 			password : { required : true },
 			cpassword : {required : true, equalTo: "#password"},
 			mobile : { required : true, digits : true },
-			role : { required : true, selected : true}
+			roleId : { required : true, selected : true}
 		},
 		messages:{
 			firstname :{ required : "This field is required" },
@@ -30,7 +30,7 @@ $(document).ready(function(){
 			password : { required : "This field is required" },
 			cpassword : {required : "This field is required", equalTo: "Please enter same password" },
 			mobile : { required : "This field is required", digits : "Please enter numbers only" },
-			role : { required : "This field is required", selected : "Please select atleast one option" }			
+			roleId : { required : "This field is required", selected : "Please select atleast one option" }			
 		}
 	});
 });

@@ -35,14 +35,22 @@ class manage_admin extends BaseController
             $row = array();
             $row[] = $admin->username;
             $row[] = $admin->email;
+            $row[] = $admin->role;
+            $row[] = $admin->isActive === '1' ? 'Active' : 'Non Active';
             $row[] = $admin->createdAt;
             $row[] = $admin->updatedAt;
 
 
 
             //add html for action
-            $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_admin/addadmin/'."".$admin->userId."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                  <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_admin/delete/'."".$admin->userId."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+            if($admin->isActive === '1') {
+                $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_admin/addadmin/'."".$admin->userId."".'" title="Edit">Edit</a>
+                  <a class="btn btn-sm btn-success" href="'.$base_url.'manage_admin/update/'."".$admin->userId."".'/0" title="nonaktif">Nonaktifkan</a>' ;
+
+            }else{
+                $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_admin/addadmin/'."".$admin->userId."".'" title="Edit">Edit</a> 
+                  <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_admin/update/'."".$admin->userId."".'/1" title="nonaktif">Aktifkan</a>' ;
+            }
         
             $data[] = $row;
         }
@@ -91,15 +99,14 @@ class manage_admin extends BaseController
         
         
         if($this->input->post('userId') != NULL){ // FOR UPDATE
-            if($this->admin->update(array('userId' => $this->input->post('userId')), $data)){
-                $this->session->set_flashdata('success', 'Success Update Data Admin');
+            $this->admin->update(array('userId' => $this->input->post('userId')), $data);
+            $this->session->set_flashdata('success', 'Success Update Data Admin');
                 redirect('manage_admin/');
-            }
+            
         }else{
-            if($this->admin->save($data)){ //   FOR POST
-                $this->session->set_flashdata('success', 'Success Add Admin');
-                redirect('manage_admin/');
-            }
+            $this->admin->save($data);
+            $this->session->set_flashdata('success', 'Success Add Admin');
+            redirect('manage_admin/');
         }
 
         
@@ -112,6 +119,21 @@ class manage_admin extends BaseController
     {
         $this->admin->delete_by_id($userId);
         $this->session->set_flashdata('success', 'Success  Delete');
+        redirect('manage_admin/');
+    }
+
+
+    public function update($userId,$type)
+    {
+        $data = array(
+                'isActive' => $type,
+                'createdAt' => date("Y-m-d H:i:s"),
+                'updatedAt' => date("Y-m-d H:i:s"),
+            );
+
+        $this->admin->update(array('userId' => $userId), $data);
+
+        $this->session->set_flashdata('success', 'Success  Non Active User');
         redirect('manage_admin/');
     }
 

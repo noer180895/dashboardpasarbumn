@@ -4,9 +4,9 @@ class Admin_model extends CI_Model
 {
 
     var $table = 'tbl_users';
-    var $column_order = array('username','email','createdAt',null); //set column field database for datatable orderable
-    var $column_search = array('username','email','createdAt'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-    var $order = array('userId' => 'desc'); // default order 
+    var $column_order = array('usr.username','usr.email','usr.createdAt',null); //set column field database for datatable orderable
+    var $column_search = array('usr.username','usr.email','usr.createdAt'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+    var $order = array('usr.userId' => 'desc'); // default order 
 
     public function __construct()
     {
@@ -16,8 +16,11 @@ class Admin_model extends CI_Model
 
     private function _get_datatables_query()
     {
-        
-        $this->db->from('tbl_users');
+        $this->db->select('usr.userId, usr.firstname, usr.lastname, usr.username, usr.email, usr.isActive, usr.createdAt, usr.updatedAt, role.role ');
+        $this->db->from('tbl_users usr');
+        $this->db->join('tbl_roles role', 'usr.roleId=role.roleId', 'left');
+        $this->db->group_by('usr.userId');
+        $this->db->order_by('usr.userId', 'desc');
 
         $i = 0;
     
@@ -28,7 +31,6 @@ class Admin_model extends CI_Model
                 
                 if($i===0) // first loop
                 {
-                    // $this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
                     $this->db->like($item, $_POST['search']['value']);
                 }
                 else
@@ -36,8 +38,6 @@ class Admin_model extends CI_Model
                     $this->db->or_like($item, $_POST['search']['value']);
                 }
 
-                // if(count($this->column_search) - 1 == $i) //last loop
-                    // $this->db->group_end(); //close bracket
             }
             $i++;
         }
@@ -133,4 +133,3 @@ class Admin_model extends CI_Model
 
 }
 
-  

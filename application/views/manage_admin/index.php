@@ -32,6 +32,8 @@
                         <tr>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
                             <th>CreatedAt</th>
                             <th>UpdatedAt</th>
                             <th style="width:125px;">Action</th>
