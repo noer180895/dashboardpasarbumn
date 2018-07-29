@@ -143,7 +143,13 @@
             </a>
           </li>
 
-
+          
+           <li class="treeview">
+            <a href="<?php echo base_url(); ?>manage_logo/">
+            <i class="fa fa-file"></i>
+            <span>Manage Logo</span>
+            </a>
+          </li>
            
 
 
@@ -157,12 +163,6 @@
 
 
 
-           <li class="treeview">
-            <a href="<?php echo base_url(); ?>manage_logo/">
-            <i class="fa fa-file"></i>
-            <span>Manage Logo</span>
-            </a>
-          </li>
 
 
 

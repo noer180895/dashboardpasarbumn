@@ -65,7 +65,7 @@ class manage_banner extends BaseController
         $this->global['pageTitle'] = 'Manage Add Banner';
         if($bannerId != null){
             $data['banner'] = $this->banner->get_by_id($bannerIdInt);
-            $data['url_image'] = base_url(). 'assets/uploads/'. $data['banner']->image;
+            $data['url_image'] = base_url(). 'assets/uploads/banner/'. $data['banner']->image;
         }else{
             $data['banner'] = null;
         }
@@ -95,14 +95,13 @@ class manage_banner extends BaseController
 
         //file upload code 
         //set file upload settings 
-        $config['upload_path']          = APPPATH. '../assets/uploads/';
+        $config['upload_path']          = APPPATH. '../assets/uploads/banner/';
         $config['allowed_types']        = 'gif|jpg|png';
 
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
-
-        if($this->input->post('image') != NULL){
+        if(!empty($_FILES['image']['name'])) {
             if (!$this->upload->do_upload('image')){
                 $error = array('error' => $this->upload->display_errors());
                 $this->session->set_flashdata('error', $error);
