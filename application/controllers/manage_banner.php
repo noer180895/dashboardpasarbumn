@@ -62,10 +62,21 @@ class manage_banner extends BaseController
     // add banner
     public function addbanner($bannerId = null){
         $bannerIdInt = (int) $bannerId;
+        $this->global['pageTitle'] = 'Manage Add Banner';
+        if($bannerId != null){
+            $data['banner'] = $this->banner->get_by_id($bannerIdInt);
+            $data['url_image'] = base_url(). 'assets/uploads/'. $data['banner']->image;
+        }else{
+            $data['banner'] = null;
+        }
+
+
+        $data['type'] = array("mainbanner"=>"Main Banner","gambarbarcode"=>"Gambar Barcode");
+
         $this->global['pageTitle'] = 'Manage Add banner';
         
 
-        $this->loadViews("manage_banner/addbanner", $this->global , NULL);
+        $this->loadViews("manage_banner/addbanner", $this->global , $data, NULL);
     }
 
 
@@ -82,45 +93,51 @@ class manage_banner extends BaseController
             );
 
 
- 
-            //file upload code 
-            //set file upload settings 
-            $config['upload_path']          = APPPATH. '../assets/uploads/';
-            $config['allowed_types']        = 'gif|jpg|png';
- 
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
- 
+        //file upload code 
+        //set file upload settings 
+        $config['upload_path']          = APPPATH. '../assets/uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+
+        if($this->input->post('image') != NULL){
             if (!$this->upload->do_upload('image')){
                 $error = array('error' => $this->upload->display_errors());
                 $this->session->set_flashdata('error', $error);
-
-                var_dump($error);
             }else{
                 $upload_data = $this->upload->data();
  
                 //get the uploaded file name
                 $data['image'] = $upload_data['file_name'];
  
-                //store pic data to the db
-                $this->banner->save($data);
- 
-                redirect('manage_banner/');
+                if($this->input->post('bannerId') != NULL){ // FOR UPDATE
+                    if($this->banner->update(array('bannerId' => $this->input->post('bannerId')), $data)){
+                        $this->session->set_flashdata('success', 'Success Update Data banner');
+                        redirect('manage_banner/');
+                    }
+                }else{
+                    if($this->banner->save($data)){ //   FOR POST
+                        $this->session->set_flashdata('success', 'Success Add banner');
+                        redirect('manage_banner/');
+                    }
+                }
             }
-        
-        
-        // if($this->input->post('bannerId') != NULL){ // FOR UPDATE
-        //     if($this->banner->update(array('bannerId' => $this->input->post('bannerId')), $data)){
-        //         $this->session->set_flashdata('success', 'Success Update Data banner');
-        //         redirect('manage_banner/');
-        //     }
-        // }else{
-        //     if($this->banner->save($data)){ //   FOR POST
-        //         $this->session->set_flashdata('success', 'Success Add banner');
-        //         redirect('manage_banner/');
-        //     }
-        // }
 
+        }else{
+            if($this->input->post('bannerId') != NULL){ // FOR UPDATE
+                if($this->banner->update(array('bannerId' => $this->input->post('bannerId')), $data)){
+                    $this->session->set_flashdata('success', 'Success Update Data banner');
+                    redirect('manage_banner/');
+                }
+            }else{
+                if($this->banner->save($data)){ //   FOR POST
+                    $this->session->set_flashdata('success', 'Success Add banner');
+                    redirect('manage_banner/');
+                }
+            } 
+        }
         
     }
 

@@ -23,7 +23,12 @@
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="role">Name</label>
+                                        <?php if($banner != null){ ?>
+                                            <input type="text" class="form-control required" id="name" name="name" maxlength="128" value="<?php echo $banner->name; ?>" >
+                                            <input type="hidden" name="bannerId" id="bannerId" value="<?php echo $banner->bannerId; ?>">
+                                        <?php }else{ ?>
                                             <input type="text" class="form-control required" id="name" name="name" maxlength="128" >
+                                        <?php } ?>
                                      
                                     </div>
                                     
@@ -33,7 +38,11 @@
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="role">Url</label>
-                                            <input type="text" class="form-control required" id="url" name="url" maxlength="128" >
+                                        <?php if($banner != null){ ?>
+                                            <input type="text" class="form-control required" id="url" name="url" maxlength="128" value="<?php echo $banner->url; ?>">
+                                        <?php }else{ ?>
+                                               <input type="text" class="form-control required" id="url" name="url" maxlength="128">
+                                        <?php } ?>
                                        
                                     </div>
                                     
@@ -43,19 +52,55 @@
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="role">Image</label>
+                                          <?php if($banner != null){ ?>
+                                            <br />
+                                            <img src="<?php echo $url_image; ?>" style="width: 150px; height: 150px; padding-bottom: 15px;">
+                                            <br />
                                             <input type="file" class="form-control required" id="image" name="image">
-                                    
+                                        <?php }else{ ?>
+                                             <input type="file" class="form-control required" id="image" name="image">
+                                        <?php } ?>
                                     </div>
                                     
                                 </div>
 
                                 <div class="col-md-6"> 
-                                  <label for="access_role"></label>                               
+                                                               
                                     <div class="form-group">
-                                        <select name="type">
-                                            <option value="mainbanner">Main Banner</option>
-                                             <option value="gambarbarcode">Gambar Barcode</option>
-                                        </select>
+                                        <label for="type">Type</label>  
+                                        <?php if($banner != null){ ?>
+                                            <select class="form-control" id="type" name="type">
+                                                <?php
+                                                    foreach ($type as $key => $value)
+                                                    {
+                                                        ?>
+                                                        <option  value="<?php echo $key;?>"
+                                                      <?php if($key == $banner->type){echo "selected";} ?>>
+                                                      <?php echo $value;?></option>
+                                                        <?php
+                                                    }
+                                                
+                                                ?>
+
+
+                                            </select>
+                                        <?php }else{ ?>
+                                             <select class="form-control" id="type" name="type">
+                                                <?php
+                                                    foreach ($type as $key => $value)
+                                                    {
+                                                        ?>
+                                                        <option  value="<?php echo $key;?>">
+                                                      <?php echo $value;?></option>
+                                                        <?php
+                                                    }
+                                                
+                                                ?>
+
+
+                                            </select>
+
+                                        <?php } ?>
                                     </div>
                                     
                                 </div>
