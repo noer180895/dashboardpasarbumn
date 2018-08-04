@@ -139,6 +139,15 @@ class Banner_model extends CI_Model
         $query = $this->db->get();
         return $query->result();   
     }
+
+
+    public function main_partner(){
+        $this->db->select('*');
+        $this->db->from('tbl_banner');
+        $this->db->where('type','partners');
+        $query = $this->db->get();
+        return $query->result();   
+    }
     
 
 }

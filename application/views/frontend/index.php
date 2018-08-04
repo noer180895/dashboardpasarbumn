@@ -284,8 +284,8 @@
                         <img src="<?php echo $url_barcode; ?>" alt="" style="width: 209px; height: 198px;" /> &nbsp;
                     </div>
                     <div class="col-md-6">
-                        <br />
-                        <span style="padding-right: 50px;"><a href="#"><img src="assets/images/playstore.png" alt="" style="width: 242px; height: 74px;" /></a></span>
+                        
+                        <span style="padding-right: 50px; padding-top:30px;"><a href="#"><img src="assets/images/playstore.png" alt="" style="width: 242px; height: 74px;" /></a></span>
                     </div>
                 </div>
             </div>
@@ -437,20 +437,9 @@
                     </p>
                 </div>
                 <div class="col-sm-12 col-md-8">
-                    <a href="#"><img src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;" /></a>
-                    <a href="#"><img src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
-                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
+                    <?php foreach ($url_partner as $key => $value) { ?>
+                    <a href="#"><img src="<?php echo base_url() . '/assets/uploads/banner/' .$value-> image; ?>" style="width: 100px;height: 91px;" /></a>
+                <?php } ?>
                 </div>
             </div>
         </div>
