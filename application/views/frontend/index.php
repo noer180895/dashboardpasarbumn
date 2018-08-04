@@ -303,9 +303,12 @@
                 </div>
             </div>
             <div class="row thm-margin">
+
+
+                <?php foreach ($url_dealpopular as $key => $value) { ?>
                 <div class="col-md-4 col-sm-4 thm-padding">
                     <div class="destination-grid">
-                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
+                        <a href="#"><img src="<?php echo base_url() . '/assets/uploads/banner/' .$value -> image; ?>" class="img-responsive" alt=""></a>
                         <div class="mask">
                             <h2>Sydney</h2>
                             <p>It is a long established fact that a reader will be distracted by the readable content</p>
@@ -323,106 +326,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4 thm-padding">
-                    <div class="destination-grid">
-                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
-                        <div class="mask">
-                            <h2>Brazil</h2>
-                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
-                            <a href="#" class="thm-btn">Read More</a>
-                        </div>
-                        <div class="dest-name">
-                            <h5>Fernando de Noronha</h5>
-                            <h4>Brazil</h4>
-                        </div>
-                        <div class="dest-icon">
-                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 thm-padding">
-                    <div class="destination-grid">
-                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
-                        <div class="mask">
-                            <h2>Istanbul</h2>
-                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
-                            <a href="#" class="thm-btn">Read More</a>
-                        </div>
-                        <div class="dest-name">
-                            <h5>Aya Sofya</h5>
-                            <h4>Istanbul</h4>
-                        </div>
-                        <div class="dest-icon">
-                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 thm-padding">
-                    <div class="destination-grid">
-                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
-                        <div class="mask">
-                            <h2>India</h2>
-                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
-                            <a href="#" class="thm-btn">Read More</a>
-                        </div>
-                        <div class="dest-name">
-                            <h5>Taj Mahal</h5>
-                            <h4>India</h4>
-                        </div>
-                        <div class="dest-icon">
-                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 thm-padding">
-                    <div class="destination-grid">
-                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
-                        <div class="mask">
-                            <h2>Italy</h2>
-                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
-                            <a href="#" class="thm-btn">Read More</a>
-                        </div>
-                        <div class="dest-name">
-                            <h5>Canals of Venice</h5>
-                            <h4>Italy</h4>
-                        </div>
-                        <div class="dest-icon">
-                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 thm-padding">
-                    <div class="destination-grid">
-                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
-                        <div class="mask">
-                            <h2>Paris</h2>
-                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
-                            <a href="#" class="thm-btn">Read More</a>
-                        </div>
-                        <div class="dest-name">
-                            <h5>Eiffel Tower</h5>
-                            <h4>Paris</h4>
-                        </div>
-                        <div class="dest-icon">
-                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                        </div>
-                    </div>
-                </div>
+<?php } ?>
             </div>
         </div>
     </section>

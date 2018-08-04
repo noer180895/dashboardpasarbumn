@@ -22,7 +22,7 @@ class home extends BaseController
          $promo = $this->banner->main_promo(); // get data banner
          $partner = $this->banner->main_partner(); 
          $logo = $this->banner->main_logo(); 
-
+         $dealpopular = $this->banner->main_dealpopular();
 
 
          $dataImage = [];
@@ -31,7 +31,7 @@ class home extends BaseController
          $dataImage['url_promoaplikasi'] = base_url() . '/assets/uploads/banner/' . $promo[0]->image;
          $dataImage['url_partner'] = $partner;
          $dataImage['url_logo'] = base_url() . '/assets/uploads/banner/' . $logo[0]->image;
-
+         $dataImage['url_dealpopular'] = $dealpopular;
          // var_dump($data[0]->image);
         $this->loadViewsFrontend("frontend/index", $this->global, $dataImage , NULL);
     }
