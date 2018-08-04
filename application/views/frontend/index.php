@@ -11,7 +11,7 @@
                 </button>
                 <a class="navbar-brand" href="index.html">
                     <!-- <img src="assets/images/logo.png" class="img-resposive" alt=""> -->
-                    <img src="assets/images/logo-new.png" class="img-resposive" alt="" style="width:200px;height: 34px;">
+                    <img src="<?php echo $url_logo; ?>" class="img-resposive" alt="" style="width:200px;height: 34px;">
 
 
             </a>

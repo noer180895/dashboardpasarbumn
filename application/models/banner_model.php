@@ -148,7 +148,13 @@ class Banner_model extends CI_Model
         $query = $this->db->get();
         return $query->result();   
     }
-    
+    public function main_promo(){
+        $this->db->select('*');
+        $this->db->from('tbl_banner');
+        $this->db->where('type','logo');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->result(); }
 
 }
 
