@@ -109,6 +109,16 @@ class Banner_model extends CI_Model
         return $query->result();
     }
 
+
+
+    public function list_banner(){
+        $this->db->select('*');
+        $this->db->from('tbl_banner');
+        $this->db->where('type','mainbanner');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->result();   
+    }
     
 
 }

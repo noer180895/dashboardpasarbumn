@@ -1,0 +1,531 @@
+<!-- page loader -->
+<div class="se-pre-con"></div>
+<div id="page-content">
+    <!-- navber -->
+    <nav id="mainNav" class="navbar navbar-fixed-top">
+        <div class="container">
+            <!--Brand and toggle get grouped for better mobile display-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <!-- <img src="assets/images/logo.png" class="img-resposive" alt=""> -->
+                    <img src="assets/images/logo-new.png" class="img-resposive" alt="" style="width:200px;height: 34px;">
+
+
+            </a>
+            </div>
+            <!--Collect the nav links, forms, and other content for toggling-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="tours.html">Bantuan</a></li>
+                    <li><a href="destination.html">Promo</a></li>
+                    <li><a href="hotels-list.html">Cek Pesanan</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right hidden-sm">
+                    <li>
+                        <a class="nav-btn" href="#">
+                            <div class="thm-btn"> <i class="flaticon-people"></i> Masuk</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-btn" href="#">
+                            <div class="thm-btn"> <i class="flaticon-people"></i> Daftar</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- /.nav end -->
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            
+            <img src="<?php echo $url_banner; ?>" class="img-resposive" alt="">
+        </div>
+    </div>
+    <div class="space"></div>
+    <section class="popular-inner">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <h1>Find Your Need </h1>
+                    <hr />
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab2default" data-toggle="tab"> <i class="flaticon-cabin"></i>Hotel</a></li>
+                            <li><a href="#tab1default" data-toggle="tab"><i class="flaticon-paper-plane"></i>Plane</a></li>
+                            <li><a href="#tab1default" data-toggle="tab"><i class="flaticon-paper-plane"></i>Train</a></li>
+                        </ul>
+                    </div>
+                    <div class="panel-body-tabs">
+                        <div class="tab-content">
+                            <div class="tab-pane fade " id="tab1default">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-9 col-md-10">
+                                        <div class="row panel-margin">
+                                            <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
+                                                <label>Arrival</label>
+                                                <div class="icon-addon">
+                                                    <input type="text" placeholder="Date" class="form-control" id="datepicker1" />
+                                                    <label class="glyphicon fa fa-calendar" title="email"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
+                                                <label>Going</label>
+                                                <div class="icon-addon">
+                                                    <input type="text" placeholder="Date" class="form-control" id="datepicker2" />
+                                                    <label class="glyphicon fa fa-calendar" title="email"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-4 col-md-2 hidden-sm panel-padding">
+                                                <label>Room</label>
+                                                <!-- filters select -->
+                                                <div class="select-filters">
+                                                    <select name="room" id="room">
+                                                        <option value="" selected="">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-4 col-md-2 hidden-sm panel-padding">
+                                                <label>Person</label>
+                                                <!-- filters select -->
+                                                <div class="select-filters">
+                                                    <select name="person" id="person">
+                                                        <option value="" selected="">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-4 col-md-2 hidden-sm panel-padding">
+                                                <label>Child</label>
+                                                <!-- filters select -->
+                                                <div class="select-filters">
+                                                    <select name="child" id="child">
+                                                        <option value="" selected="">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
+                                                <label>Day</label>
+                                                <!-- filters select -->
+                                                <div class="select-filters">
+                                                    <select name="day" id="day">
+                                                        <option value="" selected="">1 days</option>
+                                                        <option value="2">2 days</option>
+                                                        <option value="3">3 days</option>
+                                                        <option value="4">4 days</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 col-md-2">
+                                        <button type="button" class="thm-btn">Search book</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade in active" id="tab2default">
+                                <div class="row">
+                                    <center>
+                                        <h4>Cari Hotelmu Sekarang Juga dan Dapatkan <b>Kemudahannya!</b></h4></center>
+                                    <br />
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="row panel-margin">
+                                            <div class="col-xs-12">
+                                                <form action="" method="post" role="form" class="contactForm">
+                                                    <table class="table table-bordered" border="1">
+                                                        <thead>
+                                                            <tr>
+                                                                <th bgcolor="#D2691E">
+                                                                    <span style="color: #fff;"> Nama, Kota Tujuan, atau Hotel </span>
+                                                                </th>
+                                                                <th bgcolor="#D2691E">
+                                                                    <span style="color: #fff;">  Lama Menginap </span>
+                                                                </th>
+                                                                <th bgcolor="#D2691E">
+                                                                    <span style="color: #fff;">  Tamu dan Kamar </span>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <label>&nbsp;</label>
+                                                                    <select class="form-control" id="destination" name="destination">
+                                                                        <option value="" selected>-- Pilih Kota Tujuan --</option>
+                                                                        <option value="jakarta barat">Jakarta Barat</option>
+                                                                        <option value="jakarta selatan">Jakarta Selatan</option>
+                                                                        <option value="jakarta timur">Jakarta Timur</option>
+                                                                        <option value="jakarta utara">Jakarta Utara</option>
+                                                                    </select>
+                                                                    <div class="validation"></div>
+                                                                </td>
+                                                                <td>
+                                                                    <label>Check - In</label>
+                                                                    <input type="date" name="checkIn" class="form-control" id="checkIn" />
+                                                                    <br />
+                                                                    <label>Duration</label>
+                                                                    <select class="form-control" id="duration" name="duration">
+                                                                        <option value="1">1 Night</option>
+                                                                        <option value="2">2 Night</option>
+                                                                        <option value="3">3 Night</option>
+                                                                        <option value="4">4 Night</option>
+                                                                    </select>
+                                                                    <div class="validation"></div>
+                                                                    <br>
+                                                                    <br />
+                                                                    <span><b>Checkout</b></span>
+                                                                    <br />
+                                                                    <span><b>Thu,14 Jun2018</b></span>
+                                                                </td>
+                                                                <td>
+                                                                    <label>&nbsp;</label>
+                                                                    <select class="form-control" id="duration" name="duration">
+                                                                        <option value="1">1 Guest, 1 Room</option>
+                                                                        <option value="2">2 Guest, 1 Room</option>
+                                                                        <option value="3">3 Guest, 1 Room</option>
+                                                                    </select>
+                                                                    <br />
+                                                                    <div class="col-md-12">
+                                                                        <div class="col-md-4">
+                                                                            <i class="fa fa-users" aria-hidden="true"> Guest</i>
+                                                                        </div>
+                                                                        <div class="col-md-8 input-group" style="width: 72px;">
+                                                                            <span class="input-group-btn">
+                                                                                      <button style="color:red;background-color: #ffffff;border: 2px solid #ccc8c8;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                                                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                                            </button>
+                                                                            </span>
+                                                                            <input style=" border: 2px solid #ccc8c8;   background-color: #ffffff;width: 34px; height: 29.988636px;   padding-right: 5px;  padding-left: 5px; padding-top: 5px; padding-bottom: 5px; text-align: center;" type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="100">
+                                                                            <span class="input-group-btn">
+                                                                                      <button style="border-top-width: 2px!important;    height: 31px;  background-color:#ffffff;   color: green;   border: 2px solid #ccc8c8;    border-top-width: 0px;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                                                                          <span class="glyphicon glyphicon-plus"></span>
+                                                                            </button>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="col-md-4">
+                                                                            <i class="fa fa-home" aria-hidden="true"> Room</i>
+                                                                        </div>
+                                                                        <div class="col-md-8 input-group" style="width: 72px;">
+                                                                            <span class="input-group-btn">
+                                                                                      <button style="color:red;background-color: #ffffff;border: 2px solid #ccc8c8;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                                                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                                            </button>
+                                                                            </span>
+                                                                            <input style=" border: 2px solid #ccc8c8;   background-color: #ffffff;width: 34px; height: 29.988636px;   padding-right: 5px;  padding-left: 5px; padding-top: 5px; padding-bottom: 5px; text-align: center;" type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="100">
+                                                                            <span class="input-group-btn">
+                                                                                      <button style="border-top-width: 2px!important;    height: 31px;  background-color:#ffffff;   color: green;   border: 2px solid #ccc8c8;    border-top-width: 0px;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                                                                          <span class="glyphicon glyphicon-plus"></span>
+                                                                            </button>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="validation"></div>
+                                                                    <br />
+                                                                    <br />
+                                                                    <br />
+                                                                    <br />
+                                                                    <br />
+                                                                    <a href="hotels-list.html">
+                                                                        <button type="button" class="thm-btn">Cari Hotel</button>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- </div> -->
+    <!-- popular tour -->
+    <section class="popular-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="assets/images/app_picture.png" alt="" style="padding-left:15px;" />
+                </div>
+                <div class="col-md-6">
+                    <center>
+                        <h4><b>Unduh Aplikasi Pasar Produk BUMN</b></h4></center>
+                    <div class="col-md-6">
+                        <h5 style="color: #000; margin-bottom:0px">Seperti Gambar Dibawah</h5>
+                        <br />
+                        <img src="assets/images/barcode.png" alt="" style="width: 209px; height: 198px;" /> &nbsp;
+                    </div>
+                    <div class="col-md-6">
+                        <br />
+                        <span style="padding-right: 50px;"><a href="#"><img src="assets/images/playstore.png" alt="" style="width: 242px; height: 74px;" /></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- destination -->
+    <section class="destination">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="title">
+                        <h2>Popular Deals</h2>
+                        <p>This is Amazing Travel Agency !</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row thm-margin">
+                <div class="col-md-4 col-sm-4 thm-padding">
+                    <div class="destination-grid">
+                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
+                        <div class="mask">
+                            <h2>Sydney</h2>
+                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
+                            <a href="#" class="thm-btn">Read More</a>
+                        </div>
+                        <div class="dest-name">
+                            <h5>Sydney Opera House</h5>
+                            <h4>Sydney</h4>
+                        </div>
+                        <div class="dest-icon">
+                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 thm-padding">
+                    <div class="destination-grid">
+                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
+                        <div class="mask">
+                            <h2>Brazil</h2>
+                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
+                            <a href="#" class="thm-btn">Read More</a>
+                        </div>
+                        <div class="dest-name">
+                            <h5>Fernando de Noronha</h5>
+                            <h4>Brazil</h4>
+                        </div>
+                        <div class="dest-icon">
+                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 thm-padding">
+                    <div class="destination-grid">
+                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
+                        <div class="mask">
+                            <h2>Istanbul</h2>
+                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
+                            <a href="#" class="thm-btn">Read More</a>
+                        </div>
+                        <div class="dest-name">
+                            <h5>Aya Sofya</h5>
+                            <h4>Istanbul</h4>
+                        </div>
+                        <div class="dest-icon">
+                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 thm-padding">
+                    <div class="destination-grid">
+                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
+                        <div class="mask">
+                            <h2>India</h2>
+                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
+                            <a href="#" class="thm-btn">Read More</a>
+                        </div>
+                        <div class="dest-name">
+                            <h5>Taj Mahal</h5>
+                            <h4>India</h4>
+                        </div>
+                        <div class="dest-icon">
+                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 thm-padding">
+                    <div class="destination-grid">
+                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
+                        <div class="mask">
+                            <h2>Italy</h2>
+                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
+                            <a href="#" class="thm-btn">Read More</a>
+                        </div>
+                        <div class="dest-name">
+                            <h5>Canals of Venice</h5>
+                            <h4>Italy</h4>
+                        </div>
+                        <div class="dest-icon">
+                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 thm-padding">
+                    <div class="destination-grid">
+                        <a href="#"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></a>
+                        <div class="mask">
+                            <h2>Paris</h2>
+                            <p>It is a long established fact that a reader will be distracted by the readable content</p>
+                            <a href="#" class="thm-btn">Read More</a>
+                        </div>
+                        <div class="dest-name">
+                            <h5>Eiffel Tower</h5>
+                            <h4>Paris</h4>
+                        </div>
+                        <div class="dest-icon">
+                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
+                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
+                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
+                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- hotel -->
+    <section class="hotel-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <h1>Hotel Partners</h1>
+                    <p align="justify">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <a href="#"><img src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;" /></a>
+                    <a href="#"><img src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner1.png" style="width: 100px;height: 91px;"/></a>
+                    <a href="#"><img  src="assets/images/partner/partner2.png" style="width: 100px;height: 91px;"/></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hotel-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <h4>What Your <strong>Interest?</strong></h4>
+                    <div class="tabbable-panel">
+                        <div class="tabbable-line">
+                            <ul class="nav nav-tabs ">
+                                <li class="active">
+                                    <a href="#tab_default_1" data-toggle="tab">
+                            Top Hotel Destination </a>
+                                </li>
+                                <li>
+                                    <a href="#tab_default_2" data-toggle="tab">
+                            Top Flight Routes</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_default_3" data-toggle="tab">
+                            Tab Flight Routes</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_default_1">
+                                    <p>
+                                        <ul style="list-style-type: none;">
+                                            <li><a href="#">Singapore Hotel</a></li>
+                                            <li><a href="#">Singapore Hotel</a></li>
+                                            <li><a href="#">Singapore Hotel</a></li>
+                                            <li><a href="#">Singapore Hotel</a></li>
+                                            <li><a href="#">Singapore Hotel</a></li>
+                                            <li><a href="#">Singapore Hotel</a></li>
+                                            <li><a href="#">Singapore Hotel</a></li>
+                                            <li><a href="#">Singapore Hotel</a></li>
+                                            <li><a href="#">Singapore Hotel</a></li>
+                                        </ul>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="tab-pane" id="tab_default_2">
+                                    <ul style="list-style-type: none;">
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                    </ul>
+                                    </a>
+                                    </p>
+                                </div>
+                                <div class="tab-pane" id="tab_default_3">
+                                    <ul style="list-style-type: none;">
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                        <li><a href="#">Singapore Hotel</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

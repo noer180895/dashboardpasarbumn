@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        <i class="fa fa-list"></i>  Manage Admin
+        <i class="fa fa-list"></i>  Manage User 
       </h1>
     </section>
     <br />
