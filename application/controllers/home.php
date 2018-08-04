@@ -17,14 +17,18 @@ class home extends BaseController
 
          $this->load->model('banner_model','banner');
 
-         $data = $this->banner->list_banner(); // get data banner
+        $banner = $this->banner->main_banner(); // get data banner
+        $barcode = $this->banner->main_barcode(); // get data banner
+         $promo = $this->banner->main_promo(); // get data banner
 
 
-         $dataBanner = [];
-         $dataBanner['url_banner'] = base_url() . '/assets/uploads/banner/' . $data[0]->image;
+         $dataImage = [];
+         $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
+         $dataImage['url_barcode'] = base_url() . '/assets/uploads/banner/' . $barcode[0]->image;
+         $dataImage['url_promoaplikasi'] = base_url() . '/assets/uploads/banner/' . $promo[0]->image;
 
          // var_dump($data[0]->image);
-        $this->loadViewsFrontend("frontend/index", $this->global, $dataBanner , NULL);
+        $this->loadViewsFrontend("frontend/index", $this->global, $dataImage , NULL);
     }
 
 

@@ -111,10 +111,30 @@ class Banner_model extends CI_Model
 
 
 
-    public function list_banner(){
+    public function main_banner(){
         $this->db->select('*');
         $this->db->from('tbl_banner');
         $this->db->where('type','mainbanner');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->result();   
+    }
+
+
+     public function main_barcode(){
+        $this->db->select('*');
+        $this->db->from('tbl_banner');
+        $this->db->where('type','barcode');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->result();   
+    }
+
+
+     public function main_promo(){
+        $this->db->select('*');
+        $this->db->from('tbl_banner');
+        $this->db->where('type','promoaplikasi');
         $this->db->limit(1);
         $query = $this->db->get();
         return $query->result();   

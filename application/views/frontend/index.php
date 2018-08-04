@@ -51,7 +51,7 @@
     <br />
     <div class="row">
         <div class="col-md-12">
-            
+
             <img src="<?php echo $url_banner; ?>" class="img-resposive" alt="">
         </div>
     </div>
@@ -273,7 +273,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="assets/images/app_picture.png" alt="" style="padding-left:15px;" />
+                    <img src="<?php echo $url_promoaplikasi; ?>" alt="" style="padding-left:15px;" />
                 </div>
                 <div class="col-md-6">
                     <center>
@@ -281,7 +281,7 @@
                     <div class="col-md-6">
                         <h5 style="color: #000; margin-bottom:0px">Seperti Gambar Dibawah</h5>
                         <br />
-                        <img src="assets/images/barcode.png" alt="" style="width: 209px; height: 198px;" /> &nbsp;
+                        <img src="<?php echo $url_barcode; ?>" alt="" style="width: 209px; height: 198px;" /> &nbsp;
                     </div>
                     <div class="col-md-6">
                         <br />
