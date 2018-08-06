@@ -152,7 +152,12 @@
           </li>
            
 
-
+          <li class="treeview">
+            <a href="<?php echo base_url(); ?>manage_help/">
+            <i class="fa fa-file"></i>
+            <span>Manage Help</span>
+            </a>
+          </li>
 
           <li class="treeview">
             <a href="<?php echo base_url(); ?>manage_product/">
