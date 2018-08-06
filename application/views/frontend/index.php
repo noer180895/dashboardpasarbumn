@@ -285,7 +285,7 @@
                     </div>
                     <div class="col-md-6">
                         
-                        <span style="padding-right: 50px; padding-top:30px;"><a href="#"><img src="assets/images/playstore.png" alt="" style="width: 242px; height: 74px;" /></a></span>
+                        <span style="padding-right: 50px; padding-top:30px;"><a href="#"><img src="<?php echo $url_playstore; ?>" alt="" style="width: 242px; height: 74px;" /></a></span>
                     </div>
                 </div>
             </div>
@@ -361,7 +361,6 @@
                             Top Hotel Destination </a>
                                 </li>
                                 <li>
-                                    <a href="#tab_default_2" data-toggle="tab">
                             Top Flight Routes</a>
                                 </li>
                                 <li>

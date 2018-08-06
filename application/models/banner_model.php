@@ -155,12 +155,20 @@ class Banner_model extends CI_Model
         $this->db->limit(1);
         $query = $this->db->get();
         return $query->result(); }
-public function main_dealpopular(){
+    public function main_dealpopular(){
         $this->db->select('*');
         $this->db->from('tbl_banner');
         $this->db->where('type','dealpopular');
         $query = $this->db->get();
         return $query->result(); }
+    public function main_playstore(){
+        $this->db->select('*');
+        $this->db->from('tbl_banner');
+        $this->db->where('type','playstore');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->result(); }
+
 }
 
   
