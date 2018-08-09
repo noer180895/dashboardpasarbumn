@@ -81,101 +81,28 @@
         </div>
     </footer>
     <!-- jQuery -->
-    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.min.js" type="text/javascript"></script>
     <!-- jquery ui js -->
-    <script src="assets/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery-ui.min.js" type="text/javascript"></script>
     <!-- bootstrap js -->
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- fraction slider js -->
-    <script src="assets/js/jquery.fractionslider.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.fractionslider.js" type="text/javascript"></script>
     <!-- owl carousel js -->
-    <script src="assets/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
     <!-- counter -->
-    <script src="assets/js/jquery.counterup.min.js" type="text/javascript"></script>
-    <script src="assets/js/waypoints.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.counterup.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/waypoints.js" type="text/javascript"></script>
     <!-- filter portfolio -->
-    <script src="assets/js/jquery.shuffle.min.js" type="text/javascript"></script>
-    <script src="assets/js/portfolio.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.shuffle.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/portfolio.js" type="text/javascript"></script>
     <!-- magnific popup -->
-    <script src="assets/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
     <!-- range slider -->
-    <script src="assets/js/ion.rangeSlider.min.js" type="text/javascript"></script>
-    <script src="assets/js/jquery.easing.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/ion.rangeSlider.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.easing.min.js" type="text/javascript"></script>
     <!-- custom -->
-    <script src="assets/js/custom.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/custom.js" type="text/javascript"></script>
 </body>
 
 </html>
-<script>
-$('.btn-number').click(function(e) {
-    e.preventDefault();
-
-    fieldName = $(this).attr('data-field');
-    type = $(this).attr('data-type');
-    var input = $("input[name='" + fieldName + "']");
-    var currentVal = parseInt(input.val());
-    if (!isNaN(currentVal)) {
-        if (type == 'minus') {
-
-            if (currentVal > input.attr('min')) {
-                input.val(currentVal - 1).change();
-            }
-            if (parseInt(input.val()) == input.attr('min')) {
-                $(this).attr('disabled', true);
-            }
-
-        } else if (type == 'plus') {
-
-            if (currentVal < input.attr('max')) {
-                input.val(currentVal + 1).change();
-            }
-            if (parseInt(input.val()) == input.attr('max')) {
-                $(this).attr('disabled', true);
-            }
-
-        }
-    } else {
-        input.val(0);
-    }
-});
-$('.input-number').focusin(function() {
-    $(this).data('oldValue', $(this).val());
-});
-$('.input-number').change(function() {
-
-    minValue = parseInt($(this).attr('min'));
-    maxValue = parseInt($(this).attr('max'));
-    valueCurrent = parseInt($(this).val());
-
-    name = $(this).attr('name');
-    if (valueCurrent >= minValue) {
-        $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
-    } else {
-        alert('Sorry, the minimum value was reached');
-        $(this).val($(this).data('oldValue'));
-    }
-    if (valueCurrent <= maxValue) {
-        $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
-    } else {
-        alert('Sorry, the maximum value was reached');
-        $(this).val($(this).data('oldValue'));
-    }
-
-
-});
-$(".input-number").keydown(function(e) {
-    // Allow: backspace, delete, tab, escape, enter and .
-    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-        // Allow: Ctrl+A
-        (e.keyCode == 65 && e.ctrlKey === true) ||
-        // Allow: home, end, left, right
-        (e.keyCode >= 35 && e.keyCode <= 39)) {
-        // let it happen, don't do anything
-        return;
-    }
-    // Ensure that it is a number and stop the keypress
-    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-        e.preventDefault();
-    }
-});
-</script>

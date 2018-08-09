@@ -1,52 +1,4 @@
-<!-- page loader -->
-<div class="se-pre-con"></div>
-<div id="page-content">
-    <!-- navber -->
-    <nav id="mainNav" class="navbar navbar-fixed-top">
-        <div class="container">
-            <!--Brand and toggle get grouped for better mobile display-->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="index.html">
-                    <!-- <img src="assets/images/logo.png" class="img-resposive" alt=""> -->
-                    <img src="<?php echo $url_logo; ?>" class="img-resposive" alt="" style="width:200px;height: 34px;">
 
-
-            </a>
-            </div>
-            <!--Collect the nav links, forms, and other content for toggling-->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="tours.html">Bantuan</a></li>
-                    <li><a href="destination.html">Promo</a></li>
-                    <li><a href="hotels-list.html">Cek Pesanan</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right hidden-sm">
-                    <li>
-                        <a class="nav-btn" href="#">
-                            <div class="thm-btn"> <i class="flaticon-people"></i> Masuk</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-btn" href="#">
-                            <div class="thm-btn"> <i class="flaticon-people"></i> Daftar</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-    <!-- /.nav end -->
     <br />
     <br />
     <div class="row">
@@ -249,7 +201,7 @@
                                                                     <br />
                                                                     <br />
                                                                     <a href="hotels-list.html">
-                                                                        <button type="button" class="thm-btn">Cari Hotel</button>
+                                                                        <a href="<?php echo base_url(); ?>product/hotel"><button type="button" class="thm-btn">Cari Hotel</button></a>
                                                                     </a>
                                                                 </td>
                                                             </tr>

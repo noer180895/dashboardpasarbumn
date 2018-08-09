@@ -13,17 +13,17 @@ class home extends BaseController
     // page index
     public function index()
     {
-        $this->global['pageTitle'] = 'Manage admin';
+        $this->global['pageTitle'] = 'Home';
 
          $this->load->model('banner_model','banner');
 
         $banner = $this->banner->main_banner(); // get data banner
         $barcode = $this->banner->main_barcode(); // get data banner
-         $promo = $this->banner->main_promo(); // get data banner
-         $partner = $this->banner->main_partner(); 
-         $logo = $this->banner->main_logo(); 
-         $dealpopular = $this->banner->main_dealpopular();
-         $playstore = $this->banner->main_playstore();
+        $promo = $this->banner->main_promo(); // get data banner
+        $partner = $this->banner->main_partner(); 
+        $logo = $this->banner->main_logo(); 
+        $dealpopular = $this->banner->main_dealpopular();
+        $playstore = $this->banner->main_playstore();
 
 
          $dataImage = [];
