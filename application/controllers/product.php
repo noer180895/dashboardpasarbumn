@@ -48,6 +48,13 @@ class product extends BaseController
         $product_hotel = $this->product->hotel_detail($id); // get data banner
         $banner = $this->banner->main_banner(); // get data banner
         $logo = $this->banner->main_logo(); 
+
+
+
+        $our_fasilitas = explode(',', $product_hotel[0]->fasilitas_id);
+
+
+  
         
 
 
@@ -55,6 +62,7 @@ class product extends BaseController
          $dataImage['data_detail'] = $product_hotel;
          $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
          $dataImage['url_logo'] = base_url() . '/assets/uploads/banner/' . $logo[0]->image;
+         $dataImage['fasilitas'] = $our_fasilitas;
          
          // var_dump($data[0]->image);
         $this->loadViewsFrontend("frontend/hoteldetail", $this->global, $dataImage , NULL);

@@ -35,28 +35,12 @@
                 <p><?php echo $data_detail[0]->description ; ?>
                 </p>
                 <div class="row">
+                   
                     <div class="col-md-4 col-sm-4">
                         <ul class="list-ok">
-                            <li>Coffee machine</li>
-                            <li>Wifi</li>
-                            <li> Microwave</li>
-                            <li>Oven</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <ul class="list-ok">
-                            <li>Fridge</li>
-                            <li>Hairdryer</li>
-                            <li>Towels</li>
-                            <li>Toiletries</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <ul class="list-ok">
-                            <li>DVD player</li>
-                            <li>Air-conditioning</li>
-                            <li>Tv</li>
-                            <li>Freezer</li>
+                             <?php $no = 1; foreach ($fasilitas as $data) { ?>
+                            <li><?php echo $data; ?></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

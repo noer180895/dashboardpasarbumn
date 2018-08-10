@@ -120,7 +120,6 @@ class Product_model extends CI_Model
 
 
     public function hotel_detail($id){
-        $id=1;
         $this->db->select('*');
         $this->db->from('tbl_product');
         $this->db->where('productId',$id);
