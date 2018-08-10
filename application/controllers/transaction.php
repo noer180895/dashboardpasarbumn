@@ -11,12 +11,19 @@ class transaction extends BaseController
     }
     
     // page index
-    public function order_hotel()
+    public function order_hotel($productId)
     {
         $this->global['pageTitle'] = 'transaction hotel | train | pesawat';
 
         $this->load->model('transaction_model','transaction');
-     
+        
+        $dataOrder = array(
+                   'id_product'  => 3
+               );
+        $this->session->set_userdata('order',$dataOrder);
+
+
+
          // var_dump($data[0]->image);
         $this->loadViewsFrontend("frontend/orderbooking", $this->global, NULL , NULL);
 

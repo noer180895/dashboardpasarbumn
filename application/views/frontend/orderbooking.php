@@ -83,7 +83,7 @@
                         <h2>&nbsp;</h2>
                         <div class="sidber-box cats-widget">
                             <div class="cats-title">
-                                Booking Details
+                                Booking Details   <?php print_r($this->session->userdata("order")); ?> 
                             </div>
                             <br />
                             <div class="col-md-4"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></div>
