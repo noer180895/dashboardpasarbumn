@@ -75,7 +75,7 @@
                             <br /> Rp. <?php echo number_format($data_detail[0]->price, 1, ",", ".") ?>
                             <br />
                             <BR />
-                            <a href="booking-hotel.html" class="btn btn-info">BOOK NOW</a>
+                            <a href="<?php echo base_url(); ?>transaction/order_hotel/<?php echo $data_detail[0]->productId; ?>" class="btn btn-info">BOOK NOW</a>
                     </div>
                 </div>
             </div>
