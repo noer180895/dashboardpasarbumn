@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 col-sm-8">
-                        <form>
+                        <form action="<?php echo base_url(); ?>transaction/order_review/" method="post" enctype="multipart/form-data">
                             <h2>Your Hotel Booking</h2>
                             <div class="sidber-box cats-widget" style="padding: 15px;">
                                 <p><a href="#">Login</a> to your account and enjoy exclusive deals, faster booking. Points and other member-only benefits.</p>
@@ -14,7 +14,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Contact's Name *</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Contact Name">
+                                        <input type="text" class="form-control" id="contact_name" name="contact_name" placeholder="Enter Your Contact Name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -31,13 +31,14 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="checkbox" name="isGuset" value="guest" id="isGuest">&nbsp; I am the guest
+                                        <input type="checkbox" name="isguest" value="guest" id="isguest">&nbsp; I am the guest
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Guest Fullname *</label>
                                         <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
+                                        <input type="hidden" name="productId" id="productId" value="<?php echo $data_detail[0]->productId; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -76,19 +77,21 @@
                                 </p>
                             </div>
                             <div class="col-md-6">
-                                <a class="btn btn-success" href="booking-review.html">Continue To Review</a>
+                                <input type="submit" class="btn btn-primary" value="Continue To Review" />
                             </div>
+                    </form>
                     </div>
                     <div class="col-md-3 col-sm-4">
                         <h2>&nbsp;</h2>
                         <div class="sidber-box cats-widget">
                             <div class="cats-title">
-                                Booking Details   <?php print_r($this->session->userdata("order")); ?> 
+                                Booking Details  
                             </div>
                             <br />
-                            <div class="col-md-4"><img src="assets/images/hotel/hotel1.jpg" class="img-responsive" alt=""></div>
+                            <div class="col-md-4">
+                                <img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image; ?>" class="img-responsive" alt=""></div>
                             <div class="col-md-8">
-                                <b>Cakra Kembang Hotel</b>
+                                <b><?php echo $data_detail[0]->name; ?></b>
                             </div>
                             <br />
                             <br />

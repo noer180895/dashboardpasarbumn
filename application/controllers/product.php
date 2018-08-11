@@ -25,6 +25,14 @@ class product extends BaseController
         
 
 
+        $dataOrder = array(
+                    'checkIn' => $this->input->post('checkIn'),
+                   'checkOut'  => $this->input->post('checkOut')
+
+
+               );
+        $this->session->set_userdata('order',$dataOrder);
+
          $dataImage = [];
          $dataImage['data_hotel'] = $product_hotel;
          $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
@@ -50,13 +58,10 @@ class product extends BaseController
         $logo = $this->banner->main_logo(); 
 
 
-
         $our_fasilitas = explode(',', $product_hotel[0]->fasilitas_id);
-
+        $this->session->set_userdata('product_gambar',$product_hotel[0]->image);
 
   
-        
-
 
          $dataImage = [];
          $dataImage['data_detail'] = $product_hotel;

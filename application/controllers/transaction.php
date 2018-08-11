@@ -16,16 +16,57 @@ class transaction extends BaseController
         $this->global['pageTitle'] = 'transaction hotel | train | pesawat';
 
         $this->load->model('transaction_model','transaction');
+        $this->load->model('product_model','product');
         
         $dataOrder = array(
-                   'id_product'  => 3
+                   'id_product'  => $productId
                );
         $this->session->set_userdata('order',$dataOrder);
 
 
+        $product_hotel = $this->product->hotel_detail($productId); // get data banner
+        $dataImage = [];
+        $dataImage['data_detail'] = $product_hotel;
+
 
          // var_dump($data[0]->image);
-        $this->loadViewsFrontend("frontend/orderbooking", $this->global, NULL , NULL);
+        $this->loadViewsFrontend("frontend/orderbooking", $this->global, $dataImage , NULL);
+
+    }
+
+
+    public function order_review()
+    {
+        $this->global['pageTitle'] = 'transaction hotel | train | pesawat';
+
+        $this->load->model('transaction_model','transaction');
+        $this->load->model('product_model','product');
+
+
+
+
+        $dataOrder = array(
+                    'id_product' => $this->input->post('productId'),
+                   'contact_name'  => $this->input->post('contact_name'),
+                   'phone'  => $this->input->post('phone'),
+                   'email'  => $this->input->post('email'),
+                   'isguest'  => $this->input->post('isguest'),
+                   'fullname'  => $this->input->post('fullname')
+
+
+               );
+        $this->session->set_userdata('order',$dataOrder);
+
+
+        $productId = $this->input->post('productId');
+
+        $product_hotel = $this->product->hotel_detail($productId); // get data banner
+        $dataImage = [];
+        $dataImage['data_detail'] = $product_hotel;
+
+
+         // var_dump($data[0]->image);
+        $this->loadViewsFrontend("frontend/orderreview", $this->global, $dataImage , NULL);
 
     }
 

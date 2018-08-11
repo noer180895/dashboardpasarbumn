@@ -104,7 +104,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="row panel-margin">
                                             <div class="col-xs-12">
-                                                <form action="" method="post" role="form" class="contactForm">
+                                                <form action="<?php echo base_url(); ?>product/hotel" method="post" enctype="multipart/form-data">
                                                     <table class="table table-bordered" border="1">
                                                         <thead>
                                                             <tr>
@@ -136,13 +136,8 @@
                                                                     <label>Check - In</label>
                                                                     <input type="date" name="checkIn" class="form-control" id="checkIn" />
                                                                     <br />
-                                                                    <label>Duration</label>
-                                                                    <select class="form-control" id="duration" name="duration">
-                                                                        <option value="1">1 Night</option>
-                                                                        <option value="2">2 Night</option>
-                                                                        <option value="3">3 Night</option>
-                                                                        <option value="4">4 Night</option>
-                                                                    </select>
+                                                                    <label>Check - Out</label>
+                                                                    <input type="date" name="checkOut" class="form-control" id="checkOut" />
                                                                     <div class="validation"></div>
                                                                     <br>
                                                                     <br />
@@ -201,8 +196,10 @@
                                                                     <br />
                                                                     <br />
                                                                     <a href="hotels-list.html">
-                                                                        <a href="<?php echo base_url(); ?>product/hotel"><button type="button" class="thm-btn">Cari Hotel</button></a>
+
+                                                                        <input type="submit" class="btn btn-primary" value="Cari Hotel" />
                                                                     </a>
+                                                                </form>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
