@@ -370,3 +370,12 @@
         </div>
     </section>
 </div>
+
+
+    <script type="text/javascript">
+        function savedata(){
+            localStorage.setItem('checkin',  document.getElementById("checkIn").value);
+            localStorage.setItem('checkout',  document.getElementById("checkOut").value);
+        }
+
+    </script>

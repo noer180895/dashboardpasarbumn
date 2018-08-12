@@ -56,6 +56,5 @@ define('SMTP_PORT',                             '25');					// your smtp port e.g
 define('SMTP_USER',                             'Your smtp user');		// your smtp user
 define('SMTP_PASS',                             'Your smtp password');	// your smtp password
 define('MAIL_PATH',                             '/usr/sbin/sendmail');
-
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

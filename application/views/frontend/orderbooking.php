@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 col-sm-8">
-                        <form action="<?php echo base_url(); ?>transaction/order_review/" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo base_url(); ?>transaction/order_review/" method="post" enctype="multipart/form-data" onsubmit="savedata()">
                             <h2>Your Hotel Booking</h2>
                             <div class="sidber-box cats-widget" style="padding: 15px;">
                                 <p><a href="#">Login</a> to your account and enjoy exclusive deals, faster booking. Points and other member-only benefits.</p>
@@ -111,3 +111,17 @@
             </div>
         </section>
     </div>
+
+
+    <script type="text/javascript">
+        function savedata(){
+            localStorage.setItem('id_product',  document.getElementById("productId").value);
+            localStorage.setItem('contact_name',  document.getElementById("contact_name").value);
+            localStorage.setItem('phone',  document.getElementById("phone").value);
+            localStorage.setItem('email',  document.getElementById("email").value);
+            localStorage.setItem('isguest',  document.getElementById("isguest").value);
+            localStorage.setItem('fullname',  document.getElementById("fullname").value);
+            localStorage.setItem('checkin', 'insert check');
+        }
+
+    </script>

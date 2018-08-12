@@ -8,6 +8,7 @@ class product extends BaseController
     {
         parent::__construct();
         $this->load->helper('url');
+         session_start();
     }
     
     // page index
@@ -31,7 +32,7 @@ class product extends BaseController
 
 
                );
-        $this->session->set_userdata('order',$dataOrder);
+        $this->session->set_userdata('order_detail',$dataOrder);
 
          $dataImage = [];
          $dataImage['data_hotel'] = $product_hotel;

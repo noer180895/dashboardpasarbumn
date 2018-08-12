@@ -3,9 +3,10 @@
         <div class="row">
             <div class="col-md-9 col-sm-8">
                 <form>
-                    <h2><?php print_r( $this->session->userdata('order')); ?></h2>
+               
 
-                    <h2>Please Reviewasasa Your Booking</h2>
+                    <h2>Please Review Your Booking</h2>
+                    <h2 id="data"></h2>
                     <div class="sidber-box cats-widget" style="padding: 15px;">
                         <div class="col-md-4">
                             <img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image; ?>" class="img-responsive" alt="">
@@ -74,7 +75,7 @@
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <a class="btn btn-success" href="#">Continue To Payment</a>
+                        <a class="btn btn-success" id="saveData" href="<?php echo base_url(); ?>transaction/payment/"  onclick="saveData()">Continue To Payment</a>
                     </div>
             </div>
             <div class="col-md-3 col-sm-4">
@@ -83,9 +84,47 @@
                     <p>By Clicking this button, you edge that you have read and agreed to the <a href='#'>Term & Condition</a> and <a href='#'>Privacy Policy</a> of Pasar bumn
                     </p>
                     <br />
-                    <a class="btn btn-success" href="Payment.html">Continue To Payment</a>
+                    <a class="btn btn-success" href="<?php echo base_url(); ?>transaction/payment/" onclick="saveData()">Continue To Payment</a>
+                </div>
+            </div>
+
+
+              <div class="col-md-4">
+                <?php
+                    $this->load->helper('form');
+                    $error = $this->session->flashdata('error');
+                    if($error)
+                    {
+                ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <?php echo $this->session->flashdata('error'); ?>                    
+                </div>
+                <?php } ?>
+                <?php  
+                    $success = $this->session->flashdata('success');
+                    if($success)
+                    {
+                ?>
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <?php echo $this->session->flashdata('success'); ?>
+                </div>
+                <?php } ?>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo validation_errors('<div class="alert alert-danger alert-dismissable">', ' <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>'); ?>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+   <script type="text/javascript">
+    function saveData(){
+        alert('success save data');
+      }
+    </script>    
