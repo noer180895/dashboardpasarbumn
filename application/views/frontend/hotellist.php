@@ -245,7 +245,7 @@
                                 </div>
                             </div>
                             <div class="hotel-right">
-                                <div class="hotel-person">from <span class="color-blue"><?php echo $data->price; ?> </span> person</div>
+                                <div class="hotel-person">from <h5>Rp. <?php echo number_format($data->price, 1, ",", ".") ?> </h5> person</div>
                                 <a class="thm-btn" href="<?php echo base_url(); ?>product/hotel_detail/<?php echo $data->productId; ?>">Details</a>
                             </div>
                         </div>
