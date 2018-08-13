@@ -9,17 +9,99 @@ class User extends BaseController
     {
         parent::__construct();
         $this->load->model('user_model');
-        $this->isLoggedIn();   
+        $this->load->model('admin_model','admin');
+         $this->load->model('login_model');
+        
     }
+
+    public function user_login(){
+
+        $this->loadViewsFrontend("frontend/user_login", $this->global, NULL , NULL);
+    }
+
+
+    public function login(){
+        $this->load->library('form_validation');
+        
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[128]|xss_clean|trim');
+        $this->form_validation->set_rules('password', 'Password', 'required|max_length[32]|');
+        
+        if($this->form_validation->run() == FALSE)
+        {
+            redirect('/user/user_login');
+
+        }
+        else
+        {
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+            
+            $result = $this->login_model->loginMe($email, $password);
+            
+            if(count($result) > 0)
+            {
+                foreach ($result as $res)
+                {
+                    $sessionArray = array('userId'=>$res->userId,                    
+                                            'role'=>$res->roleId,
+                                            'roleText'=>$res->role,
+                                            'username'=>$res->username,
+                                            'isLoggedIn' => TRUE
+                                    );
+                                    
+                    $this->session->set_userdata($sessionArray);
+                    
+                    redirect('/home');
+                }
+            }
+            else
+            {
+                $this->session->set_flashdata('error', 'Email or password mismatch');
+                
+                redirect('/user/user_login');
+            }
+        }
+    }
+
+
+    public function user_register(){
+        $this->loadViewsFrontend("frontend/user_register", $this->global, NULL , NULL);
+    }
+
+    public function save_register(){
+         $data = array(
+                'firstname' => $this->input->post('firstname'),
+                'lastname' => $this->input->post('lastname'),
+                'username' => $this->input->post('username'),
+                'password' => getHashedPassword($this->input->post('password')),
+                'email' => $this->input->post('email'),
+                'roleId' => 3, // 3 for role user
+                'isActive' => 1,
+                'createdAt' => date("Y-m-d H:i:s"),
+                'updatedAt' => date("Y-m-d H:i:s"),
+            );
+        
+        
+        $this->admin->save($data);
+        $this->session->set_flashdata('success', 'Success Register');
+        redirect('user/user_register/');
+        
+    }
+
+
+
+
     
     public function index()
     {
+        $this->isLoggedIn();   
         $this->global['pageTitle'] = 'TIP : Dashboard';
         $this->loadViews("dashboard", $this->global, NULL , NULL);
     }
     
     function userListing()
-    {
+    {   
+        $this->isLoggedIn();   
         if($this->isAdmin() == TRUE)
         {
             $this->loadThis();
@@ -40,6 +122,7 @@ class User extends BaseController
 
    function customerListing()
     {
+        $this->isLoggedIn();   
         $this->load->model('admin_model');
         $searchText = $this->input->post('searchText');
         $data['searchText'] = $searchText;
@@ -54,6 +137,7 @@ class User extends BaseController
     
     function addNew()
     {
+        $this->isLoggedIn();   
         if($this->isAdmin() == TRUE)
         {
             $this->loadThis();
@@ -69,6 +153,7 @@ class User extends BaseController
 
     public function generateKode()
     {
+        $this->isLoggedIn();   
         $roleId = $this->input->post('role');
         $kode = $this->user_model->generateKode($roleId);
         echo json_encode(array('kode' => $kode));
@@ -80,6 +165,7 @@ class User extends BaseController
      */
     function checkEmailExists()
     {
+        $this->isLoggedIn();   
         $userId = $this->input->post("userId");
         $email = $this->input->post("email");
 
@@ -98,6 +184,7 @@ class User extends BaseController
      */
     function addNewUser()
     {
+        $this->isLoggedIn();   
         if($this->isAdmin() == TRUE)
         {
             $this->loadThis();
@@ -173,6 +260,7 @@ class User extends BaseController
      */
     function editOld($userId = NULL)
     {
+        $this->isLoggedIn();   
         if($this->isAdmin() == TRUE || $userId == 1)
         {
             $this->loadThis();
@@ -199,6 +287,7 @@ class User extends BaseController
      */
     function editUser()
     {
+        $this->isLoggedIn();   
         if($this->isAdmin() == TRUE)
         {
             $this->loadThis();
@@ -299,6 +388,7 @@ class User extends BaseController
      */
     function deleteUser()
     {
+        $this->isLoggedIn();   
         if($this->isAdmin() == TRUE)
         {
             echo(json_encode(array('status'=>'access')));
@@ -320,6 +410,7 @@ class User extends BaseController
      */
     function loadChangePass()
     {
+        $this->isLoggedIn();   
         $this->global['pageTitle'] = 'TIP : Change Password';
         
         $this->loadViews("changePassword", $this->global, NULL, NULL);
@@ -331,6 +422,7 @@ class User extends BaseController
      */
     function changePassword()
     {
+        $this->isLoggedIn();   
         $this->load->library('form_validation');
         
         $this->form_validation->set_rules('oldPassword','Old password','required|max_length[20]');

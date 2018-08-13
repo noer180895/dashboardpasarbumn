@@ -49,12 +49,12 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm">
                     <li>
-                        <a class="nav-btn" href="#">
+                        <a class="nav-btn" href="<?php echo base_url(); ?>user/user_login/">
                             <div class="thm-btn"> <i class="flaticon-people"></i> Masuk</div>
                         </a>
                     </li>
                     <li>
-                        <a class="nav-btn" href="#">
+                        <a class="nav-btn" href="<?php echo base_url(); ?>user/user_register/">
                             <div class="thm-btn"> <i class="flaticon-people"></i> Daftar</div>
                         </a>
                     </li>
