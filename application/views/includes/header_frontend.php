@@ -43,7 +43,7 @@
                     <li><a href="#"></a></li>
                     <li><a href="#"></a></li>
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Bantuan</a></li>
+                    <li><a href="<?php echo base_url(); ?>home/help/">Bantuan</a></li>
                     <li><a href="#">Promo</a></li>
                     <li><a href="#">Cek Pesanan</a></li>
                 </ul>
