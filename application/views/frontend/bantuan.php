@@ -89,6 +89,7 @@ input[type=radio]:checked + label::after {
 
     <section class="popular-inner">
         <div class="container">
+          <?php foreach ($data_help as $data) { ?>
             <div class="col-sm-12">
                 <div class="panel">
                     <h1>Help </h1>
@@ -96,28 +97,15 @@ input[type=radio]:checked + label::after {
                     <div class="half">
                         <div class="tab blue">
                           <input id="tab-four" type="radio" name="tabs2">
-                          <label for="tab-four">Label One</label>
+                          <label for="tab-four"><?php echo $data->question; ?></label>
                           <div class="tab-content">
-                            <p style="color: #ffffff;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-                          </div>
-                        </div>
-                        <div class="tab blue">
-                          <input id="tab-five" type="radio" name="tabs2">
-                          <label for="tab-five">Label Two</label>
-                          <div class="tab-content">
-                            <p style="color: #ffffff;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-                          </div>
-                        </div>
-                        <div class="tab blue">
-                          <input id="tab-six" type="radio" name="tabs2">
-                          <label for="tab-six">Label Three</label>
-                          <div class="tab-content">
-                            <p style="color: #ffffff;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                            <p style="color: #ffffff;"><?php echo $data->answer; ?></p>
                           </div>
                         </div>
                       </div>
                     </div>
             </div>
+            <?php } ?>
         </div>
     </section>
 </div>

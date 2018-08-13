@@ -7,7 +7,7 @@ class manage_help extends BaseController
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('banner_model','help');
+        $this->load->model('help_model','help');
         $this->isLoggedIn();   
         $this->load->library('pagination');
         $this->load->helper('url');
@@ -22,8 +22,6 @@ class manage_help extends BaseController
         $this->loadViews("manage_help/index", $this->global, NULL , NULL);
     }
 
-
-
     public function ajax_list()
     {
         $list = $this->help->get_datatables();
@@ -35,16 +33,16 @@ class manage_help extends BaseController
         foreach ($list as $help) {
             $no++;
             $row = array();
-            $row[] = $help->name;
-            $row[] = $help->type;
+            $row[] = $help->question;
+            $row[] = $help->answer;
             $row[] = $help->createdAt;
             $row[] = $help->updatedAt;
 
 
 
             //add html for action
-            $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_help/addhelp/'."".$help->helpId."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                  <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_help/delete/'."".$help->helpId."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+            $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_help/addhelp/'."".$help->idHelp."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                  <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_help/delete/'."".$help->idHelp."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
         
             $data[] = $row;
         }
@@ -60,12 +58,12 @@ class manage_help extends BaseController
 
 
     // add help
-    public function addhelp($helpId = null){
-        $helpIdInt = (int) $helpId;
+    public function addhelp($idHelp = null){
+        $idHelpInt = (int) $idHelp;
         $this->global['pageTitle'] = 'Manage Add help';
-        if($helpId != null){
-            $data['help'] = $this->help->get_by_id($helpIdInt);
-            $data['url_image'] = base_url(). 'assets/uploads/help/'. $data['help']->image;
+        if($idHelp != null){
+            $data['help'] = $this->help->get_by_id($idHelpInt);
+           // $data['url_image'] = base_url(). 'assets/uploads/help/'. $data['help']->image;
         }else{
             $data['help'] = null;
         }
@@ -85,9 +83,8 @@ class manage_help extends BaseController
     public function save()
     {
         $data = array(
-                'name' => $this->input->post('name'),
-                'url' => $this->input->post('url'),
-                'type' => $this->input->post('type'),
+                'question' => $this->input->post('question'),
+                'answer' => $this->input->post('answer'),
                 'createdAt' => date("Y-m-d H:i:s"),
                 'updatedAt' => date("Y-m-d H:i:s"),
             );
@@ -111,8 +108,8 @@ class manage_help extends BaseController
                 //get the uploaded file name
                 $data['image'] = $upload_data['file_name'];
  
-                if($this->input->post('helpId') != NULL){ // FOR UPDATE
-                    if($this->help->update(array('helpId' => $this->input->post('helpId')), $data)){
+                if($this->input->post('idHelp') != NULL){ // FOR UPDATE
+                    if($this->help->update(array('idHelp' => $this->input->post('idHelp')), $data)){
                         $this->session->set_flashdata('success', 'Success Update Data help');
                         redirect('manage_help/');
                     }
@@ -125,8 +122,8 @@ class manage_help extends BaseController
             }
 
         }else{
-            if($this->input->post('helpId') != NULL){ // FOR UPDATE
-                if($this->help->update(array('helpId' => $this->input->post('helpId')), $data)){
+            if($this->input->post('idHelp') != NULL){ // FOR UPDATE
+                if($this->help->update(array('idHelp' => $this->input->post('idHelp')), $data)){
                     $this->session->set_flashdata('success', 'Success Update Data help');
                     redirect('manage_help/');
                 }
@@ -143,9 +140,9 @@ class manage_help extends BaseController
 
 
     // delete
-    public function delete($helpId)
+    public function delete($idHelp)
     {
-        $this->help->delete_by_id($helpId);
+        $this->help->delete_by_id($idHelp);
         $this->session->set_flashdata('success', 'Success  Delete');
         redirect('manage_help/');
     }

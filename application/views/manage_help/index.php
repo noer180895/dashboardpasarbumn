@@ -30,8 +30,8 @@
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Question</th>
                             <th>Answer</th>
+                            <th>Question</th>
                             <th>CreatedAt</th>
                             <th>UpdatedAt</th>
                             <th style="width:125px;">Action</th>

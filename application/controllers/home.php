@@ -45,7 +45,9 @@ class home extends BaseController
         $this->global['pageTitle'] = 'Manage admin';
 
          $this->load->model('banner_model','banner');
+         $this->load->model('help_model','help');
 
+         $data_helps = $this->help->main_help(); // get data banner
          $banner = $this->banner->main_banner(); // get data banner
          $barcode = $this->banner->main_barcode(); // get data banner
          $promo = $this->banner->main_promo(); // get data banner
@@ -56,6 +58,7 @@ class home extends BaseController
 
 
          $dataImage = [];
+         $dataImage['data_help'] = $data_helps;
          $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
          $dataImage['url_barcode'] = base_url() . '/assets/uploads/banner/' . $barcode[0]->image;
          $dataImage['url_promoaplikasi'] = base_url() . '/assets/uploads/banner/' . $promo[0]->image;
