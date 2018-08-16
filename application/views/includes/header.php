@@ -166,6 +166,13 @@
             </a>
           </li>
 
+          <li class="treeview">
+            <a href="<?php echo base_url(); ?>manage_promo/">
+            <i class="fa fa-file"></i>
+            <span>Manage Promo</span>
+            </a>
+          </li>
+
 
 
 
