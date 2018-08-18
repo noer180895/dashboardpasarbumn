@@ -98,6 +98,10 @@ class User extends BaseController
     }
 
 
+    public function logout() {
+        $this->session->sess_destroy ();
+        redirect ('home');
+    }
 
 
     

@@ -15,6 +15,7 @@ class BaseController extends CI_Controller {
 	protected  $global = array ();
 
 
+
 	
 	/**
 	 * Takes mixed data and optionally a status code, then creates the response
@@ -88,8 +89,13 @@ class BaseController extends CI_Controller {
 	 */
 	function logout() {
 		$this->session->sess_destroy ();
-		
 		redirect ( 'login' );
+	}
+
+
+	function logoutuser() {
+		$this->session->sess_destroy ();
+		redirect ('home');
 	}
 
 	/**

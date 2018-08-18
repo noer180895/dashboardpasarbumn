@@ -60,7 +60,7 @@
                     <?php  if($isLogin != 0){ ?>
                         <li>    
                             <a class="nav-btn" href="<?php echo base_url();?>user/dashboard/">
-                                <div class="thm-btn"><i class="fa fa-user-circle" aria-hidden="true"></i><?php echo $username; ?> </div>
+                                <div class="thm-btn"><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp; <?php echo $username; ?> </div>
                              </a>
                         </li>
                         <li>

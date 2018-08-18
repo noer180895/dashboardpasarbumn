@@ -117,6 +117,7 @@ class transaction extends BaseController
                 'phone' => $dataorder['phone'],
                 'email' => $dataorder['email'],
                 'guest_fullname' => $dataorder['fullname'],
+                'status' => 'pending',
                 'qty' => 1, // default qty
                 'disc' => $disc,
                 'subtotal' => $subtotal,

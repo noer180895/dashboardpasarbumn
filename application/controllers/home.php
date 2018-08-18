@@ -2,7 +2,7 @@
 
 require APPPATH . '/libraries/BaseController.php';
 
-class home extends BaseController
+class Home extends BaseController
 {
     public function __construct()
     {

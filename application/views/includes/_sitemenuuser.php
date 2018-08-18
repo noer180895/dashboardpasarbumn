@@ -22,7 +22,7 @@
                                 </div>
                                 <div>
                                     <label>
-                                        <span class="fa fa-power-off" style="padding-left:20px; padding-right:20px; color: #076fce;"></i></span> Logout
+                                        <a href="<?php echo base_url(); ?>user/logout/"><span class="fa fa-power-off" style="padding-left:20px; padding-right:20px; color: #076fce;"></i></span> Logout</a>
                                     </label>
                                 </div>
                             </div>
