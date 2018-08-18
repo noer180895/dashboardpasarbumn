@@ -15,28 +15,30 @@
                             <h5 style="padding-bottom: 7px;"><i class="fa fa-building-o fa-stack-2x pull-left" aria-hidden="true" style="text-align: left; color: #076fce;padding-left: 23px!important"></i></h5>
                                 <br><a class="active" href="#home" style="color: black;border-bottom: 3px solid #076fce;">Hotels</a>                            
                         </div>
-                        <label>Active Bookings (1)</label>                            
+                        <label>Active Bookings</label>  
+
+                            <?php foreach ($transaction_list as $value) { ?>                
                             <div class="hotel-item" style="width: 629px;height: 176px;">
                                 <!-- hotel Image-->
                                 <div class="row" style="margin: 1px">
                                   <div class="col-sm-6" style="padding-left: 0px;padding-right: 2px;">
                                     <h4 style="padding-left: 10px;border-left-style: solid;border-left-color: #26599c;">Cakra Kembang Hotel</h4>
-                                    <p style="padding-left: 9px">Business Twin Bed - Room Only</p>
+                                    <p style="padding-left: 9px"><?php echo $value->name; ?></p>
                                   </div>
                                   <div class="col-sm-6">
                                     <br>
                                     <br>
-                                    <p>Booking ID <strong>314884592</strong></p>
+                                    <p>Booking ID <strong><?php echo $value->no_order; ?></strong></p>
                                   </div>                              
                                 </div>
                                 <div class="row" style="margin: 1px">
                                       <div class="col-md-2" style="padding-left: 10px;padding-right: 2px;background-color: #f9f9f9;">
                                           <p style="font-size: 11px;margin-bottom: 0px;">CHECK IN</p>
-                                        <strong style="font-size: 10px">17 Jul 2018</strong>
+                                        <strong style="font-size: 10px"><?php echo $value->checkin; ?></strong>
                                       </div>
                                       <div class="col-md-10" style="background-color: #f9f9f9;">
                                           <p style="font-size: 11px; margin-bottom: 0px;">CHECK OUT</p>
-                                        <strong style="font-size: 10px">18 Jul 2018</strong>
+                                        <strong style="font-size: 10px"><?php echo $value->checkout; ?></strong>
                                         </div>
                                   </div>
                                     <br>
@@ -53,6 +55,7 @@
                                       
                                   </div>
                             </div>
+                          <?php } ?>
                             <label> Booking History</label>
                             <div class="hotel-item" style="width: 629px;height: 176px; background-color:#eaeaea;">
                                 <!-- hotel Image-->

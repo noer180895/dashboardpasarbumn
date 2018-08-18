@@ -17,7 +17,14 @@ class User extends BaseController
     }
 
     public function dashboard(){
-        $this->loadViewsFrontend("frontend/dashboard", $this->global, NULL , NULL);
+        $this->load->model('transaction_model','transaction');
+
+        $userId = $this->session->userdata('userId');
+
+
+        $data=[];
+        $data['transaction_list'] = $this->transaction->transaction_list($userId);
+        $this->loadViewsFrontend("frontend/dashboard", $this->global, $data , NULL);
     }
 
 
