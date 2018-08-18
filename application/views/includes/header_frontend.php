@@ -14,6 +14,10 @@
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="<?php echo base_url(); ?>assets/images/apple-touch-icon-114x114-precomposed.png">
     <!-- Base Css -->
     <link href="<?php echo base_url(); ?>assets/css/base.css" rel="stylesheet" type="text/css" />
+
+      <script type="text/javascript">
+      var baseURL = "<?php echo base_url(); ?>";
+    </script>
 </head>
 
 <body>
@@ -48,16 +52,43 @@
                     <li><a href="#">Cek Pesanan</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm">
+                    
+
+
+              
+
+                    <?php  if($isLogin != 0){ ?>
+                        <li>    
+                            <a class="nav-btn" href="<?php echo base_url();?>user/dashboard/">
+                                <div class="thm-btn"><i class="fa fa-user-circle" aria-hidden="true"></i><?php echo $username; ?> </div>
+                             </a>
+                        </li>
+                        <li>
+
+                              <select style="width: 41px;  margin: 24px; background-color: #ffffff;  border-radius: 4px; height:26px!important;" >
+                                <option value="0"><i class="fa fa-user-circle" aria-hidden="true"></i>ID</option>
+                              </select>
+                        </li>
+
+            
+                    <?php }else{ ?>
+
                     <li>
+
+
                         <a class="nav-btn" href="<?php echo base_url(); ?>user/user_login/">
-                            <div class="thm-btn"> <i class="flaticon-people"></i> Masuk</div>
+                            <div class="thm-btn"> <i class="flaticon-people"></i>Masuk </div>
                         </a>
                     </li>
-                    <li>
+                     <li>
                         <a class="nav-btn" href="<?php echo base_url(); ?>user/user_register/">
                             <div class="thm-btn"> <i class="flaticon-people"></i> Daftar</div>
                         </a>
                     </li>
+                    <?php } ?>    
+
+
+                   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

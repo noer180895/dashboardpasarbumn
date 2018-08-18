@@ -11,8 +11,15 @@ class User extends BaseController
         $this->load->model('user_model');
         $this->load->model('admin_model','admin');
          $this->load->model('login_model');
+
+
         
     }
+
+    public function dashboard(){
+        $this->loadViewsFrontend("frontend/dashboard", $this->global, NULL , NULL);
+    }
+
 
     public function user_login(){
 
@@ -50,6 +57,8 @@ class User extends BaseController
                                     );
                                     
                     $this->session->set_userdata($sessionArray);
+
+             
                     
                     redirect('/home');
                 }

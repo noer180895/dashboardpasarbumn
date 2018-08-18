@@ -7,14 +7,13 @@
  * @version : 1.1
  * @since : 15 November 2016
  */
-class BaseController extends CI_Controller {
+class BaseUserController extends CI_Controller {
 	protected $role = '';
 	protected $vendorId = '';
 	protected $username = '';
 	protected $roleText = '';
-	protected  $global = array ();
-
-
+	public $isLogin = 0;
+	protected $global = array ();
 	
 	/**
 	 * Takes mixed data and optionally a status code, then creates the response
@@ -46,7 +45,7 @@ class BaseController extends CI_Controller {
 			$this->global ['username'] = $this->username;
 			$this->global ['role'] = $this->role;
 			$this->global ['role_text'] = $this->roleText;
-			
+			$this->global ['isLogin'] = 1;
 		}
 	}
 	
@@ -78,9 +77,9 @@ class BaseController extends CI_Controller {
 	function loadThis() {
 		$this->global ['pageTitle'] = 'CodeInsect : Access Denied';
 		
-		$this->load->view ( 'includes/header', $this->global );
+		$this->load->view ( 'includes/header_frontend', $this->global );
 		$this->load->view ( 'access' );
-		$this->load->view ( 'includes/footer' );
+		$this->load->view ( 'includes/footer_frontend' );
 	}
 	
 	/**
@@ -117,17 +116,8 @@ class BaseController extends CI_Controller {
      * @param {mixed} $footerInfo : This is array of footer information
      * @return {null} $result : null
      */
-    function loadViewsFrontend($viewName = "", $headerInfo = NULL, $pageInfo = NULL, $footerInfo = NULL, $dataLogin = NULL){
+    function loadViewsFrontend($viewName = "", $headerInfo = NULL, $pageInfo = NULL, $footerInfo = NULL){
 
-    	if( $this->session->userdata ( 'role' ) == TRUE ||  $this->session->userdata ( 'role' ) != null){
-
-    		$headerInfo['isLogin'] = 1;
-    		$headerInfo['username'] = $this->session->userdata('username');
-
-    	}else{
-			$headerInfo['isLogin'] = 0;    		
-    	}
-    	
         $this->load->view('includes/header_frontend', $headerInfo);
         $this->load->view($viewName, $pageInfo);
         $this->load->view('includes/footer_frontend', $footerInfo);

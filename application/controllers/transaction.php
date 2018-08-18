@@ -9,6 +9,8 @@ class transaction extends BaseController
         parent::__construct();
         $this->load->helper('url');
          session_start();
+
+
     }
     
     // page index
@@ -110,6 +112,7 @@ class transaction extends BaseController
                 'no_order' => $no_order,
                 'id_product' => $dataorder['id_product'],
                 'is_guest' => $dataorder['isguest'],
+                'id_user' => $this->session->userdata('userId'),
                 'contact_name' => $dataorder['contact_name'],
                 'phone' => $dataorder['phone'],
                 'email' => $dataorder['email'],

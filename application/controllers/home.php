@@ -14,8 +14,7 @@ class home extends BaseController
     public function index()
     {
         $this->global['pageTitle'] = 'Home';
-
-         $this->load->model('banner_model','banner');
+        $this->load->model('banner_model','banner');
 
         $banner = $this->banner->main_banner(); // get data banner
         $barcode = $this->banner->main_barcode(); // get data banner
@@ -25,7 +24,6 @@ class home extends BaseController
         $dealpopular = $this->banner->main_dealpopular();
         $playstore = $this->banner->main_playstore();
 
-
          $dataImage = [];
          $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
          $dataImage['url_barcode'] = base_url() . '/assets/uploads/banner/' . $barcode[0]->image;
@@ -34,6 +32,9 @@ class home extends BaseController
          $dataImage['url_logo'] = base_url() . '/assets/uploads/banner/' . $logo[0]->image;
          $dataImage['url_dealpopular'] = $dealpopular;
          $dataImage['url_playstore'] = base_url() . '/assets/uploads/banner/' . $playstore[0]->image;
+
+
+
          // var_dump($data[0]->image);
         $this->loadViewsFrontend("frontend/index", $this->global, $dataImage , NULL);
 
