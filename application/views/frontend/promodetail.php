@@ -7,7 +7,7 @@
 }
 .zoomin img {
   height: 424px;
-  width: 740px;
+  width: 800px;
   transition: transform 1s;
   -webkit-transition: all 2s ease;
      -moz-transition: all 2s ease;
