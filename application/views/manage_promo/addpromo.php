@@ -21,9 +21,8 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6"> 
-
                                     <div class="form-group">
-                                        <label for="role">Answer</label>
+                                        <label for="role">Name</label>
                                         <?php if($promo != null){ ?>
                                             <input type="text" class="form-control required" id="name" name="name" maxlength="128" value="<?php echo $promo->name; ?>" >
                                             <input type="hidden" name="idPromo" id="idPromo" value="<?php echo $promo->idPromo; ?>">
@@ -36,26 +35,15 @@
                                 </div>
 
 
-                                <div class="col-md-6">                                
-                                    <div class="form-group">
-                                        <label for="role">Description</label>
-                                        <?php if($promo != null){ ?>
-                                            <input type="text" class="form-control required" id="description" name="description" maxlength="128" value="<?php echo $promo->description; ?>">
-                                        <?php }else{ ?>
-                                               <input type="text" class="form-control required" id="description" name="description" maxlength="128">
-                                        <?php } ?>
-                                       
-                                    </div>
-                                    
-                                </div>
+                               
 
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="role">Image</label>
                                         <?php if($promo != null){ ?>
-                                            <input type="text" class="form-control required" id="image" name="image" maxlength="128" value="<?php echo $promo->image; ?>">
+                                            <input type="file" class="form-control required" id="image" name="image" maxlength="128" value="<?php echo $promo->image; ?>">
                                         <?php }else{ ?>
-                                               <input type="text" class="form-control required" id="image" name="image" maxlength="128">
+                                               <input type="file" class="form-control required" id="image" name="image" maxlength="128">
                                         <?php } ?>
                                        
                                     </div>
@@ -63,22 +51,11 @@
                                 </div>
 
 
-                                <div class="col-md-6">                                
-                                    <div class="form-group">
-                                        <label for="role">Kode Promo</label>
-                                        <?php if($promo != null){ ?>
-                                            <input type="text" class="form-control required" id="kode_promo" name="kode_promo" maxlength="128" value="<?php echo $promo->kode_promo; ?>">
-                                        <?php }else{ ?>
-                                               <input type="text" class="form-control required" id="kode_promo" name="kode_promo" maxlength="128">
-                                        <?php } ?>
-                                       
-                                    </div>
-                                    
-                                </div>
+                        
 
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="role">Start Date</label>
+                                        <label for="role">Start Promo</label>
                                         <?php if($promo != null){ ?>
                                             <input type="date" class="form-control required" id="start_promo" name="start_promo" maxlength="128" value="<?php echo $promo->start_promo; ?>">
                                         <?php }else{ ?>
@@ -94,9 +71,9 @@
                                     <div class="form-group">
                                         <label for="role">End Promo</label>
                                         <?php if($promo != null){ ?>
-                                            <input type="text" class="form-control required" id="end_promo" name="end_promo" maxlength="128" value="<?php echo $promo->end_promo; ?>">
+                                            <input type="date" class="form-control required" id="end_promo" name="end_promo" maxlength="128" value="<?php echo $promo->end_promo; ?>">
                                         <?php }else{ ?>
-                                               <input type="text" class="form-control required" id="end_promo" name="end_promo" maxlength="128">
+                                               <input type="date" class="form-control required" id="end_promo" name="end_promo" maxlength="128">
                                         <?php } ?>
                                        
                                     </div>
@@ -106,7 +83,20 @@
 
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="role">Potongan Promo</label>
+                                        <label for="role">Code Promo</label>
+                                        <?php if($promo != null){ ?>
+                                            <input type="text" class="form-control required" id="kode_promo" name="kode_promo" maxlength="128" value="<?php echo $promo->kode_promo; ?>">
+                                        <?php }else{ ?>
+                                               <input type="text" class="form-control required" id="kode_promo" name="kode_promo" maxlength="128">
+                                        <?php } ?>
+                                       
+                                    </div>
+                                    
+                                </div>
+
+                                 <div class="col-md-6">                                
+                                    <div class="form-group">
+                                        <label for="role">Discount Promo</label>
                                         <?php if($promo != null){ ?>
                                             <input type="text" class="form-control required" id="potongan_promo" name="potongan_promo" maxlength="128" value="<?php echo $promo->potongan_promo; ?>">
                                         <?php }else{ ?>
@@ -118,32 +108,23 @@
                                 </div>
 
 
-                                <div class="col-md-6">                                
+                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="role">CreatedAt</label>
+                                        <label for="role">Description</label>
                                         <?php if($promo != null){ ?>
-                                            <input type="date" class="form-control required" id="createdAt" name="createdAt" maxlength="128" value="<?php echo $promo->createdAt; ?>">
+                                            <textarea  class="form-control required" id="description" name="description" maxlength="128"><?php echo $promo->description; ?></textarea>
                                         <?php }else{ ?>
-                                               <input type="date" class="form-control required" id="createdAt" name="createdAt" maxlength="128">
+                                             <textarea  class="form-control required" id="description" name="description" maxlength="128"></textarea>
                                         <?php } ?>
                                        
                                     </div>
                                     
                                 </div>
 
+                               
 
-                                <div class="col-md-6">                                
-                                    <div class="form-group">
-                                        <label for="role">updatedAt</label>
-                                        <?php if($promo != null){ ?>
-                                            <input type="date" class="form-control required" id="updatedAt" name="updatedAt" maxlength="128" value="<?php echo $promo->updatedAt; ?>">
-                                        <?php }else{ ?>
-                                               <input type="date" class="form-control required" id="description" name="updatedAt" maxlength="128">
-                                        <?php } ?>
-                                       
-                                    </div>
-                                    
-                                </div>
+
+                    
                                
                         </div>
     

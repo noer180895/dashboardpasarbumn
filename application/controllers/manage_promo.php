@@ -44,8 +44,8 @@ class manage_promo extends BaseController
 
 
             //add html for action
-            $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_help/addhelp/'."".$promo->idPromo."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                  <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_help/delete/'."".$promo->idPromo."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+            $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_promo/addpromo/'."".$promo->idPromo."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                  <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_promo/delete/'."".$promo->idPromo."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
         
             $data[] = $row;
         }
@@ -60,24 +60,24 @@ class manage_promo extends BaseController
     }
 
 
-    // add help
-    public function addhelp($idPromo = null){
+    // add promo
+    public function addpromo($idPromo = null){
         $idPromoInt = (int) $idPromo;
-        $this->global['pageTitle'] = 'Manage Add help';
+        $this->global['pageTitle'] = 'Manage Add promo';
         if($idPromo != null){
             $data['promo'] = $this->promo->get_by_id($idPromoInt);
-           // $data['url_image'] = base_url(). 'assets/uploads/help/'. $data['help']->image;
+           // $data['url_image'] = base_url(). 'assets/uploads/promo/'. $data['promo']->image;
         }else{
             $data['promo'] = null;
         }
 
 
-        $data['type'] = array("mainhelp"=>"Main promo","gambarbarcode"=>"Gambar Barcode", "promoaplikasi" => "Promo Aplikasi",  "partners" => "Partners", "logo" => "logo", "dealpopular" => "Dealpopular", "playstore" => "playstore"); 
+        $data['type'] = array("mainpromo"=>"Main promo","gambarbarcode"=>"Gambar Barcode", "promoaplikasi" => "Promo Aplikasi",  "partners" => "Partners", "logo" => "logo", "dealpopular" => "Dealpopular", "playstore" => "playstore"); 
 
         $this->global['pageTitle'] = 'Manage Add promo';
             
 
-        $this->loadViews("manage_help/addhelp", $this->global , $data, NULL);
+        $this->loadViews("manage_promo/addpromo", $this->global , $data, NULL);
     }
 
 

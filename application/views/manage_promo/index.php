@@ -32,7 +32,6 @@
                         <tr>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Image</th>
                             <th>Kode Promo</th>
                             <th>Start Promo</th>
                             <th>End Promo</th>
