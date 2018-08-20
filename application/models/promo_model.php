@@ -145,6 +145,14 @@ class promo_model extends CI_Model
     }
 
 
+    public function detailpromo($id){
+        $this->db->select('*');
+        $this->db->from('tbl_promo');
+        $this->db->where('idPromo',$id);
+        $query = $this->db->get();
+        return $query->result(); 
+    }
+
     public function main_partner(){
         $this->db->select('*');
         $this->db->from('tbl_banner');

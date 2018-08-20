@@ -12,20 +12,14 @@
                         <div class="blog-content">
                             <div class="blog-img image-hover">
                                 <a href="#">
-
-                                    <img src="<?php echo base_url() . '/assets/uploads/promo/' . $value->image; ?>" class="img-responsive" alt="" style="width:300px;height: 150px;">
-
-                                </a>
-                                <span class="post-date"><?php echo $value->kode_promo; ?></span>
+                                    <img src="<?php echo base_url() . '/assets/uploads/promo/' . $value->image; ?>" class="img-responsive" alt="" style="width:300px;height: 150px;">                                </a>
                             </div>
                             <h4><a href="#"><?php echo $value->name; ?></a></h4>
                             <p>
-                                <?php echo $value->description; ?> <br /><br />
                                 <b>Start Promo</b> : <?php echo $value->start_promo; ?><br />
                                 <b>End  Promo</b>  : <?php echo $value->start_promo; ?>
-
                             </p>
-                            <a class="thm-btn" href="#">Details</a>
+                            <a class="thm-btn" href="<?php echo base_url() . 'home/detailpromo/'. $value->idPromo; ?>">See More..</a>
                         </div>
                     </div>
                 <?php } ?>
