@@ -89,23 +89,25 @@ input[type=radio]:checked + label::after {
 
     <section class="popular-inner">
         <div class="container">
-          <?php foreach ($data_help as $data) { ?>
+      
             <div class="col-sm-12">
                 <div class="panel">
                     <h1>Help </h1>
                     <hr/>
                     <div class="half">
+                      <?php $no=1; $tab = 'tab-'; foreach ($data_help as $data) { ?>
                         <div class="tab blue">
-                          <input id="tab-four" type="radio" name="tabs2">
-                          <label for="tab-four"><?php echo $data->question; ?></label>
+                          <input id="<?php echo '.' . $tab . $no . '.'; ?>" type="radio" name="tabs2">
+                          <label for="<?php echo '.' . $tab . $no . '.'; ?>"><?php echo $data->question; ?></label>
                           <div class="tab-content">
                             <p style="color: #ffffff;"><?php echo $data->answer; ?></p>
                           </div>
                         </div>
-                      </div>
+                      <?php $no++; } ?>
                     </div>
+                </div>
             </div>
-            <?php } ?>
+            
         </div>
     </section>
 </div>
