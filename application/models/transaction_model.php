@@ -134,11 +134,20 @@ class Transaction_model extends CI_Model
         $this->db->join('tbl_product product', 'trans.id_product=product.productId', 'left');
         $this->db->group_by('trans.transactionId');
         $this->db->where('id_user',$userId);
+        $this->db->where('status','pending');
         $query = $this->db->get();
         return $query->result(); 
     }
 
-
+    public function transaction_list_success($userId){
+          $this->db->select('product.name as name, trans.no_order as no_order, trans.checkin as checkin, trans.checkout as checkout');
+        $this->db->from('tbl_transaction trans');
+        $this->db->join('tbl_product product', 'trans.id_product=product.productId', 'left');
+        $this->db->group_by('trans.transactionId');
+        $this->db->where('status','success');
+        $query = $this->db->get();
+        return $query->result(); 
+    }
 
 
    

@@ -24,6 +24,7 @@ class User extends BaseController
 
         $data=[];
         $data['transaction_list'] = $this->transaction->transaction_list($userId);
+        $data['transaction_list_success'] = $this->transaction->transaction_list_success($userId);
         $this->loadViewsFrontend("frontend/dashboard", $this->global, $data , NULL);
     }
 
