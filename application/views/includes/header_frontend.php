@@ -46,9 +46,21 @@
                     <li><a href="#"></a></li>
                     <li><a href="#"></a></li>
                     <li><a href="#"></a></li>
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="<?php echo base_url(); ?>home/help/">Bantuan</a></li>
-                    <li><a href="#">Promo</a></li>
+                    <?php if($this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'home' ){ ?>
+                        <li class="active"><a href="<?php echo base_url(); ?>home/index/">Home</a></li>
+                    <?php }else{ ?>
+                        <li><a href="<?php echo base_url(); ?>home/index/">Home</a></li>
+                    <?php } ?>
+                    <?php if($this->uri->segment(2) == 'help'){ ?>
+                        <li class="active"><a href="<?php echo base_url(); ?>home/help/">Bantuan</a></li>
+                    <?php }else{ ?>
+                        <li><a href="<?php echo base_url(); ?>home/help/">Bantuan</a></li>
+                    <?php } ?>
+                     <?php if($this->uri->segment(2) == 'promo'){ ?>
+                        <li class="active"><a href="<?php echo base_url(); ?>home/promo/">Promo</a></li>
+                    <?php }else{ ?>
+                        <li><a href="<?php echo base_url(); ?>home/promo/">Promo</a></li>
+                    <?php } ?>
                     <li><a href="#">Cek Pesanan</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm">

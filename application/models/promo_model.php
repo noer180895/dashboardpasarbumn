@@ -139,9 +139,7 @@ class promo_model extends CI_Model
 
      public function main_promo(){
         $this->db->select('*');
-        $this->db->from('tbl_banner');
-        $this->db->where('type','promoaplikasi');
-        $this->db->limit(1);
+        $this->db->from('tbl_promo');
         $query = $this->db->get();
         return $query->result();   
     }
