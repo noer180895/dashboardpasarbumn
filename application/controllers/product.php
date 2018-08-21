@@ -20,15 +20,15 @@ class product extends BaseController
         $this->load->model('banner_model','banner');
 
 
-        $product_hotel = $this->product->main_hotel(); // get data banner
+        $product_hotel = $this->product->main_hotel($this->input->get('destination')); // get data banner
         $banner = $this->banner->main_banner(); // get data banner
         $logo = $this->banner->main_logo(); 
         
 
 
         $dataOrder = array(
-                    'checkIn' => $this->input->post('checkIn'),
-                   'checkOut'  => $this->input->post('checkOut')
+                    'checkIn' => $this->input->get('checkIn'),
+                   'checkOut'  => $this->input->get('checkOut')
 
 
                );

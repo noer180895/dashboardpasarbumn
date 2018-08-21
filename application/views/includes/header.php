@@ -175,6 +175,15 @@
 
 
 
+            <li class="treeview">
+            <a href="<?php echo base_url(); ?>manage_transaction/">
+            <i class="fa fa-file"></i>
+            <span>Manage Transactions</span>
+            </a>
+          </li>
+
+
+
 
 
 

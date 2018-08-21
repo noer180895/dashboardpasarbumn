@@ -104,7 +104,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="row panel-margin">
                                             <div class="col-xs-12">
-                                                <form action="<?php echo base_url(); ?>product/hotel" method="post" enctype="multipart/form-data">
+                                                <form action="<?php echo base_url(); ?>product/hotel" method="get" enctype="multipart/form-data">
                                                     <table class="table table-bordered" border="1">
                                                         <thead>
                                                             <tr>

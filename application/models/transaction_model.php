@@ -17,7 +17,10 @@ class Transaction_model extends CI_Model
     public function _get_datatables_query()
     {
         
-        $this->db->from('tbl_transaction');
+        $this->db->select('product.name as name, trans.no_order as no_order, trans.checkin as checkin, trans.checkout as checkout, trans.status, trans.createdAt, trans.updatedAt, trans.transactionId');
+        $this->db->from('tbl_transaction trans');
+        $this->db->join('tbl_product product', 'trans.id_product=product.productId', 'left');
+        $this->db->group_by('trans.transactionId');
 
         $i = 0;
     

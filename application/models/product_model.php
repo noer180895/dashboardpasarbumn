@@ -110,10 +110,10 @@ class Product_model extends CI_Model
     }
 
 
-     public function main_hotel(){
+     public function main_hotel($search = NULL){
         $this->db->select('*');
         $this->db->from('tbl_product');
-        $this->db->where('type','hotel');
+        $this->db->where('location_name',$search);
         $query = $this->db->get();
         return $query->result(); 
     }

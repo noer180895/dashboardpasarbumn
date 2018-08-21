@@ -56,7 +56,7 @@
                     <?php }else{ ?>
                         <li><a href="<?php echo base_url(); ?>home/help/">Bantuan</a></li>
                     <?php } ?>
-                     <?php if($this->uri->segment(2) == 'promo'){ ?>
+                     <?php if($this->uri->segment(2) == 'promo' || $this->uri->segment(2) == 'detailpromo' ){ ?>
                         <li class="active"><a href="<?php echo base_url(); ?>home/promo/">Promo</a></li>
                     <?php }else{ ?>
                         <li><a href="<?php echo base_url(); ?>home/promo/">Promo</a></li>
