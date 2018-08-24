@@ -139,7 +139,43 @@ class transaction extends BaseController
     
     }
 
+    public function check_order()
+    {
+        $this->global['pageTitle'] = 'transaction hotel | train | pesawat';
 
+        
+
+         // var_dump($data[0]->image);
+        $this->loadViewsFrontend("frontend/check_order", $this->global, NULL , NULL);
+
+    }
+
+     public function check_order_detail()
+    {
+        $this->global['pageTitle'] = 'detail order hotel | train | pesawat';
+
+        
+
+        $this->load->model('transaction_model','transaction');
+        $this->load->model('banner_model','banner');
+
+
+
+
+        $transaction = $this->transaction->transaction_detail($this->input->get('search')); // get data banner
+        $logo = $this->banner->main_logo(); 
+
+  
+
+        $dataImage = [];
+        $dataImage['data_detail'] = $transaction;
+        $dataImage['url_logo'] = base_url() . '/assets/uploads/banner/' . $logo[0]->image;
+
+         
+         // var_dump($data[0]->image);
+        $this->loadViewsFrontend("frontend/checkorderdetail", $this->global, $dataImage , NULL);
+
+    }
     
 }
 

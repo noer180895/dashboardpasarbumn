@@ -153,6 +153,18 @@ class Transaction_model extends CI_Model
     }
 
 
+    public function transaction_detail($no_order){
+        $this->db->select('product.name as name, trans.no_order as no_order, trans.checkin as checkin, trans.checkout as checkout');
+        $this->db->from('tbl_transaction trans');
+        $this->db->join('tbl_product product', 'trans.id_product=product.productId', 'left');
+        $this->db->group_by('trans.transactionId');
+        $this->db->where('no_order',$no_order);
+        $this->db->where('status','pending');
+        $query = $this->db->get();
+        return $query->result(); 
+    }
+
+
    
 }
 

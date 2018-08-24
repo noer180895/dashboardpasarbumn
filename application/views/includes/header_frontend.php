@@ -61,7 +61,7 @@
                     <?php }else{ ?>
                         <li><a href="<?php echo base_url(); ?>home/promo/">Promo</a></li>
                     <?php } ?>
-                    <li><a href="#">Cek Pesanan</a></li>
+                    <li><a href="<?php echo base_url(); ?>transaction/check_order/">Cek Pesanan</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm">
                     
