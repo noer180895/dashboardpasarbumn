@@ -9,15 +9,15 @@
                             <h4 style="padding-left: 10px;padding-top: 10px;    border-bottom: 1px solid #f3f2f2;   padding-bottom: 15px;">Booking Details</h4>
                             <div class="col-md-4">
                                 <p style="padding-left: 9px">Booked by</p>
-                                <p style="padding-left: 9px; color: black;">Novita Hidayati</p>
+                                <p style="padding-left: 9px; color: black;"><?php echo $data_detail[0]->contact_name; ?></p>
                             </div>
                             <div class="col-md-4">
                                 <p style="padding-left: 9px">Booking Date</p>
-                                <p style="padding-left: 9px; color: black;">3 Sep 2018</p>
+                                <p style="padding-left: 9px; color: black;"><?php echo $data_detail[0]->checkin; ?></p>
                             </div>
                             <div class="col-md-4">
-                                <p style="padding-left: 9px">Booking Date</p>
-                                <p style="padding-left: 9px; color: black;">98436942</p>
+                                <p style="padding-left: 9px">End Booking Date</p>
+                                <p style="padding-left: 9px; color: black;"><?php echo $data_detail[0]->checkout; ?></p>
                             </div>
                           </div>                              
                         </div>
@@ -73,13 +73,13 @@
                                 </div>
                                 </div>                                        
                                 <p>Check-in <p>
-                                <p>Tue, 17 Jul 2018 <p>
+                                <p><?php echo $data_detail[0]->checkin; ?><p>
                                 <p>Check-out <p>
-                                <p>Wed, 18 Jul 2018 <p>
+                                <p><?php echo $data_detail[0]->checkout; ?><p>
                                 <p>Room Type <p>
-                                <p>Business Twin Bed - Room Only <p>
+                                <p><?php echo $data_detail[0]->name; ?> <p>
                                 <p>Booking ID <p>
-                                <p>314884592 <p>   
+                                <p><?php echo $data_detail[0]->no_order; ?><p>   
                                 <p>Special Request <p>  
                                 <p> - <p>                                      
                             </div>
