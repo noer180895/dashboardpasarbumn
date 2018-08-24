@@ -1,0 +1,91 @@
+   <br /><br />  
+           <section class="hotel-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="hotel-item">
+                        <!-- hotel Image-->
+                        <div class="row" style="margin: 1px">
+                          <div class="col-sm-12" style="padding-left: 0px;padding-right: 2px; border-bottom: 1px solid #f3f2f2;">
+                            <h4 style="padding-left: 10px;padding-top: 10px;    border-bottom: 1px solid #f3f2f2;   padding-bottom: 15px;">Booking Details</h4>
+                            <div class="col-md-4">
+                                <p style="padding-left: 9px">Booked by</p>
+                                <p style="padding-left: 9px; color: black;">Novita Hidayati</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p style="padding-left: 9px">Booking Date</p>
+                                <p style="padding-left: 9px; color: black;">3 Sep 2018</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p style="padding-left: 9px">Booking Date</p>
+                                <p style="padding-left: 9px; color: black;">98436942</p>
+                            </div>
+                          </div>                              
+                        </div>
+
+                        <div class="row" style="margin: 1px">
+                          <div class="col-sm-12" style="padding-left: 0px;padding-right: 2px; border-bottom: 1px solid #f3f2f2;">
+                            <h4 style="padding-left: 10px;  padding-bottom: 15px;">Payment</h4>
+                            <div class="col-md-6">
+                                <p style="padding-left: 9px">Payment Methods</p>
+                                <p style="padding-left: 9px; color: black;">Credit Card</p>
+                                <p style="padding-left: 9px; color: black;">INSURANCE</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p style="padding-left: 9px">Payment Status</p>
+                                <button class="buttonactivebook button3" style="background-color: #30a76d!important;padding: 8px; font-size: 11px;width: 104px;">TICKET ISSUED</button>
+                            </div>
+                          </div>                              
+                        </div>
+                        <div class="row" style="margin: 1px">
+                          <div class="col-sm-12" style="padding-left: 0px;padding-right: 2px; border-bottom: 1px solid #f3f2f2;">
+                            <div class="col-md-6">
+                                <p style="padding-left: 9px">Insurances</p>
+                                <p style="padding-left: 9px; color: black;">TTIIDAA1002161</p>
+                            </div>
+                          </div>                              
+                        </div>
+                            <br>
+                          <div class="row" style="padding-left: 20px;">
+                            <div class="col-md-6" >
+                                <button class="btn btn-primary" style="margin-left:5px; margin-right:5px">Receipt</button>
+                                 <button class="btn btn-primary" style="margin-left:5px; margin-right:5px">Download Voucher</button>
+                            </div>
+                            <div class="col-md-6" >
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-default" style="margin-left:5px; margin-right:5px; background-color: #e7e8e8;    border-top-color: #f1f3f3;border-left-color: #f1f3f3;border-right-color: #f1f3f3;    border-bottom-color: #f1f3f3;">Refund</button>
+                                <button class="btn btn-primary" style="margin-left:5px; margin-right:5px">Reschedule</button>
+                            </div>
+                              
+                          </div>
+                    </div>
+                     <div class="hotel-item">
+                        <!-- hotel Image-->
+                        <div class="row" style="margin: 1px">
+                          <div class="col-sm-12" style="padding-left: 0px;padding-right: 2px;">
+                            <h4 style="padding-left: 10px;    border-bottom: 1px solid #f3f2f2;   padding-bottom: 15px;">Hotel Details</h4>
+                            <div class="col-md-12">
+                                <div class="row" style="    margin-bottom: 10px;">
+                                    <div class="col-md-2">
+                                    <img src="assets/images/get-offer-bg.jpg" class="img-resposive" alt="" style="width:50px;height: 50px;">
+                                </div>
+                                <div class="col-md-10">
+                                    <h5><strong>Cakra Kambang Hotel </strong><h5>
+                                </div>
+                                </div>                                        
+                                <p>Check-in <p>
+                                <p>Tue, 17 Jul 2018 <p>
+                                <p>Check-out <p>
+                                <p>Wed, 18 Jul 2018 <p>
+                                <p>Room Type <p>
+                                <p>Business Twin Bed - Room Only <p>
+                                <p>Booking ID <p>
+                                <p>314884592 <p>   
+                                <p>Special Request <p>  
+                                <p> - <p>                                      
+                            </div>
+                          </div>                              
+                        </div>
+                            <br>
+                </div>
+            </div>
+        </section>

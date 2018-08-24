@@ -176,6 +176,35 @@ class transaction extends BaseController
         $this->loadViewsFrontend("frontend/checkorderdetail", $this->global, $dataImage , NULL);
 
     }
+
+
+
+    public function detailorder($no_order)
+    {
+        $this->global['pageTitle'] = 'detail order hotel | train | pesawat';
+
+        
+
+        $this->load->model('transaction_model','transaction');
+        $this->load->model('banner_model','banner');
+
+
+
+
+        $transaction = $this->transaction->transaction_detail($no_order); // get data banner
+        $logo = $this->banner->main_logo(); 
+
+  
+
+        $dataImage = [];
+        $dataImage['data_detail'] = $transaction;
+        $dataImage['url_logo'] = base_url() . '/assets/uploads/banner/' . $logo[0]->image;
+
+         
+         // var_dump($data[0]->image);
+        $this->loadViewsFrontend("frontend/detailorder", $this->global, $dataImage , NULL);
+
+    }
     
 }
 

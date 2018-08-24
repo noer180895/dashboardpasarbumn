@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="row">
                                   <div class="col-sm-8">
-                                      <button class="buttonactivebook button3">WAITING FOR PAYMENT PROOF</button>
+                                      <a href="<?php echo base_url(); ?>transaction/detailorder/<?php echo $value->no_order; ?>" class="buttonactivebook button3">WAITING FOR PAYMENT PROOF</a>
                                   </div>
                                   <div class="col-sm-2" style="width: 78px;">
                                       <h5 style="font-size: 11px;color: #4eb1e7;"><strong>Details<a style="color:#ff4700; "> * </a></strong><h5>
