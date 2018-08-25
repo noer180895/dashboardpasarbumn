@@ -154,7 +154,7 @@ class Transaction_model extends CI_Model
 
 
     public function transaction_detail($no_order){
-        $this->db->select('product.name as name, trans.no_order as no_order, trans.checkin as checkin, trans.checkout as checkout, trans.contact_name');
+        $this->db->select('product.name as name, trans.no_order as no_order, trans.checkin as checkin, trans.checkout as checkout, trans.contact_name, trans.status, product.image');
         $this->db->from('tbl_transaction trans');
         $this->db->join('tbl_product product', 'trans.id_product=product.productId', 'left');
         $this->db->group_by('trans.transactionId');

@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-md-6">
                                 <p style="padding-left: 9px">Payment Status</p>
-                                <button class="buttonactivebook button3" style="background-color: #30a76d!important;padding: 8px; font-size: 11px;width: 104px;">TICKET ISSUED</button>
+                                <button class="buttonactivebook button3" style="background-color: #30a76d!important;padding: 8px; font-size: 11px;width: 104px;"><?php echo $data_detail[0]->status; ?></button>
                             </div>
                           </div>                              
                         </div>
@@ -57,6 +57,7 @@
                             </div>
                               
                           </div>
+                        <br /><br />
                     </div>
                      <div class="hotel-item">
                         <!-- hotel Image-->
@@ -66,10 +67,10 @@
                             <div class="col-md-12">
                                 <div class="row" style="    margin-bottom: 10px;">
                                     <div class="col-md-2">
-                                    <img src="assets/images/get-offer-bg.jpg" class="img-resposive" alt="" style="width:50px;height: 50px;">
+                                    <img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image; ?>" class="img-resposive" alt="" style="width:50px;height: 50px;">
                                 </div>
                                 <div class="col-md-10">
-                                    <h5><strong>Cakra Kambang Hotel </strong><h5>
+                                    <h5><strong><p><?php echo $data_detail[0]->name; ?> <p></strong><h5>
                                 </div>
                                 </div>                                        
                                 <p>Check-in <p>
