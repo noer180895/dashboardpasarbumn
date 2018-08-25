@@ -159,13 +159,13 @@
                                                                         </div>
                                                                         <div class="col-md-8 input-group" style="width: 72px;">
                                                                             <span class="input-group-btn">
-                                                                                      <button style="color:red;background-color: #ffffff;border: 2px solid #ccc8c8;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                                                                                      <button style="color:red;background-color: #ffffff;border: 2px solid #ccc8c8;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[1]">
                                                                                         <span class="glyphicon glyphicon-minus"></span>
                                                                             </button>
                                                                             </span>
-                                                                            <input style=" border: 2px solid #ccc8c8;   background-color: #ffffff;width: 34px; height: 29.988636px;   padding-right: 5px;  padding-left: 5px; padding-top: 5px; padding-bottom: 5px; text-align: center;" type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="100">
+                                                                            <input style=" border: 2px solid #ccc8c8;   background-color: #ffffff;width: 34px; height: 29.988636px;   padding-right: 5px;  padding-left: 5px; padding-top: 5px; padding-bottom: 5px; text-align: center;" type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="100">
                                                                             <span class="input-group-btn">
-                                                                                      <button style="border-top-width: 2px!important;    height: 31px;  background-color:#ffffff;   color: green;   border: 2px solid #ccc8c8;    border-top-width: 0px;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                                                                      <button style="border-top-width: 2px!important;    height: 31px;  background-color:#ffffff;   color: green;   border: 2px solid #ccc8c8;    border-top-width: 0px;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[1]">
                                                                                           <span class="glyphicon glyphicon-plus"></span>
                                                                             </button>
                                                                             </span>
@@ -309,8 +309,8 @@
                                     <a href="#tab_default_1" data-toggle="tab">
                             Top Hotel Destination </a>
                                 </li>
-                                <li>
-                            Top Flight Routes</a>
+                                <li>  <a href="#tab_default_2" data-toggle="tab">
+                            Top Train Routes</a>
                                 </li>
                                 <li>
                                     <a href="#tab_default_3" data-toggle="tab">
@@ -370,12 +370,93 @@
         </div>
     </section>
 </div>
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+
 
 
     <script type="text/javascript">
+
+
         function savedata(){
             localStorage.setItem('checkin',  document.getElementById("checkIn").value);
             localStorage.setItem('checkout',  document.getElementById("checkOut").value);
         }
 
+
+
+
+$('.btn-number').click(function(e) {
+    e.preventDefault();
+
+    fieldName = $(this).attr('data-field');
+    type = $(this).attr('data-type');
+    var input = $("input[name='" + fieldName + "']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if (type == 'minus') {
+
+            if (currentVal > input.attr('min')) {
+                input.val(currentVal - 1).change();
+            }
+            if (parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+            }
+
+        } else if (type == 'plus') {
+
+            if (currentVal < input.attr('max')) {
+                input.val(currentVal + 1).change();
+            }
+            if (parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+            }
+
+        }
+    } else {
+        input.val(0);
+    }
+});
+$('.input-number').focusin(function() {
+    $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+
+    minValue = parseInt($(this).attr('min'));
+    maxValue = parseInt($(this).attr('max'));
+    valueCurrent = parseInt($(this).val());
+
+    name = $(this).attr('name');
+    if (valueCurrent >= minValue) {
+        $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the minimum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    if (valueCurrent <= maxValue) {
+        $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the maximum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+
+
+});
+$(".input-number").keydown(function(e) {
+    // Allow: backspace, delete, tab, escape, enter and .
+    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+        // Allow: Ctrl+A
+        (e.keyCode == 65 && e.ctrlKey === true) ||
+        // Allow: home, end, left, right
+        (e.keyCode >= 35 && e.keyCode <= 39)) {
+        // let it happen, don't do anything
+        return;
+    }
+    // Ensure that it is a number and stop the keypress
+    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+        e.preventDefault();
+    }
+});
+
     </script>
+
+
