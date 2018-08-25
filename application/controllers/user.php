@@ -29,6 +29,63 @@ class User extends BaseController
     }
 
 
+     public function editprofile(){
+        $this->load->model('user_model','user');
+
+        $userId = $this->session->userdata('userId');
+
+
+        $data=[];
+        $data['profile'] = $this->user->profile($userId);
+        $this->loadViewsFrontend("frontend/editprofile", $this->global, $data , NULL);
+    }
+
+
+    public function updateprofile($type)
+    {
+        $this->load->model('user_model','user');
+
+
+        $userId = $this->session->userdata('userId');
+
+        $data = [];
+
+        if($this->input->post('email') != null && $this->input->post('fullname') && $this->input->post('phonenumber')){
+            $data = array(
+                'email' => $this->input->post('email'),
+                 'phone' => $this->input->post('phonenumber'),
+                  'username' => $this->input->post('fullname'),
+                'createdAt' => date("Y-m-d H:i:s"),
+                'updatedAt' => date("Y-m-d H:i:s"),
+            );
+        }else if($this->input->post('email') != null){
+               $data = array(
+                'email' => $this->input->post('email'),
+                'createdAt' => date("Y-m-d H:i:s"),
+                'updatedAt' => date("Y-m-d H:i:s"),
+            );
+        }else if($this->input->post('phonenumber') != null){
+              $data = array(
+                'phone' => $this->input->post('phonenumber'),
+                'createdAt' => date("Y-m-d H:i:s"),
+                'updatedAt' => date("Y-m-d H:i:s"),
+            );
+          }else if($this->input->post('fullname') != null){
+              $data = array(
+                  'username' => $this->input->post('fullname'),
+                'createdAt' => date("Y-m-d H:i:s"),
+                'updatedAt' => date("Y-m-d H:i:s"),
+            );
+        }
+
+        $this->user->updateprofile($userId, $data);
+
+        $this->session->set_flashdata('success', 'Success  Update Profile ');
+        redirect('user/editprofile/');
+    }
+
+
+
     public function user_login(){
 
         $this->loadViewsFrontend("frontend/user_login", $this->global, NULL , NULL);

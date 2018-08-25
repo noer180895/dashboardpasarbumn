@@ -200,6 +200,29 @@ class User_model extends CI_Model
         
         return $this->db->affected_rows();
     }
+
+
+     function profile($userId)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_users');
+        $this->db->where('userId', $userId);
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
+
+      function updateprofile($userId, $data)
+    {
+        $this->db->where('userId', $userId);
+        $this->db->where('isActive', 1);
+        $this->db->update('tbl_users', $data);
+        
+        return $this->db->affected_rows();
+    }
+
+    
 }
 
   
