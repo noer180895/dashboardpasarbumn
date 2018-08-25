@@ -29,6 +29,19 @@ class User extends BaseController
     }
 
 
+     public function purchaselist(){
+        $this->load->model('transaction_model','transaction');
+
+        $userId = $this->session->userdata('userId');
+
+
+        $data=[];
+        $data['transaction_list'] = $this->transaction->transaction_list_all($userId);
+
+        $this->loadViewsFrontend("frontend/purchaselist", $this->global, $data , NULL);
+    }
+
+
      public function editprofile(){
         $this->load->model('user_model','user');
 

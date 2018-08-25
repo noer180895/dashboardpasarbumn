@@ -2,6 +2,7 @@
            <section class="hotel-inner">
             <div class="container">
                 <div class="row">
+                    <?php if($data_detail != null){ ?>
                     <div class="hotel-item">
                         <!-- hotel Image-->
                         <div class="row" style="margin: 1px">
@@ -87,6 +88,11 @@
                           </div>                              
                         </div>
                             <br>
+                
+                    <?php }else{ ?>
+                        <h1><center>Data Detail Not Found</center></h1>
+                    <?php } ?>
+
                 </div>
             </div>
         </section>

@@ -24,7 +24,7 @@
                                     <div style="background-color: #076fce;">
                                         <label>
                                             
-                                                <a href="purchaselist-bookingdetail.html"  style="color: #fff;"><span class="fa fa-list-alt active" style="padding-left:20px; padding-right:20px; color: #fff;"></span> Purchase List</a>
+                                                <a href="<?php echo base_url(); ?>user/purchaselist/"  style="color: #fff;"><span class="fa fa-list-alt active" style="padding-left:20px; padding-right:20px; color: #fff;"></span> Purchase List</a>
                                             
                                         </label>
                                     </div>
@@ -32,7 +32,7 @@
                                 <?php }else{ ?>
                                     <div>
                                         <label>
-                                             <a href="purchaselist-bookingdetail.html" ><span class="fa fa-list-alt" style="padding-left:20px; padding-right:20px; color: #076fce;"></span> Purchase List</a>
+                                             <a href="<?php echo base_url(); ?>user/purchaselist/" ><span class="fa fa-list-alt" style="padding-left:20px; padding-right:20px; color: #076fce;"></span> Purchase List</a>
                                         </label>
                                     </div>
 
