@@ -102,6 +102,37 @@
                                         <h4>Cari Hotelmu Sekarang Juga dan Dapatkan <b>Kemudahannya!</b></h4></center>
                                     <br />
                                     <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="row">
+                                             <div class="col-md-4">
+                <?php
+                    $this->load->helper('form');
+                    $error = $this->session->flashdata('error');
+                    if($error)
+                    {
+                ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <?php echo $this->session->flashdata('error'); ?>                    
+                </div>
+                <?php } ?>
+                <?php  
+                    $success = $this->session->flashdata('success');
+                    if($success)
+                    {
+                ?>
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <?php echo $this->session->flashdata('success'); ?>
+                </div>
+                <?php } ?>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo validation_errors('<div class="alert alert-danger alert-dismissable">', ' <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>'); ?>
+                    </div>
+                </div>
+            </div>
+                                        </div>
                                         <div class="row panel-margin">
                                             <div class="col-xs-12">
                                                 <form action="<?php echo base_url(); ?>product/hotel" method="get" enctype="multipart/form-data">
@@ -138,12 +169,8 @@
                                                                     <br />
                                                                     <label>Check - Out</label>
                                                                     <input type="date" name="checkOut" class="form-control" id="checkOut" />
-                                                                    <div class="validation"></div>
+                                                                
                                                                     <br>
-                                                                    <br />
-                                                                    <span><b>Checkout</b></span>
-                                                                    <br />
-                                                                    <span><b>Thu,14 Jun2018</b></span>
                                                                 </td>
                                                                 <td>
                                                                     <label>&nbsp;</label>
@@ -159,13 +186,13 @@
                                                                         </div>
                                                                         <div class="col-md-8 input-group" style="width: 72px;">
                                                                             <span class="input-group-btn">
-                                                                                      <button style="color:red;background-color: #ffffff;border: 2px solid #ccc8c8;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[1]">
+                                                                                      <button style="color:red;background-color: #ffffff;border: 2px solid #ccc8c8;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quantguest[1]">
                                                                                         <span class="glyphicon glyphicon-minus"></span>
                                                                             </button>
                                                                             </span>
-                                                                            <input style=" border: 2px solid #ccc8c8;   background-color: #ffffff;width: 34px; height: 29.988636px;   padding-right: 5px;  padding-left: 5px; padding-top: 5px; padding-bottom: 5px; text-align: center;" type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="100">
+                                                                            <input style=" border: 2px solid #ccc8c8;   background-color: #ffffff;width: 34px; height: 29.988636px;   padding-right: 5px;  padding-left: 5px; padding-top: 5px; padding-bottom: 5px; text-align: center;" type="text" name="quantguest[1]" class="form-control input-number" value="1" min="1" max="100">
                                                                             <span class="input-group-btn">
-                                                                                      <button style="border-top-width: 2px!important;    height: 31px;  background-color:#ffffff;   color: green;   border: 2px solid #ccc8c8;    border-top-width: 0px;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[1]">
+                                                                                      <button style="border-top-width: 2px!important;    height: 31px;  background-color:#ffffff;   color: green;   border: 2px solid #ccc8c8;    border-top-width: 0px;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-success btn-number" data-type="plus" data-field="quantguest[1]">
                                                                                           <span class="glyphicon glyphicon-plus"></span>
                                                                             </button>
                                                                             </span>
@@ -177,13 +204,13 @@
                                                                         </div>
                                                                         <div class="col-md-8 input-group" style="width: 72px;">
                                                                             <span class="input-group-btn">
-                                                                                      <button style="color:red;background-color: #ffffff;border: 2px solid #ccc8c8;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                                                                                      <button style="color:red;background-color: #ffffff;border: 2px solid #ccc8c8;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quantroom[2]">
                                                                                         <span class="glyphicon glyphicon-minus"></span>
                                                                             </button>
                                                                             </span>
-                                                                            <input style=" border: 2px solid #ccc8c8;   background-color: #ffffff;width: 34px; height: 29.988636px;   padding-right: 5px;  padding-left: 5px; padding-top: 5px; padding-bottom: 5px; text-align: center;" type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="100">
+                                                                            <input style=" border: 2px solid #ccc8c8;   background-color: #ffffff;width: 34px; height: 29.988636px;   padding-right: 5px;  padding-left: 5px; padding-top: 5px; padding-bottom: 5px; text-align: center;" type="text" name="quantroom[2]" class="form-control input-number" value="1" min="1" max="100">
                                                                             <span class="input-group-btn">
-                                                                                      <button style="border-top-width: 2px!important;    height: 31px;  background-color:#ffffff;   color: green;   border: 2px solid #ccc8c8;    border-top-width: 0px;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                                                                                      <button style="border-top-width: 2px!important;    height: 31px;  background-color:#ffffff;   color: green;   border: 2px solid #ccc8c8;    border-top-width: 0px;width: 23.988636px;    height: 29.988636px;    padding-right: 20px;    padding-left: 5px;    padding-top: 5px;    padding-bottom: 5px;    text-align: center;" type="button" class="btn btn-success btn-number" data-type="plus" data-field="quantroom[2]">
                                                                                           <span class="glyphicon glyphicon-plus"></span>
                                                                             </button>
                                                                             </span>
@@ -195,7 +222,7 @@
                                                                     <br />
                                                                     <br />
                                                                     <br />
-                                                                    <a href="hotels-list.html">
+                                                                    <a href="#">
 
                                                                         <input type="submit" class="btn btn-primary" value="Cari Hotel" />
                                                                     </a>
@@ -370,7 +397,7 @@
         </div>
     </section>
 </div>
-    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.min.js" type="text/javascript"></script>
 
 
 

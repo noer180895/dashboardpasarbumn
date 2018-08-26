@@ -60,15 +60,12 @@
                                     <br />
                                 </div>
                                 <div class="col-md-8">
-                                    <p align="left"><b>Business  Twin Bed - Room Only 2 <br />
-                            Twin and Other feat including</b>
-                                        <br />
+                                    <p align="left">
                                         <b>Total</b>
                                 </div>
                                 <div class="col-md-4">
-                                    <p align="right" style="padding-left:100px;">Rp. 300.000, 00
-                                        <br /> Rp. 54.019, 00
-                                        <br /> Rp. 354.019, 00
+                                    <p align="right" style="padding-left:100px;">
+                                        <br /> Rp. <?php echo number_format($data_detail[0]->price, 1, ",", ".") ?>
                                     </p>
                                 </div>
                             </div>
@@ -98,11 +95,11 @@
                             <div class="col-md-12">
                                 <p align="justify" style="padding: 2px;">
                                     Duration of Stay 1 Night
-                                    <br /> Check-in Tue, 17 Jul 2018
-                                    <br /> Check-out Wed, 18 Jul 2018
+                                    <br /> Check-in <?php echo $checkIn; ?>
+                                    <br /> Check-out Wed, <?php echo $checkOut; ?>
                                     <br /> Room Type Business Twin Bed - Room Only
-                                    <br /> No. of rooms 1 Room
-                                    <br /> Guest per Room 2 Guest s
+                                    <br /> No. of rooms <?php echo $room; ?> Room
+                                    <br /> Guest per Room <?php echo $guest; ?> Guest s
                                 </p>
                             </div>
                         </div>

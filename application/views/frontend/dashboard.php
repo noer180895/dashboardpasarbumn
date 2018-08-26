@@ -87,10 +87,14 @@
                                       <div class="col-sm-2" style="width: 78px;">
                                           <h5 style="font-size: 11px;color: #4eb1e7;"><strong>Details<a style="color:#ff4700; "> * </a></strong><h5>
                                       </div>
-                                      <div class="col-md-2">
+                                      
+                                                                          <div class="col-md-2">
                                           <h5><i class="fa fa-ellipsis-h" style="color:#4eb1e7" aria-hidden="true"></i></h5>
-                                      </div>                                      
+                                      </div>
+                                      <br /><br />                                      
                                     </div>
+
+
                                     <div class="seemore" style="width: 629px;height: 20px;">
                                       <h6 style="text-align: center;background-color: #e8e8e8;padding-top: 5px; padding-bottom: 5px; color:#0d7de4;"><a href="#">See More ></a></h6>
                                    </div>

@@ -28,8 +28,15 @@ class transaction extends BaseController
 
 
         $product_hotel = $this->product->hotel_detail($productId); // get data banner
+
+        $check = $this->session->userdata('order_detail');
+
         $dataImage = [];
         $dataImage['data_detail'] = $product_hotel;
+        $dataImage['checkIn'] =  $check['checkIn'];
+         $dataImage['checkOut'] = $check['checkOut'];
+           $dataImage['room'] =  $check['total_room'][2];
+         $dataImage['guest'] = $check['total_guest'][1];
 
 
          // var_dump($data[0]->image);
@@ -63,30 +70,21 @@ class transaction extends BaseController
 
         $productId = $this->input->post('productId');
 
-        $product_hotel = $this->product->hotel_detail($productId); // get data banner
-        $dataImage = [];
-        $dataImage['data_detail'] = $product_hotel;
-
-
-         // var_dump($data[0]->image);
-        $this->loadViewsFrontend("frontend/orderreview", $this->global, $dataImage , NULL);
-
-    }
-
-
-    public function payment()
-    {   
-
-        $this->load->model('product_model','product');
-        $this->load->model('transaction_model','transaction');
-        $check = $this->session->userdata('order_detail');
+         $check = $this->session->userdata('order_detail');
         $dataorder = $this->session->userdata('order');
 
-        $qty = 1;
+        $qty = 0;
+        if($check['total_room'] != null || $check['total_room'] != '' ){
+            $qty =  (int) $check['total_room'][2];
+        }else{
+            $qty=1;
+        }
+
         $disc =0;
         $subtotal = 0;
         $price=0;
         $length = 5;
+
 
         $randomString = substr(str_shuffle("0123456789"), 0, $length);
         $no_order = '0R'. $randomString . date("Ymd");
@@ -108,6 +106,67 @@ class transaction extends BaseController
         
 
 
+        $dataImage = [];
+        $dataImage['data_detail'] = $product_hotel;
+
+        $dataImage['checkIn'] =  $check['checkIn'];
+        $dataImage['checkOut'] = $check['checkOut'];
+        $dataImage['room'] =  $check['total_room'][2];
+        $dataImage['guest'] = $check['total_guest'][1];
+        $dataImage['contact_name'] = $dataorder['contact_name'];
+        $dataImage['total'] = $subtotal;
+
+
+
+         // var_dump($data[0]->image);
+        $this->loadViewsFrontend("frontend/orderreview", $this->global, $dataImage , NULL);
+
+    }
+
+
+    public function payment()
+    {   
+
+        $this->load->model('product_model','product');
+        $this->load->model('transaction_model','transaction');
+        $check = $this->session->userdata('order_detail');
+        $dataorder = $this->session->userdata('order');
+
+        $qty = 0;
+        if($check['total_room'] != null || $check['total_room'] != '' ){
+            $qty =  (int) $check['total_room'][2];
+        }else{
+            $qty=1;
+        }
+
+        $disc =0;
+        $subtotal = 0;
+        $price=0;
+        $length = 5;
+
+
+        $randomString = substr(str_shuffle("0123456789"), 0, $length);
+        $no_order = '0R'. $randomString . date("Ymd");
+
+        $product_hotel = $this->product->hotel_detail($dataorder['id_product']); // get data banner
+
+        if($product_hotel != null){
+            if($product_hotel[0]->disc != null && $product_hotel[0]->disc > 0  ){
+
+                // var_dump($product_hotel[0]->disc / 100 );
+                // var_dump((int) $product_hotel[0]->price);
+                $disc = $product_hotel[0]->disc / 100 *  (int) $product_hotel[0]->price;
+                $subtotal = (int) $product_hotel[0]->price * $qty - $disc;
+            }else{
+               $subtotal = $qty * (int) $product_hotel[0]->price;
+            }
+        }
+
+        
+
+
+
+
         $data = array(
                 'no_order' => $no_order,
                 'id_product' => $dataorder['id_product'],
@@ -118,12 +177,13 @@ class transaction extends BaseController
                 'email' => $dataorder['email'],
                 'guest_fullname' => $dataorder['fullname'],
                 'status' => 'pending',
-                'qty' => 1, // default qty
+                'qty' => $qty, // default qty
                 'disc' => $disc,
                 'subtotal' => $subtotal,
                 'checkin' =>$check['checkIn'],
                 'checkout' =>  $check['checkOut'],
-
+                'total_guest' => $check['total_guest'][1],
+                'total_room' => $qty,
                 'createdAt' => date("Y-m-d H:i:s"),
                 'updatedAt' => date("Y-m-d H:i:s"),
             );
@@ -133,9 +193,24 @@ class transaction extends BaseController
         $dataImage = [];
         $dataImage['data_detail'] = $product_hotel;
 
+
+        $dataImage['checkIn'] =  $check['checkIn'];
+        $dataImage['checkOut'] = $check['checkOut'];
+        $dataImage['room'] =  $check['total_room'][2];
+        $dataImage['guest'] = $check['total_guest'][1];
+        $dataImage['contact_name'] = $dataorder['contact_name'];
+        $dataImage['total'] = $subtotal;
+
+
+
         $this->transaction->save($data);
         $this->session->set_flashdata('success', 'Success Order');
-         $this->loadViewsFrontend("frontend/orderreview", $this->global, $dataImage , NULL);
+
+        // clear cache data order
+
+
+
+        $this->loadViewsFrontend("frontend/orderreview", $this->global, $dataImage , NULL);
     
     }
 

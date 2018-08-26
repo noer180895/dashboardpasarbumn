@@ -28,18 +28,28 @@ class product extends BaseController
 
         $dataOrder = array(
                     'checkIn' => $this->input->get('checkIn'),
-                   'checkOut'  => $this->input->get('checkOut')
+                   'checkOut'  => $this->input->get('checkOut'),
+                   'total_guest' => $this->input->get('quantguest'),
+                   'total_room' => $this->input->get('quantroom')
 
 
                );
         $this->session->set_userdata('order_detail',$dataOrder);
 
-         $dataImage = [];
-         $dataImage['data_hotel'] = $product_hotel;
-         $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
-           $dataImage['url_logo'] = base_url() . '/assets/uploads/banner/' . $logo[0]->image;
-         // var_dump($data[0]->image);
-        $this->loadViewsFrontend("frontend/hotellist", $this->global, $dataImage , NULL);
+
+
+        if($this->input->get('checkIn') == null || $this->input->get('checkIn') == '' || $this->input->get('checkOut') == '' || $this->input->get('checkOut') == null || $this->input->get('quantguest') == null || $this->input->get('quantguest') == '' || $this->input->get('quantroom') == '' || $this->input->get('quantroom') == null){
+            $this->session->set_flashdata('error', 'Please complete form search hotel');
+            redirect('home/index/');
+        }else{
+
+             $dataImage = [];
+             $dataImage['data_hotel'] = $product_hotel;
+             $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
+               $dataImage['url_logo'] = base_url() . '/assets/uploads/banner/' . $logo[0]->image;
+             // var_dump($data[0]->image);
+            $this->loadViewsFrontend("frontend/hotellist", $this->global, $dataImage , NULL);
+        }
 
     }
 
