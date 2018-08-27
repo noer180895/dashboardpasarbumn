@@ -41,6 +41,9 @@ class product extends BaseController
         if($this->input->get('checkIn') == null || $this->input->get('checkIn') == '' || $this->input->get('checkOut') == '' || $this->input->get('checkOut') == null || $this->input->get('quantguest') == null || $this->input->get('quantguest') == '' || $this->input->get('quantroom') == '' || $this->input->get('quantroom') == null){
             $this->session->set_flashdata('error', 'Please complete form search hotel');
             redirect('home/index/');
+        }else if($this->input->get('checkOut') < $this->input->get('checkIn') ){
+            $this->session->set_flashdata('error', 'Checkout cannot less than from Checkin');
+            redirect('home/index/');
         }else{
 
              $dataImage = [];
