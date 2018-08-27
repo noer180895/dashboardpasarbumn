@@ -162,6 +162,7 @@ class Transaction_model extends CI_Model
         $this->db->join('tbl_product product', 'trans.id_product=product.productId', 'left');
         $this->db->group_by('trans.transactionId');
         $this->db->where('status','success');
+         $this->db->where('id_user',$userId);
         $query = $this->db->get();
         return $query->result(); 
     }

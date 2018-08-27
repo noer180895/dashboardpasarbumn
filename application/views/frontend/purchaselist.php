@@ -6,9 +6,9 @@
         	 <?php $this->load->view('includes/_sitemenuuser'); ?>	
 
         	  <div class="col-sm-8 col-md-9">
-                        <label>List Bookings</label>  
-
-                            <?php foreach ($transaction_list as $value) { ?>                
+                        <h1>List Bookings</h1> <hr />
+                          <?php if($transaction_list != null){ 
+                            foreach ($transaction_list as $value) { ?>                
                             <div class="hotel-item" style="width: 629px;height: 176px;">
                                 <div class="row" style="margin: 1px">
                                   <div class="col-sm-6" style="padding-left: 0px;padding-right: 2px;">
@@ -42,6 +42,10 @@
                                       <h5><i class="fa fa-ellipsis-h" style="color:#4eb1e7" aria-hidden="true"></i></h5>
                                   </div>
                                 </div>
+                            </div>
+                          <?php }}else{ ?>
+                            <div class="hotel-item">
+                              <h4>List Data Transaction Empty</h4>
                             </div>
                           <?php } ?>
                         </div>

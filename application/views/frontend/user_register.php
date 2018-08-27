@@ -54,22 +54,22 @@
 
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your Username">
+                                    <input type="text" class="form-control" id="username" name="username" required="true" placeholder="Enter your Username">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter your Email">
+                                    <input type="email" class="form-control" id="email" name="email" required="true"  placeholder="Enter your Email">
                                 </div>
                             
                                 <div class="form-group">
                                     <label>Paswword</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password">
+                                    <input type="password" class="form-control" id="password" required="true"  name="password" placeholder="Enter Your Password">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Confirm Paswword</label>
-                                    <input type="password" class="form-control required equalTo" id="cpassword" name="cpassword" maxlength="10" placeholder="Enter Your Password">
+                                    <input type="password" class="form-control required equalTo" required="true"  id="cpassword" name="cpassword" maxlength="10" placeholder="Enter Your Password">
                                 </div>
                             </div>
                         </div>

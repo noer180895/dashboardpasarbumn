@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="checkbox" name="isguest" value="guest" id="isguest">&nbsp; I am the guest
+                                        <input type="checkbox" name="isguest" value="guest" id="isguest" onclick="enableDisable(this.checked, 'fullname')">&nbsp; I am the guest
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -120,5 +120,9 @@
             localStorage.setItem('fullname',  document.getElementById("fullname").value);
             localStorage.setItem('checkin', 'insert check');
         }
+
+        document.getElementById('isguest').onchange = function() {
+            document.getElementById('fullname').disabled = this.checked;
+        };
 
     </script>

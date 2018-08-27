@@ -47,10 +47,15 @@
                         </div>
                             <br>
                           <div class="row" style="padding-left: 20px;">
-                            <div class="col-md-6" >
-                                <button class="btn btn-primary" style="margin-left:5px; margin-right:5px">Receipt</button>
-                                 <button class="btn btn-primary" style="margin-left:5px; margin-right:5px">Download Voucher</button>
-                            </div>
+
+                            <?php if($data_detail[0]->status != 'pending') { ?>
+                                <div class="col-md-6" >
+                                    <button class="btn btn-primary" style="margin-left:5px; margin-right:5px">Receipt</button>
+                                     <button class="btn btn-primary" style="margin-left:5px; margin-right:5px">Download Voucher</button>
+                                </div>
+                            <?php }else{ ?>
+                            <div class="col-md-6"></div>
+                            <?php } ?>
                             <div class="col-md-6" >
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button class="btn btn-default" style="margin-left:5px; margin-right:5px; background-color: #e7e8e8;    border-top-color: #f1f3f3;border-left-color: #f1f3f3;border-right-color: #f1f3f3;    border-bottom-color: #f1f3f3;">Refund</button>
