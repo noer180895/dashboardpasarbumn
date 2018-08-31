@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <p align="right" style="padding-left:100px;">
-                                        <br /> Rp. <?php echo number_format($data_detail[0]->price, 1, ",", ".") ?>
+                                        <br /> Rp. <?php echo number_format($subtotal, 1, ",", ".") ?>
                                     </p>
                                 </div>
                             </div>

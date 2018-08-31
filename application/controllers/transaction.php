@@ -31,12 +31,40 @@ class transaction extends BaseController
 
         $check = $this->session->userdata('order_detail');
 
+
+        $productId = $this->input->post('productId');
+        $qty = 0;
+        if($check['total_room'] != null || $check['total_room'] != '' ){
+            $qty =  (int) $check['total_room'][2];
+        }else{
+            $qty=1;
+        }
+
+        $disc =0;
+        $subtotal = 0;
+        $price=0;
+        $length = 5;
+
+
+        if($product_hotel != null){
+            if($product_hotel[0]->disc != null && $product_hotel[0]->disc > 0  ){
+                $disc = $product_hotel[0]->disc / 100 *  (int) $product_hotel[0]->price;
+                $subtotal = (int) $product_hotel[0]->price * $qty - $disc;
+            }else{
+               $subtotal = $qty * (int) $product_hotel[0]->price;
+            }
+        }
+
+
+
+
         $dataImage = [];
         $dataImage['data_detail'] = $product_hotel;
         $dataImage['checkIn'] =  $check['checkIn'];
-         $dataImage['checkOut'] = $check['checkOut'];
-           $dataImage['room'] =  $check['total_room'][2];
-         $dataImage['guest'] = $check['total_guest'][1];
+        $dataImage['checkOut'] = $check['checkOut'];
+        $dataImage['room'] =  $check['total_room'][2];
+        $dataImage['guest'] = $check['total_guest'][1];
+        $dataImage['subtotal'] = $subtotal;
 
 
          // var_dump($data[0]->image);

@@ -15,7 +15,7 @@
     <!-- Base Css -->
     <link href="<?php echo base_url(); ?>assets/css/base.css" rel="stylesheet" type="text/css" />
 
-      <script type="text/javascript">
+    <script type="text/javascript">
       var baseURL = "<?php echo base_url(); ?>";
     </script>
 </head>

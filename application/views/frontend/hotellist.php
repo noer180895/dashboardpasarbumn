@@ -50,10 +50,9 @@
                         <div class="cats-title">
                             Price
                         </div>
-                        <div class="price-Pips">
-                            <span class="irs js-irs-0 irs-with-grid"><span class="irs"><span class="irs-line" tabindex="-1"><span class="irs-line-left"></span><span class="irs-line-mid"></span><span class="irs-line-right"></span></span><span class="irs-min" style="visibility: visible;">$0</span><span class="irs-max" style="visibility: visible;">$200</span><span class="irs-from" style="visibility: visible; left: 20.3202%;">$50</span><span class="irs-to" style="visibility: visible; left: 64.9015%;">$150</span><span class="irs-single" style="visibility: hidden; left: 34.7291%;">$50 — $150</span></span><span class="irs-grid" style="width: 92.1182%; left: 3.84089%;"><span class="irs-grid-pol" style="left: 0%"></span><span class="irs-grid-text js-grid-text-0" style="left: 0%; margin-left: -2.70936%;">0</span><span class="irs-grid-pol small" style="left: 20%"></span><span class="irs-grid-pol small" style="left: 15%"></span><span class="irs-grid-pol small" style="left: 10%"></span><span class="irs-grid-pol small" style="left: 5%"></span><span class="irs-grid-pol" style="left: 25%"></span><span class="irs-grid-text js-grid-text-1" style="left: 25%; visibility: visible; margin-left: -4.18719%;">50</span><span class="irs-grid-pol small" style="left: 45%"></span><span class="irs-grid-pol small" style="left: 40%"></span><span class="irs-grid-pol small" style="left: 35%"></span><span class="irs-grid-pol small" style="left: 30%"></span><span class="irs-grid-pol" style="left: 50%"></span><span class="irs-grid-text js-grid-text-2" style="left: 50%; visibility: visible; margin-left: -5.41872%;">100</span><span class="irs-grid-pol small" style="left: 70%"></span><span class="irs-grid-pol small" style="left: 65%"></span><span class="irs-grid-pol small" style="left: 60%"></span><span class="irs-grid-pol small" style="left: 55%"></span><span class="irs-grid-pol" style="left: 75%"></span><span class="irs-grid-text js-grid-text-3" style="left: 75%; visibility: visible; margin-left: -5.41872%;">150</span><span class="irs-grid-pol small" style="left: 95%"></span><span class="irs-grid-pol small" style="left: 90%"></span><span class="irs-grid-pol small" style="left: 85%"></span><span class="irs-grid-pol small" style="left: 80%"></span><span class="irs-grid-pol" style="left: 100%"></span><span class="irs-grid-text js-grid-text-4" style="left: 100%; margin-left: -5.17241%;">200</span></span><span class="irs-bar" style="left: 26.9704%; width: 46.0591%;"></span><span class="irs-shadow shadow-from" style="display: none;"></span><span class="irs-shadow shadow-to" style="display: none;"></span><span class="irs-slider from" style="left: 23.0296%;"></span><span class="irs-slider to type_last" style="left: 69.0887%;"></span></span>
-                            <input type="text" id="range" value="range" name="range" class="irs-hidden-input" readonly="">
-                        </div>
+                         <div class="price-Pips">
+                                    <input type="text" id="range" value="range" name="range" />
+                                </div>
                     </div>
                     <!-- star -->
                     <div class="sidber-box cats-star">
@@ -253,14 +252,17 @@
                     <?php } ?>
                       
                     </div>
+
+
+                   
                     <!-- pagination -->
-                    <div class="pagination-inner">
-                        <!-- pager -->
+                   <!--  <div class="pagination-inner">
+                     
                         <ul class="pager">
                             <li class="previous"><a href="#">Previous</a></li>
                             <li class="next"><a href="#">Next</a></li>
                         </ul>
-                        <!-- pagination -->
+                     
                         <ul class="pagination">
                             <li><a href="#">1</a></li>
                             <li class="active"><a href="#">2</a></li>
@@ -269,9 +271,27 @@
                             <li><a href="#">...</a></li>
                             <li><a href="#">15</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </section>
 </div>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.min.js" type="text/javascript"></script>
+
+    <script src="<?php echo base_url(); ?>assets/js/ion.rangeSlider.min.js" type="text/javascript"></script>
+
+
+
+<script>
+    //range slide
+    $("#range").ionRangeSlider({
+        type: "double",
+        grid: true,
+        min: 0,
+        max: 200,
+        from: 50,
+        to: 150,
+        prefix: "$"
+    });
+</script>
