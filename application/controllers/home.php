@@ -148,6 +148,32 @@ class Home extends BaseController
 
 
 
+    public function contactme(){
+        $this->loadViewsFrontend("frontend/contactme", $this->global, NULL , NULL);
+    }
+
+    public function save_contact(){
+         $data = array(
+                'bookingid' => $this->input->post('bookingid'),
+                'product_id' => $this->input->post('product_id'),
+                'name' => $this->input->post('name'),
+                'email' => $this->input->post('email'),
+                'description' => $this->input->post('description'),
+                'createdAt' => date("Y-m-d H:i:s"),
+                'updatedAt' => date("Y-m-d H:i:s"),
+            );
+        
+        
+        $this->admin->save($data);
+        $this->session->set_flashdata('success', 'Success Contact');
+        redirect('home/contactme/');
+        
+    }
+
+
+     public function checkhowtoorder(){
+        $this->loadViewsFrontend("frontend/checkhowtoorder", $this->global, NULL , NULL);
+    }
     
 }
 
