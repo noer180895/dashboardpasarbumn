@@ -125,14 +125,17 @@ class BaseController extends CI_Controller {
      */
     function loadViewsFrontend($viewName = "", $headerInfo = NULL, $pageInfo = NULL, $footerInfo = NULL, $dataLogin = NULL){
 
-    	if( $this->session->userdata ( 'role' ) == TRUE ||  $this->session->userdata ( 'role' ) != null){
+    	
+    	if($this->session->userdata != null){
+	    	if( $this->session->userdata ( 'role' ) == TRUE ||  $this->session->userdata ( 'role' ) != null){
 
-    		$headerInfo['isLogin'] = 1;
-    		$headerInfo['username'] = $this->session->userdata('username');
+	    		$headerInfo['isLogin'] = 1;
+	    		$headerInfo['username'] = $this->session->userdata('username');
 
-    	}else{
-			$headerInfo['isLogin'] = 0;    		
-    	}
+	    	}else{
+				$headerInfo['isLogin'] = 0;    		
+	    	}
+	    }
     	
         $this->load->view('includes/header_frontend', $headerInfo);
         $this->load->view($viewName, $pageInfo);
