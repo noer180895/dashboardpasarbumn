@@ -71,7 +71,7 @@ class manage_banner extends BaseController
         }
 
 
-        $data['type'] = array("mainbanner"=>"Main Banner","gambarbarcode"=>"Gambar Barcode", "promoaplikasi" => "Promo Aplikasi",  "partners" => "Partners", "logo" => "logo", "dealpopular" => "Dealpopular", "playstore" => "playstore"); 
+        $data['type'] = array("mainbanner"=>"Main Banner","gambarbarcode"=>"Gambar Barcode", "promoaplikasi" => "Promo Aplikasi",  "partners" => "Partners", "logo" => "logo", "dealpopular" => "Dealpopular", "playstore" => "playstore", "steporder" => "Step Order"); 
 
         $this->global['pageTitle'] = 'Manage Add banner';
             

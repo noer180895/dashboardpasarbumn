@@ -1,33 +1,44 @@
-<br />
-<br />
-<section class="contact-inner">
-  <div class="container">
+  <div class="row">
+        <div class="col-md-12">
 
+            <img src="<?php echo $url_banner; ?>" class="img-resposive" alt="">
+        </div>
+    </div>
+  <section class="hotel-inner">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#home">Pesawat</a></li>
-          <li><a data-toggle="tab" href="#menu1">Kereta Api</a></li>
-          <li><a data-toggle="tab" href="#menu2">Hotel</a></li>
-          <li><a data-toggle="tab" href="#menu3">Retail</a></li>
+        <ul class="nav nav-tabs" style="margin-left:300px;">
+          <li class="active"><a data-toggle="tab" href="#hotel">Hotel</a></li>
+          <li ><a data-toggle="tab" href="#flight">Pesawat</a></li>
+          <li><a data-toggle="tab" href="#train">Kereta Api</a></li>    
+          <li><a data-toggle="tab" href="#retail">Retail</a></li>
         </ul>
 
         <div class="tab-content">
           <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h3>Hotel Step Order</h3><hr />
+            <?php foreach ($steporderhotel as $data) { ?>
+              <img src="<?php echo base_url() . '/assets/uploads/steporder/' .$data-> image; ?>" alt="" class="img-responsive">
+            <?php } ?>
           </div>
-          <div id="menu1" class="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div id="flight" class="tab-pane fade">
+            <h3>Flight Step Order</h3><hr />
+            <?php foreach ($steporderflight as $data) { ?>
+              <img src="<?php echo base_url() . '/assets/uploads/steporder/' .$data-> image; ?>" alt="" class="img-responsive">
+            <?php } ?>
           </div>
-          <div id="menu2" class="tab-pane fade">
-            <h3>Menu 2</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <div id="train" class="tab-pane fade">
+            <h3>Flight Step Train</h3><hr />
+            <?php foreach ($stepordertrain as $data) { ?>
+              <img src="<?php echo base_url() . '/assets/uploads/steporder/' .$data-> image; ?>" alt="" class="img-responsive">
+            <?php } ?>
           </div>
-          <div id="menu3" class="tab-pane fade">
-            <h3>Menu 3</h3>
-            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          <div id="retail" class="tab-pane fade">
+            <h3>Flight Step Retail</h3><hr />
+            <?php foreach ($steporderretail as $data) { ?>
+              <img src="<?php echo base_url() . '/assets/uploads/steporder/' .$data-> image; ?>" alt="" class="img-responsive">
+            <?php } ?>
           </div>
         </div>
       </div>

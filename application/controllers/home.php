@@ -172,7 +172,26 @@ class Home extends BaseController
 
 
      public function checkhowtoorder(){
-        $this->loadViewsFrontend("frontend/checkhowtoorder", $this->global, NULL , NULL);
+        $this->load->model('banner_model','banner');
+        $this->load->model('product_model','product');
+
+        $banner = $this->banner->main_steporder(); 
+        $steporderhotel = $this->product->steporder('hotel'); 
+        $stepordertrain = $this->product->steporder('train');
+        $steporderflight = $this->product->steporder('flight');
+         $steporderretail = $this->product->steporder('retail');
+
+
+        $dataImage = [];
+        $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
+
+        $dataImage['steporderhotel'] = $steporderhotel;
+        $dataImage['stepordertrain'] = $stepordertrain;
+        $dataImage['steporderflight'] = $steporderflight;
+        $dataImage['steporderretail'] = $steporderretail;
+
+
+        $this->loadViewsFrontend("frontend/checkhowtoorder", $this->global, $dataImage , NULL);
     }
     
 }

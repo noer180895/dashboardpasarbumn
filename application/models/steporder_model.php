@@ -1,12 +1,12 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Product_model extends CI_Model
+class Steporder_model extends CI_Model
 {
 
-    var $table = 'tbl_product';
+    var $table = 'tbl_steporder';
     var $column_order = array('name',null); //set column field database for datatable orderable
     var $column_search = array('name'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-    var $order = array('productId' => 'desc'); // default order 
+    var $order = array('id' => 'desc'); // default order 
 
     public function __construct()
     {
@@ -17,7 +17,7 @@ class Product_model extends CI_Model
     public function _get_datatables_query()
     {
         
-        $this->db->from('tbl_product');
+        $this->db->from('tbl_steporder');
 
         $i = 0;
     
@@ -78,7 +78,7 @@ class Product_model extends CI_Model
     public function get_by_id($id)
     {
         $this->db->from($this->table);
-        $this->db->where('productId',$id);
+        $this->db->where('id',$id);
         $query = $this->db->get();
 
         return $query->row();
@@ -98,7 +98,7 @@ class Product_model extends CI_Model
 
     public function delete_by_id($id)
     {
-        $this->db->where('productId', $id);
+        $this->db->where('id', $id);
         $this->db->delete($this->table);
     }
 
@@ -110,24 +110,7 @@ class Product_model extends CI_Model
     }
 
 
-     public function main_hotel($search = NULL){
-        $this->db->select('*');
-        $this->db->from('tbl_product');
-        $this->db->where('location_name',$search);
-        $query = $this->db->get();
-        return $query->result(); 
-    }
-
-
-    public function hotel_detail($id){
-        $this->db->select('*');
-        $this->db->from('tbl_product');
-        $this->db->where('productId',$id);
-        $query = $this->db->get();
-        return $query->result(); 
-    }
-
-     public function steporder($type = NULL){
+      public function steporder($type = NULL){
         $this->db->select('*');
         $this->db->from('tbl_steporder');
         $this->db->where('type',$type);
@@ -135,8 +118,5 @@ class Product_model extends CI_Model
         return $query->result(); 
     }
 
-
-   
 }
-
   

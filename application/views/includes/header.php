@@ -185,6 +185,13 @@
 
 
 
+            <li class="treeview">
+            <a href="<?php echo base_url(); ?>manage_steporder/">
+            <i class="fa fa-file"></i>
+            <span>Manage Step Order</span>
+            </a>
+          </li>
+
 
 
            <li class="treeview">
