@@ -4,7 +4,7 @@
             <img src="<?php echo $url_banner; ?>" class="img-resposive" alt="">
         </div>
     </div>
-  <section class="hotel-inner">
+  <section class="cona">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -16,7 +16,7 @@
         </ul>
 
         <div class="tab-content">
-          <div id="home" class="tab-pane fade in active">
+          <div class="tab-pane fade in active" id="home" >
             <h3>Hotel Step Order</h3><hr />
             <?php foreach ($steporderhotel as $data) { ?>
               <img src="<?php echo base_url() . '/assets/uploads/steporder/' .$data-> image; ?>" alt="" class="img-responsive">

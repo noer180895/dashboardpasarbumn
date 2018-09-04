@@ -193,6 +193,14 @@
           </li>
 
 
+            <li class="treeview">
+            <a href="<?php echo base_url(); ?>manage_career/">
+            <i class="fa fa-file"></i>
+            <span>Manage Career</span>
+            </a>
+          </li>
+
+
 
            <li class="treeview">
             <a href="<?php echo base_url(); ?>logout/">

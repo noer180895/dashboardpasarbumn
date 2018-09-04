@@ -48,9 +48,8 @@
                                 <ul class="categoty">
                                     <li><a href="<?php echo base_url(); ?>home/contactme/" class="tulwarfooter">Hubungi Kami</a></li>
                                     <li><a href="<?php echo base_url(); ?>home/checkhowtoorder/" class="tulwarfooter">Cara Pemesanan Ticket</a></li>
-                                    <li><a href="#" class="tulwarfooter">Cara Pemesanan Produk Retail</a></li>
                                     <li><a href="<?php echo base_url(); ?>home/help/" class="tulwarfooter">Bantuan</a></li>
-                                    <li><a href="#" class="tulwarfooter">Karir</a></li>
+                                    <li><a href="<?php echo base_url(); ?>home/listcareer/" class="tulwarfooter">Karir</a></li>
                                 </ul>
                             </div>
                         </div>

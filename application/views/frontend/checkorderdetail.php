@@ -1,6 +1,6 @@
 <br /><br /><br />
 <!-- hotel -->
-<section class="hotel-inner">
+<section class="contact-inner">
     <div class="container">
         <div class="row">
           

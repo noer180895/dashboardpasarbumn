@@ -16,6 +16,7 @@ class Home extends BaseController
     {
         $this->global['pageTitle'] = 'Home';
         $this->load->model('banner_model','banner');
+         $this->load->model('promo_model','promo');
 
         $banner = $this->banner->main_banner(); // get data banner
         $barcode = $this->banner->main_barcode(); // get data banner
@@ -24,6 +25,7 @@ class Home extends BaseController
         $logo = $this->banner->main_logo(); 
         $dealpopular = $this->banner->main_dealpopular();
         $playstore = $this->banner->main_playstore();
+        $datapromo = $this->promo->main_promo();
 
          $dataImage = [];
          $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
@@ -33,6 +35,8 @@ class Home extends BaseController
          $dataImage['url_logo'] = base_url() . '/assets/uploads/banner/' . $logo[0]->image;
          $dataImage['url_dealpopular'] = $dealpopular;
          $dataImage['url_playstore'] = base_url() . '/assets/uploads/banner/' . $playstore[0]->image;
+         $dataImage['data_promo'] = $datapromo;
+
 
 
 
@@ -192,6 +196,21 @@ class Home extends BaseController
 
 
         $this->loadViewsFrontend("frontend/checkhowtoorder", $this->global, $dataImage , NULL);
+    }
+
+
+
+     public function listcareer(){
+        $this->load->model('career_model','career');
+
+        $career = $this->career->main_career(); 
+
+
+        $dataImage = [];
+        $dataImage['datacareer'] = $career;
+
+
+        $this->loadViewsFrontend("frontend/listcareer", $this->global, $dataImage , NULL);
     }
     
 }

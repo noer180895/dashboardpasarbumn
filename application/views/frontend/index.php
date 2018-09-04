@@ -281,7 +281,7 @@
             <div class="row thm-margin">
 
 
-                <?php foreach ($url_dealpopular as $key => $value) { ?>
+               <!--  <?php foreach ($url_dealpopular as $key => $value) { ?>
                 <div class="col-md-4 col-sm-4 thm-padding">
                     <div class="destination-grid">
                         <a href="#"><img src="<?php echo base_url() . '/assets/uploads/banner/' .$value -> image; ?>" class="img-responsive" alt=""></a>
@@ -302,7 +302,25 @@
                         </div>
                     </div>
                 </div>
-<?php } ?>
+<?php } ?> -->
+
+                 <?php foreach ($data_promo as $value) {  ?>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="blog-content">
+                            <div class="blog-img image-hover">
+                                <a href="#">
+                                    <img src="<?php echo base_url() . '/assets/uploads/promo/' . $value->image; ?>" class="img-responsive" alt="" style="width:300px;height: 150px;">                                </a>
+                            </div>
+                            <h4><a href="#"><?php echo $value->name; ?></a></h4>
+                            <p>
+                                <b>Start Promo</b> : <?php echo $value->start_promo; ?><br />
+                                <b>End  Promo</b>  : <?php echo $value->start_promo; ?>
+                            </p>
+                            <a class="thm-btn" href="<?php echo base_url() . 'home/detailpromo/'. $value->idPromo; ?>">See More..</a>
+                        </div>
+                    </div>
+                <?php } ?>
+
             </div>
         </div>
     </section>
