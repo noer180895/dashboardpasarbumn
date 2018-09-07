@@ -204,11 +204,6 @@
                                         </select>
                             </div>
 
-                            <div class="col-sm-3 col-md-4 hidden-xs text-right">
-                                <a class="filters-btn collapse" data-toggle="collapse" href="#collapseMap" onclick="init();"><i class="flaticon-earth-globe"></i></a>
-                                <a href="hotels-grid.html" class="filters-btn"><i class="flaticon-squares-gallery-grid-layout-interface-symbol"></i></a>
-                                <a href="hotels-list.html" class="filters-btn"><i class="flaticon-bulleted-list"></i></a>
-                            </div>
                         </div>
                     </div>
                     <div class="hotel-list-content">
