@@ -1,6 +1,11 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 require APPPATH . '/libraries/BaseController.php';
+require APPPATH . '/libraries/Doku/Initiate.php';
+require APPPATH . '/libraries/Doku/Library.php';
+require APPPATH . '/libraries/Doku/Api.php';
+
+
 
 class transaction extends BaseController
 {
@@ -231,8 +236,51 @@ class transaction extends BaseController
 
 
 
-        $this->transaction->save($data);
-        $this->session->set_flashdata('success', 'Success Order');
+
+
+
+
+        if($this->transaction->save($data)){
+            // doku payment integrasi
+            date_default_timezone_set('Asia/Jakarta');
+            Doku_Initiate::$sharedKey = '6nVo4l9q4VEY' ;
+            Doku_Initiate::$mallId = '5537';
+
+            $params = array('amount' => $subtotal, 'invoice' => $no_order, 'currency' => '360');
+            $words = Doku_Library::doCreateWords($params);  
+
+
+            $customer = array('name' => 'TEST NAME','data_phone' => '08121111111', 'data_email' => 'test@test.com', 'data_address' => 'bojong gede #1 08/01');
+            $dataPayment = array('req_mall_id' => '5537', 'req_chain_merchant' => 'NA', 'req_amount' => $subtotal, 'req_words' => $words, 'req_trans_id_merchant' => $no_order, 'req_purchase_amount' => $subtotal, 'req_request_date_time' => date('YmdHis'), 'req_session_id' => sha1(date('YmdHis')), 'req_email' => $dataorder['email'], 'req_name' => $dataorder['fullname'], 'req_basket' => 'sayur,10000.00,1,10000.00;', 'req_address' => 'Jl Kembang 1 No 5 Cilandak Jakarta', 'req_mobile_phone' => '081987987999', 'req_expiry_time' => '360');
+
+
+            $response = Doku_Api::doGeneratePaycode($dataPayment);
+
+            if($response->res_response_code == '0000'){
+                    
+                // update status transaction
+                $data = array('status' => 'success');
+                $this->transaction->update(array('no_order' => $no_order), $data);
+
+
+                $dataOrder = array(
+                   'payment_code'  => $response->res_pairing_code,
+                   'amount' => $subtotal
+                );
+                $this->session->set_userdata('orderpayment',$dataOrder);
+
+
+                $this->session->set_flashdata('success', 'Success Order');
+                redirect('transaction/paymentfinish/');
+
+            }else{
+               $this->session->set_flashdata('error', 'Failed Order');     
+            }
+
+            
+
+
+        }
 
         // clear cache data order
 
@@ -241,6 +289,25 @@ class transaction extends BaseController
         $this->loadViewsFrontend("frontend/orderreview", $this->global, $dataImage , NULL);
     
     }
+
+
+
+    public function paymentfinish()
+    {
+        $this->global['pageTitle'] = 'payment finish transaction hotel | train | pesawat';
+
+        $orderpayment = $this->session->userdata('orderpayment');
+
+
+        $data = [];
+        $data['payment'] = $orderpayment;
+
+         // var_dump($data[0]->image);
+        $this->loadViewsFrontend("frontend/paymentfinish", $this->global, $data , NULL);
+
+    }
+
+
 
     public function check_order()
     {
