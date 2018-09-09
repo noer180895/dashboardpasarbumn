@@ -25,14 +25,31 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 
-                <h3>Virtual Account Permata Bank</h3>
-                <div class="separator"></div>
+                <center><h1>Segera Selesaikan Pembayaran Anda</h1></center>
+                   <div class="separator"></div>
+                <br />
+
+
+                <span>Pastikan transaksi Permata Bank Virtual Account Anda telah terverifikasi sebelum melakukan transaksi kembali dengan metode yang sama.</span><br />
+
+                <span>Jumlah Yang Harus Dibayar</span><br /><br />
+                <b>Rp. <?php echo number_format($payment['amount'], 1, ",", ".") ?></b>
+
+
+
+
+                <h3>Transfer pembayaran ke number Virtual Account Permata Bank</h3>
+             
                 <p>
-                  <?php echo $payment['payment_code']; ?>
+                 
+                  <img src=" <?php echo base_url() . 'assets\images\permata.png'; ?>" class="img-responsive" alt="" style="width:200px;height: 50px;"><br />                  <b><?php echo $payment['payment_code']; ?></b>
                 </p>
                
                 
             </div>
+
+            <div class="col-md-10"></div>
+            <div class="col-md-2">  <div class="btn-group btn-group-lg"><button class="btn btn-success">Finish</button></div></div>
             
         </div>
     </div>

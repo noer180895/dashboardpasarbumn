@@ -250,11 +250,13 @@ class transaction extends BaseController
             $words = Doku_Library::doCreateWords($params);  
 
 
+
             $customer = array('name' => 'TEST NAME','data_phone' => '08121111111', 'data_email' => 'test@test.com', 'data_address' => 'bojong gede #1 08/01');
             $dataPayment = array('req_mall_id' => '5537', 'req_chain_merchant' => 'NA', 'req_amount' => $subtotal, 'req_words' => $words, 'req_trans_id_merchant' => $no_order, 'req_purchase_amount' => $subtotal, 'req_request_date_time' => date('YmdHis'), 'req_session_id' => sha1(date('YmdHis')), 'req_email' => $dataorder['email'], 'req_name' => $dataorder['fullname'], 'req_basket' => 'sayur,10000.00,1,10000.00;', 'req_address' => 'Jl Kembang 1 No 5 Cilandak Jakarta', 'req_mobile_phone' => '081987987999', 'req_expiry_time' => '360');
 
 
             $response = Doku_Api::doGeneratePaycode($dataPayment);
+
 
             if($response->res_response_code == '0000'){
                     
