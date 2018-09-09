@@ -117,10 +117,3 @@
         </div>
     </div>
 </section>
-
-
-   <script type="text/javascript">
-    function saveData(){
-        alert('success save data');
-      }
-    </script>    

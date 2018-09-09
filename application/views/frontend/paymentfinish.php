@@ -49,7 +49,7 @@
             </div>
 
             <div class="col-md-10"></div>
-            <div class="col-md-2">  <div class="btn-group btn-group-lg"><button class="btn btn-success">Finish</button></div></div>
+            <div class="col-md-2">  <div class="btn-group btn-group-lg"><a href="<?php echo base_url(); ?>user/dashboard/"><button class="btn btn-success">Finish</button></a></div></div>
             
         </div>
     </div>
