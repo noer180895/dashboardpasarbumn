@@ -9,7 +9,7 @@
                     <h2 id="data"></h2>
                     <div class="sidber-box cats-widget" style="padding: 15px;">
                         <div class="col-md-4">
-                            <img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image; ?>" class="img-responsive" alt="">
+                            <img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image0; ?>" class="img-responsive" alt="">
                         </div>
                         <div class="col-md-8">
                             <b><?php echo $data_detail[0]->name; ?></b>

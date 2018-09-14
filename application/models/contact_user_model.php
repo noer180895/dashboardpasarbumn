@@ -1,12 +1,12 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Admin_model extends CI_Model
+class contact_user_model extends CI_Model
 {
 
-    var $table = 'tbl_users';
-    var $column_order = array('usr.username','usr.email', 'usr.roleId',null); //set column field database for datatable orderable
-    var $column_search = array('usr.username','usr.email','usr.roleId'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-    var $order = array('usr.userId' => 'desc'); // default order 
+    var $table = 'tbl_contact_user';
+    var $column_order = array('name',null); //set column field database for datatable orderable
+    var $column_search = array('name'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+    var $order = array('contactId' => 'desc'); // default order 
 
     public function __construct()
     {
@@ -14,13 +14,10 @@ class Admin_model extends CI_Model
         // $this->load->database();
     }
 
-    private function _get_datatables_query()
+    public function _get_datatables_query()
     {
-        $this->db->select('usr.userId, usr.firstname, usr.lastname, usr.username, usr.email, usr.isActive, usr.createdAt, usr.updatedAt, role.role ');
-        $this->db->from('tbl_users usr');
-        $this->db->join('tbl_roles role', 'usr.roleId=role.roleId', 'left');
-        $this->db->group_by('usr.userId');
-        $this->db->order_by('usr.userId', 'desc');
+        
+        $this->db->from('tbl_contact_user');
 
         $i = 0;
     
@@ -31,6 +28,7 @@ class Admin_model extends CI_Model
                 
                 if($i===0) // first loop
                 {
+                    // $this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
                     $this->db->like($item, $_POST['search']['value']);
                 }
                 else
@@ -38,6 +36,8 @@ class Admin_model extends CI_Model
                     $this->db->or_like($item, $_POST['search']['value']);
                 }
 
+                // if(count($this->column_search) - 1 == $i) //last loop
+                    // $this->db->group_end(); //close bracket
             }
             $i++;
         }
@@ -53,7 +53,7 @@ class Admin_model extends CI_Model
         }
     }
 
-    function get_datatables()
+    public function get_datatables()
     {
         $this->_get_datatables_query();
         if($_POST['length'] != -1)
@@ -62,7 +62,7 @@ class Admin_model extends CI_Model
         return $query->result();
     }
 
-    function count_filtered()
+    public function count_filtered()
     {
         $this->_get_datatables_query();
         $query = $this->db->get();
@@ -78,7 +78,7 @@ class Admin_model extends CI_Model
     public function get_by_id($id)
     {
         $this->db->from($this->table);
-        $this->db->where('userId',$id);
+        $this->db->where('contactId',$id);
         $query = $this->db->get();
 
         return $query->row();
@@ -98,7 +98,7 @@ class Admin_model extends CI_Model
 
     public function delete_by_id($id)
     {
-        $this->db->where('userId', $id);
+        $this->db->where('contactId', $id);
         $this->db->delete($this->table);
     }
 
@@ -109,27 +109,8 @@ class Admin_model extends CI_Model
         return $query->result();
     }
 
-
-    function getUserRoles()
-    {
-        $this->db->select('roleId, role');
-        $this->db->from('tbl_roles');
-        $query = $this->db->get();
-        
-        return $query->result();
-    }
-
-
-
-    function checkEmailExists($email, $userId = 0)
-    {
-        $this->db->select("email");
-        $this->db->from("tbl_users");
-        $this->db->where("email", $email); 
-        $query = $this->db->get();
-
-        return $query->result();
-    }
+    
 
 }
 
+  

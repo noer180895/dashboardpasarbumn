@@ -67,7 +67,7 @@ class manage_product extends BaseController
         $this->global['pageTitle'] = 'Manage Add product';
         if($productId != null){
             $data['product'] = $this->product->get_by_id($productIdInt);
-            $data['url_image'] = base_url(). 'assets/uploads/product/'. $data['product']->image;
+            $data['url_image'] = base_url(). 'assets/uploads/product/'. $data['product']->image0;
         }else{
             $data['product'] = null;
         }
@@ -111,7 +111,7 @@ class manage_product extends BaseController
                 'price' => $this->input->post('price'),
                 'fasilitas_id' => $dataImplode,
                 'createdAt' => date("Y-m-d H:i:s"),
-                'updatedAt' => date("Y-m-d H:i:s"),
+                'updatedAt' => date("Y-m-d H:i:s")
             );
 
 
@@ -119,20 +119,43 @@ class manage_product extends BaseController
         //set file upload settings 
         $config['upload_path']          = APPPATH. '../assets/uploads/product/';
         $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']      = '800000000';
+        $config['overwrite']     = FALSE;
 
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
-        if(!empty($_FILES['image']['name'])) {
-            if (!$this->upload->do_upload('image')){
-                $error = array('error' => $this->upload->display_errors());
-                $this->session->set_flashdata('error', $error);
-            }else{
-                $upload_data = $this->upload->data();
- 
-                //get the uploaded file name
-                $data['image'] = $upload_data['file_name'];
- 
+        if(!empty($_FILES['userfile']['name'])) {
+
+                $files = $_FILES;
+                $cpt = count($_FILES['userfile']['name']);
+
+                if($cpt > 5) {
+                     $this->session->set_flashdata('error', 'Cannot Upload greather than 5 image');
+                      redirect('manage_product/addproduct');
+                }else{
+
+                      for($i=0; $i<$cpt; $i++)
+                        {         
+                            $_FILES['userfile']['name']= $files['userfile']['name'][$i];
+                            $_FILES['userfile']['type']= $files['userfile']['type'][$i];
+                            $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
+                            $_FILES['userfile']['error']= $files['userfile']['error'][$i];
+                            $_FILES['userfile']['size']= $files['userfile']['size'][$i];    
+
+
+
+                            $this->upload->do_upload();
+
+     
+                            //get the uploaded file name
+                            $data['image' . '' . $i . '' ] = $files['userfile']['name'][$i];
+
+                        }
+                }
+
+                   
+     
                 if($this->input->post('productId') != NULL){ // FOR UPDATE
                     if($this->product->update(array('productId' => $this->input->post('productId')), $data)){
                         $this->session->set_flashdata('success', 'Success Update Data product');
@@ -144,7 +167,8 @@ class manage_product extends BaseController
                         redirect('manage_product/');
                     }
                 }
-            }
+                
+            
 
         }else{
             if($this->input->post('productId') != NULL){ // FOR UPDATE

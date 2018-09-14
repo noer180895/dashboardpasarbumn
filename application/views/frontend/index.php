@@ -366,15 +366,9 @@
                                 <div class="tab-pane active" id="tab_default_1">
                                     <p>
                                         <ul style="list-style-type: none;">
-                                            <li><a href="#">Singapore Hotel</a></li>
-                                            <li><a href="#">Singapore Hotel</a></li>
-                                            <li><a href="#">Singapore Hotel</a></li>
-                                            <li><a href="#">Singapore Hotel</a></li>
-                                            <li><a href="#">Singapore Hotel</a></li>
-                                            <li><a href="#">Singapore Hotel</a></li>
-                                            <li><a href="#">Singapore Hotel</a></li>
-                                            <li><a href="#">Singapore Hotel</a></li>
-                                            <li><a href="#">Singapore Hotel</a></li>
+                                            <?php foreach ($datahotel as $value) { ?>
+                                                <li><a href="#"><?php echo $value->name; ?></a></li>
+                                            <?php }; ?>
                                         </ul>
                                         </a>
                                     </p>

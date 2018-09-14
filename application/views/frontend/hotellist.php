@@ -214,7 +214,7 @@
                             <!-- hotel Image-->
                             <div class="hotel-image">
                                 <a href="<?php echo base_url(); ?>transaction/order_hotel/<?php echo $data->productId; ?>">
-                                    <div class="img"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data-> image; ?>" alt="" class="img-responsive"></div>
+                                    <div class="img"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data->image0; ?>" alt="" class="img-responsive"></div>
                                 </a>
                             </div>
                             <!-- hotel body-->

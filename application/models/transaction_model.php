@@ -138,6 +138,7 @@ class Transaction_model extends CI_Model
         $this->db->group_by('trans.transactionId');
         $this->db->where('id_user',$userId);
         $this->db->where('status','pending');
+        $this->db->order_by('transactionId', 'desc');
         $query = $this->db->get();
         return $query->result(); 
     }
@@ -169,9 +170,10 @@ class Transaction_model extends CI_Model
 
 
     public function transaction_detail($no_order){
-        $this->db->select('product.name as name, trans.no_order as no_order, trans.checkin as checkin, trans.checkout as checkout, trans.contact_name, trans.status, product.image');
+        $this->db->select('product.name as name, trans.no_order as no_order, trans.checkin as checkin, trans.checkout as checkout, trans.contact_name, trans.status, product.image0, payment.name as payment');
         $this->db->from('tbl_transaction trans');
         $this->db->join('tbl_product product', 'trans.id_product=product.productId', 'left');
+         $this->db->join('tbl_paymentgateway payment', 'trans.id_payment=payment.idPayment', 'left');
         $this->db->group_by('trans.transactionId');
         $this->db->where('no_order',$no_order);
         $query = $this->db->get();

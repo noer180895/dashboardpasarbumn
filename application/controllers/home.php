@@ -17,6 +17,7 @@ class Home extends BaseController
         $this->global['pageTitle'] = 'Home';
         $this->load->model('banner_model','banner');
          $this->load->model('promo_model','promo');
+          $this->load->model('product_model','product');
 
         $banner = $this->banner->main_banner(); // get data banner
         $barcode = $this->banner->main_barcode(); // get data banner
@@ -26,6 +27,7 @@ class Home extends BaseController
         $dealpopular = $this->banner->main_dealpopular();
         $playstore = $this->banner->main_playstore();
         $datapromo = $this->promo->main_promo();
+        $datahotel = $this->product->main_product_hotel();
 
          $dataImage = [];
          $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
@@ -36,6 +38,8 @@ class Home extends BaseController
          $dataImage['url_dealpopular'] = $dealpopular;
          $dataImage['url_playstore'] = base_url() . '/assets/uploads/banner/' . $playstore[0]->image;
          $dataImage['data_promo'] = $datapromo;
+         $dataImage['datahotel'] = $datahotel;
+
 
 
 
@@ -157,20 +161,24 @@ class Home extends BaseController
     }
 
     public function save_contact(){
-         $data = array(
-                'bookingid' => $this->input->post('bookingid'),
-                'product_id' => $this->input->post('product_id'),
+        $this->load->model('contact_user_model','contact_user');
+        $data = array(
+                'bookingId' => $this->input->post('bookingId'),
+                'product' => $this->input->post('product'),
                 'name' => $this->input->post('name'),
                 'email' => $this->input->post('email'),
-                'description' => $this->input->post('description'),
+                'tell_concern' => $this->input->post('tell_concern'),
                 'createdAt' => date("Y-m-d H:i:s"),
                 'updatedAt' => date("Y-m-d H:i:s"),
             );
-        
-        
-        $this->admin->save($data);
-        $this->session->set_flashdata('success', 'Success Contact');
-        redirect('home/contactme/');
+
+
+
+        if($this->contact_user->save($data)){ //   FOR POST
+            $this->session->set_flashdata('success', 'Success Send');
+            redirect('home/contactme/');
+        }
+
         
     }
 

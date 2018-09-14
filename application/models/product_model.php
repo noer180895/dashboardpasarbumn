@@ -119,6 +119,16 @@ class Product_model extends CI_Model
     }
 
 
+
+    public function main_product_hotel(){
+        $this->db->select('*');
+        $this->db->from('tbl_product');
+        $this->db->where('type','hotel');
+        $query = $this->db->get();
+        return $query->result(); 
+    }
+
+
     public function hotel_detail($id){
         $this->db->select('*');
         $this->db->from('tbl_product');

@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        <i class="fa fa-list"></i>  Manage User 
+        <i class="fa fa-list"></i>  Manage contact user
       </h1>
     </section>
     <br />
@@ -24,19 +24,17 @@
         </div>
         <div class="row">
             <div class="box-header" >
-                <a href="<?php echo base_url() ?>manage_admin/addadmin"><button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add Admin</button></a>
                 <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
                 <br /><br />
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Status</th>
+                            <th>bookingId</th>
+                            <th>product</th>
+                            <th>name</th>
+                            <th>email</th>
                             <th>CreatedAt</th>
                             <th>UpdatedAt</th>
-                            <th style="width:125px;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,17 +70,17 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('manage_admin/ajax_list')?>",
+            "url": "<?php echo site_url('manage_contact_user/ajax_list')?>",
             "type": "POST"
         },
 
         //Set column definition initialisation properties.
-
-
-
         "columnDefs": [
-    { "orderable": false, "targets": [-1,-2,-3,-4] }
-  ],
+        { 
+            "targets": [ -1 ], //last column
+            "orderable": false, //set not orderable
+        },
+        ],
 
          "pagingType": "full_numbers",
 

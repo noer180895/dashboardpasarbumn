@@ -73,7 +73,7 @@ class product extends BaseController
 
 
         $our_fasilitas = explode(',', $product_hotel[0]->fasilitas_id);
-        $this->session->set_userdata('product_gambar',$product_hotel[0]->image);
+        $this->session->set_userdata('product_gambar',$product_hotel[0]->image0);
 
   
 

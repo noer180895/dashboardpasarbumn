@@ -26,10 +26,24 @@
             <div class="col-md-8 col-sm-8">
                 <div id="sync1" class="owl-carousel">
 
-                    <div class="item zoomin frame"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image; ?>" class="img-responsive" alt=""></div>
+                    <div class="item zoomin frame"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image0; ?>" class="img-responsive" alt=""></div>
                 </div>
                 <div id="sync2" class="owl-carousel">
-                    <div class="item"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image; ?>" class="img-responsive" alt="" style="width:140px; height:84px;"></div>
+
+                        <div class="item"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image0; ?>" class="img-responsive" alt="" style="width:140px; height:84px;"></div>
+        
+
+                        <div class="item"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image1; ?>" class="img-responsive" alt="" style="width:140px; height:84px;"></div>
+        
+
+                        <div class="item"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image2; ?>" class="img-responsive" alt="" style="width:140px; height:84px;"></div>
+        
+
+                        <div class="item"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image3; ?>" class="img-responsive" alt="" style="width:140px; height:84px;"></div>
+        
+
+                        <div class="item"><img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image4; ?>" class="img-responsive" alt="" style="width:140px; height:84px;"></div>
+        
                 </div>
                 <h3>Description</h3>
                 <p><?php echo $data_detail[0]->description ; ?>

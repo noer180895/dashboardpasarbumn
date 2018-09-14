@@ -93,6 +93,7 @@ class transaction extends BaseController
                    'contact_name'  => $this->input->post('contact_name'),
                    'phone'  => $this->input->post('phone'),
                    'email'  => $this->input->post('email'),
+                   'address' => $this->input->post('address'),
                    'isguest'  => $this->input->post('isguest'),
                    'fullname'  => $this->input->post('fullname')
 
@@ -217,6 +218,7 @@ class transaction extends BaseController
                 'checkout' =>  $check['checkOut'],
                 'total_guest' => $check['total_guest'][1],
                 'total_room' => $qty,
+                'id_payment' => 1,
                 'createdAt' => date("Y-m-d H:i:s"),
                 'updatedAt' => date("Y-m-d H:i:s"),
             );
@@ -250,23 +252,26 @@ class transaction extends BaseController
             $words = Doku_Library::doCreateWords($params);  
 
 
+            $basket = $product_hotel[0]->name .','. $product_hotel[0]->price . ',' . $qty . ',' . $subtotal . ',';
 
-            $customer = array('name' => 'TEST NAME','data_phone' => '08121111111', 'data_email' => 'test@test.com', 'data_address' => 'bojong gede #1 08/01');
-            $dataPayment = array('req_mall_id' => '5537', 'req_chain_merchant' => 'NA', 'req_amount' => $subtotal, 'req_words' => $words, 'req_trans_id_merchant' => $no_order, 'req_purchase_amount' => $subtotal, 'req_request_date_time' => date('YmdHis'), 'req_session_id' => sha1(date('YmdHis')), 'req_email' => $dataorder['email'], 'req_name' => $dataorder['fullname'], 'req_basket' => 'sayur,10000.00,1,10000.00;', 'req_address' => 'Jl Kembang 1 No 5 Cilandak Jakarta', 'req_mobile_phone' => '081987987999', 'req_expiry_time' => '360');
+
+            $customer = array('name' => $dataorder['contact_name'],'data_phone' => $dataorder['phone'], 'data_email' => $dataorder['email'], 'data_address' => $dataorder['address']);
+            $dataPayment = array('req_mall_id' => '5537', 'req_chain_merchant' => 'NA', 'req_amount' => $subtotal, 'req_words' => $words, 'req_trans_id_merchant' => $no_order, 'req_purchase_amount' => $subtotal, 'req_request_date_time' => date('YmdHis'), 'req_session_id' => sha1(date('YmdHis')), 'req_email' => $dataorder['email'], 'req_name' => $dataorder['fullname'], 'req_basket' => $basket, 'req_address' => $dataorder['address'], 'req_mobile_phone' => $dataorder['phone'], 'req_expiry_time' => '360');
 
 
             $response = Doku_Api::doGeneratePaycode($dataPayment);
 
 
+
             if($response->res_response_code == '0000'){
                     
                 // update status transaction
-                $data = array('status' => 'success');
-                $this->transaction->update(array('no_order' => $no_order), $data);
+                // $data = array('status' => 'success');
+                // $this->transaction->update(array('no_order' => $no_order), $data);
 
 
                 $dataOrder = array(
-                   'payment_code'  => $response->res_pairing_code,
+                   'payment_code'  => $response->res_pay_code,
                    'amount' => $subtotal
                 );
                 $this->session->set_userdata('orderpayment',$dataOrder);

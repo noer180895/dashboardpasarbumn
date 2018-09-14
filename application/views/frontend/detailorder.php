@@ -28,8 +28,7 @@
                             <h4 style="padding-left: 10px;  padding-bottom: 15px;">Payment</h4>
                             <div class="col-md-6">
                                 <p style="padding-left: 9px">Payment Methods</p>
-                                <p style="padding-left: 9px; color: black;">Credit Card</p>
-                                <p style="padding-left: 9px; color: black;">INSURANCE</p>
+                                <p style="padding-left: 9px; color: black;"><?php echo $data_detail[0]->payment; ?></p>
                             </div>
                             <div class="col-md-6">
                                 <p style="padding-left: 9px">Payment Status</p>
@@ -57,9 +56,9 @@
                             <div class="col-md-6"></div>
                             <?php } ?>
                             <div class="col-md-6" >
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <!--   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button class="btn btn-default" style="margin-left:5px; margin-right:5px; background-color: #e7e8e8;    border-top-color: #f1f3f3;border-left-color: #f1f3f3;border-right-color: #f1f3f3;    border-bottom-color: #f1f3f3;">Refund</button>
-                                <button class="btn btn-primary" style="margin-left:5px; margin-right:5px">Reschedule</button>
+                                <button class="btn btn-primary" style="margin-left:5px; margin-right:5px">Reschedule</button> -->
                             </div>
                               
                           </div>
@@ -73,7 +72,7 @@
                             <div class="col-md-12">
                                 <div class="row" style="    margin-bottom: 10px;">
                                     <div class="col-md-2">
-                                    <img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image; ?>" class="img-resposive" alt="" style="width:50px;height: 50px;">
+                                    <img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image0; ?>" class="img-resposive" alt="" style="width:50px;height: 50px;">
                                 </div>
                                 <div class="col-md-10">
                                     <h5><strong><p><?php echo $data_detail[0]->name; ?> <p></strong><h5>

@@ -14,21 +14,29 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Contact's Name *</label>
-                                        <input type="text" class="form-control" id="contact_name" name="contact_name" placeholder="Enter Your Contact Name">
+                                        <input type="text" class="form-control" id="contact_name" name="contact_name" placeholder="Enter Your Contact Name" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Phone *</label>
-                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Email *</label>
-                                        <input type="text" class="form-control" id="email" name="email" placeholder="Email Address">
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" required>
                                     </div>
                                 </div>
+
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea name="address" id="address" class="form-control" required> </textarea>
+                                    </div>
+                                </div>
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <input type="checkbox" name="isguest" value="guest" id="isguest" onclick="enableDisable(this.checked, 'fullname')">&nbsp; I am the guest
@@ -86,7 +94,7 @@
                             </div>
                             <br />
                             <div class="col-md-4">
-                                <img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image; ?>" class="img-responsive" alt=""></div>
+                                <img src="<?php echo base_url() . '/assets/uploads/product/' .$data_detail[0]->image0; ?>" class="img-responsive" alt=""></div>
                             <div class="col-md-8">
                                 <b><?php echo $data_detail[0]->name; ?></b>
                             </div>

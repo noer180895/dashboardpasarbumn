@@ -1,4 +1,13 @@
-<br /><br /><br />
+<br />
+<br />
+<br />
+<br />
+
+ <br /><br />
+ <br /><br />
+ 
+ 
+
 <!-- hotel -->
 <section class="contact-inner">
     <div class="container">

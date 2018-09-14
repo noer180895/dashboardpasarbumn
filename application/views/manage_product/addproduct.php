@@ -16,6 +16,38 @@
                         <h3 class="box-title">Enter Product Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
+
+
+                       <div class="col-md-12">
+                <?php
+                    $this->load->helper('form');
+                    $error = $this->session->flashdata('error');
+                    if($error)
+                    {
+                ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <?php echo $this->session->flashdata('error'); ?>                    
+                </div>
+                <?php } ?>
+                <?php  
+                    $success = $this->session->flashdata('success');
+                    if($success)
+                    {
+                ?>
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <?php echo $this->session->flashdata('success'); ?>
+                </div>
+                <?php } ?>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo validation_errors('<div class="alert alert-danger alert-dismissable">', ' <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>'); ?>
+                    </div>
+                </div>
+            </div>
+
                     
                     <form sid="addUser" action="<?php echo base_url() ?>manage_product/save" method="post" enctype="multipart/form-data">
                         <div class="box-body">
@@ -187,9 +219,9 @@
                                             <br />
                                             <img src="<?php echo $url_image; ?>" style="width: 150px; height: 150px; padding-bottom: 15px;">
                                             <br />
-                                            <input type="file" class="form-control required" id="image" name="image">
+                                            <input type="file" class="form-control required" id="userfile" name="userfile[]" multiple>
                                         <?php }else{ ?>
-                                             <input type="file" class="form-control required" id="image" name="image">
+                                             <input type="file" class="form-control required" id="userfile" name="userfile[]" multiple>
                                         <?php } ?>
                                     </div>
                                     
@@ -212,35 +244,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-4">
-                <?php
-                    $this->load->helper('form');
-                    $error = $this->session->flashdata('error');
-                    if($error)
-                    {
-                ?>
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <?php echo $this->session->flashdata('error'); ?>                    
-                </div>
-                <?php } ?>
-                <?php  
-                    $success = $this->session->flashdata('success');
-                    if($success)
-                    {
-                ?>
-                <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <?php echo $this->session->flashdata('success'); ?>
-                </div>
-                <?php } ?>
-                
-                <div class="row">
-                    <div class="col-md-12">
-                        <?php echo validation_errors('<div class="alert alert-danger alert-dismissable">', ' <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>'); ?>
-                    </div>
-                </div>
-            </div>
+         
         </div>    
     </section>
     
