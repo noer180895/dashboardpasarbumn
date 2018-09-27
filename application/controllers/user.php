@@ -42,7 +42,63 @@ class User extends BaseController
     }
 
 
-     public function editprofile(){
+    // public function editprofile(){
+    //     $this->load->model('user_model','user');
+
+    //     $userId = $this->session->userdata('userId');
+
+
+    //     $data=[];
+    //     $data['profile'] = $this->user->profile($userId);
+    //     $this->loadViewsFrontend("frontend/editprofile", $this->global, $data , NULL);
+    // }
+
+
+    // public function updateprofile()
+    // {
+    //     $this->load->model('user_model','user');
+
+
+    //     $userId = $this->session->userdata('userId');
+
+    //     $data = [];
+
+    //     if($this->input->post('email') != null && $this->input->post('fullname') != null && $this->input->post('phonenumber') != null){
+    //         $data = array(
+    //             'email' => $this->input->post('email'),
+    //              'phone' => $this->input->post('phonenumber'),
+    //               'username' => $this->input->post('fullname'),
+    //             'createdAt' => date("Y-m-d H:i:s"),
+    //             'updatedAt' => date("Y-m-d H:i:s"),
+    //         );
+    //     }else if($this->input->post('email') != null){
+    //            $data = array(
+    //             'email' => $this->input->post('email'),
+    //             'createdAt' => date("Y-m-d H:i:s"),
+    //             'updatedAt' => date("Y-m-d H:i:s"),
+    //         );
+    //     }else if($this->input->post('phonenumber') != null){
+    //           $data = array(
+    //             'phone' => $this->input->post('phonenumber'),
+    //             'createdAt' => date("Y-m-d H:i:s"),
+    //             'updatedAt' => date("Y-m-d H:i:s"),
+    //         );
+    //       }else if($this->input->post('fullname') != null){
+    //           $data = array(
+    //               'username' => $this->input->post('fullname'),
+    //             'createdAt' => date("Y-m-d H:i:s"),
+    //             'updatedAt' => date("Y-m-d H:i:s"),
+    //         );
+    //     }
+
+    //     $this->user->updateprofile($userId, $data);
+
+    //     $this->session->set_flashdata('success', 'Success  Update Profile ');
+    //     redirect('user/editprofile/');
+    // }
+
+
+      public function editprofile(){
         $this->load->model('user_model','user');
 
         $userId = $this->session->userdata('userId');
@@ -54,7 +110,7 @@ class User extends BaseController
     }
 
 
-    public function updateprofile($type)
+    public function updateprofile()
     {
         $this->load->model('user_model','user');
 
@@ -63,7 +119,9 @@ class User extends BaseController
 
         $data = [];
 
-        if($this->input->post('email') != null && $this->input->post('fullname') && $this->input->post('phonenumber')){
+        
+        
+        if($this->input->post('email') != null && $this->input->post('fullname') != null && $this->input->post('phonenumber') != null){
             $data = array(
                 'email' => $this->input->post('email'),
                  'phone' => $this->input->post('phonenumber'),
@@ -72,7 +130,7 @@ class User extends BaseController
                 'updatedAt' => date("Y-m-d H:i:s"),
             );
         }else if($this->input->post('email') != null){
-               $data = array(
+              $data = array(
                 'email' => $this->input->post('email'),
                 'createdAt' => date("Y-m-d H:i:s"),
                 'updatedAt' => date("Y-m-d H:i:s"),
@@ -96,7 +154,6 @@ class User extends BaseController
         $this->session->set_flashdata('success', 'Success  Update Profile ');
         redirect('user/editprofile/');
     }
-
 
 
     public function user_login(){
@@ -179,6 +236,12 @@ class User extends BaseController
     public function logout() {
         $this->session->sess_destroy ();
         redirect ('home');
+    }
+
+
+     public function logoutuser() {
+        $this->session->sess_destroy ();
+        redirect ('login');
     }
 
 

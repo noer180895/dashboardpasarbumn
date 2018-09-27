@@ -205,9 +205,34 @@
                                  <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="role">Fasilitas</label><br />
-                                        <?php foreach ($fasilitas as $value) { ?>
-                                            <input type="checkbox" name="fasilitas_id[]"  value="<?php echo $value; ?>"> &nbsp; <?php echo $value; ?><br />
-                                        <?php } ?>
+
+                                        <?php if($product != null){ 
+
+                                            if($product->fasilitas1 != null){ ?>
+
+                                                <input type="checkbox" name="fasilitas1"  value="<?php echo $product->fasilitas1; ?>" checked> &nbsp; <?php echo $product->fasilitas1; ?><br />
+                                            <?php } 
+                                            
+                                            if($product->fasilitas2 != null){ ?>
+
+                                                <input type="checkbox" name="fasilitas2"  value="<?php echo $product->fasilitas2; ?>" checked> &nbsp; <?php echo $product->fasilitas2; ?><br />
+                                            <?php } 
+
+
+                                            if($product->fasilitas3 != null){ ?>
+
+                                                <input type="checkbox" name="fasilitas3"  value="<?php echo $product->fasilitas3; ?>" checked> &nbsp; <?php echo $product->fasilitas3; ?><br />
+                                            <?php } ?>
+                                        
+
+
+                                        <?php }else{ ?>
+
+
+
+                                        <?php for($i=0;$i < count($fasilitas); $i++) { ?>
+                                            <input type="checkbox" name="<?php echo 'fasilitas' . $i; ?>"  value="<?php echo $fasilitas[$i]; ?>"> &nbsp; <?php echo $fasilitas[$i]; ?><br />
+                                        <?php } }?>
                                     </div>
                                 </div>
 

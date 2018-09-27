@@ -51,11 +51,11 @@
         
         <form action="<?php echo base_url(); ?>loginMe" method="post">
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email" name="email" value="admin2@tip.com" required />
+            <input type="email" class="form-control" placeholder="Email" name="email" required />
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password" value="codeinsect" name="password" required />
+            <input type="password" class="form-control" placeholder="Password"  name="password" required />
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">

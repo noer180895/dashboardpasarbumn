@@ -32,6 +32,9 @@ class transaction extends BaseController
         $this->session->set_userdata('order',$dataOrder);
 
 
+        $isLogin = $this->session->userdata ( 'isLogin' );
+
+
         $product_hotel = $this->product->hotel_detail($productId); // get data banner
 
         $check = $this->session->userdata('order_detail');
@@ -149,6 +152,7 @@ class transaction extends BaseController
         $dataImage['guest'] = $check['total_guest'][1];
         $dataImage['contact_name'] = $dataorder['contact_name'];
         $dataImage['total'] = $subtotal;
+        $dataImage['fullname'] = $dataorder['fullname'];
 
 
 
@@ -304,6 +308,7 @@ class transaction extends BaseController
         $this->global['pageTitle'] = 'payment finish transaction hotel | train | pesawat';
 
         $orderpayment = $this->session->userdata('orderpayment');
+         $isLogin = $this->session->userdata ( 'isLogin' );
 
 
         $data = [];

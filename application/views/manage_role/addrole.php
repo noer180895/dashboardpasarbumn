@@ -38,12 +38,22 @@
                                     <div class="form-group">
                                       
                                         <?php if($role != null){ ?>
-                                            <input type="checkbox" name="access_role" id="access_role" value="allaccess" <?php echo ($role->access_role =='allaccess' ? 'checked' : '');?>>All Access Fitur <br />
-                                            <input type="checkbox" name="access_role" id="access_role" value="crudconten" <?php echo ($role->access_role=='crudconten' ? 'checked' : '');?>>Add,Edit,Delete,Read content website
+                                            <input type="checkbox" name="is_all" id="is_all" value="1" <?php echo ($role->is_all =='1' ? 'checked' : '');?>>All Access Role <br />
+
+                                             <input type="checkbox" name="is_create" id="is_create" value="1" <?php echo ($role->is_create =='1' ? 'checked' : '');?>>Create <br />
+                                              <input type="checkbox" name="is_edit" id="is_edit" value="1" <?php echo ($role->is_edit =='1' ? 'checked' : '');?>>Edit <br />
+
+                                               <input type="checkbox" name="is_read" id="is_read" value="1" <?php echo ($role->is_read =='1' ? 'checked' : '');?>>Read <br />
+
+                                            <input type="checkbox" name="is_delete" id="is_delete" value="1" <?php echo ($role->is_delete =='1' ? 'checked' : '');?>>Delete <br />
                                             
                                         <?php }else{ ?> 
-                                             <input type="checkbox" value="allaccess" name="access_role">All Access Fitur <br />
-                                              <input type="checkbox" value="crudconten" name="access_role">Add,Edit,Delete,Read content website
+                                            <input type="checkbox" value="1" name="is_all" id="is_all">All Access Fitur <br />
+                                            <input type="checkbox" value="1" name="is_create" id="is_create">Create<br />
+                                            <input type="checkbox" value="1" name="is_edit" id="is_edit">Edit<br />
+                                            <input type="checkbox" value="1" name="is_read" id="is_read">Read<br />
+                                            <input type="checkbox" value="1" name="is_delete" id="is_delete">Delete<br />
+
                                         
                                         <?php }?>
                                     </div>
@@ -99,3 +109,17 @@
 <?php }else{ ?>
 <script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>
 <?php } ?>
+
+
+
+
+    <script type="text/javascript">
+
+        document.getElementById('is_all').onchange = function() {
+            document.getElementById('is_delete').disabled = this.checked;
+            document.getElementById('is_read').disabled = this.checked;
+            document.getElementById('is_edit').disabled = this.checked;
+            document.getElementById('is_create').disabled = this.checked;
+        };
+
+    </script>

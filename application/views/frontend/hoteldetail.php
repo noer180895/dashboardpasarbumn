@@ -52,8 +52,12 @@
                    
                     <div class="col-md-4 col-sm-4">
                         <ul class="list-ok">
-                             <?php $no = 1; foreach ($fasilitas as $data) { ?>
-                            <li><?php echo $data; ?></li>
+                            <?php if($data_detail[0]->fasilitas1 != null){ ?>
+                            <li><?php echo $data_detail[0]->fasilitas1; ?></li>
+                            <?php } if($data_detail[0]->fasilitas2 != null){ ?>
+                            <li><?php echo $data_detail[0]->fasilitas2; ?></li>
+                            <?php } if($data_detail[0]->fasilitas3 != null){ ?>
+                             <li><?php echo $data_detail[0]->fasilitas3; ?></li>
                             <?php } ?>
                         </ul>
                     </div>
@@ -82,7 +86,7 @@
                 <div class="sidber-box popular-post-widget">
                     <div class="cats-title"><?php echo $data_detail[0]->name; ?> </div>
                     <div class="popular-post-inner">
-                        <p align="justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                        <p align="justify"><?php echo $data_detail[0]->description; ?>
                             <br />
                             <br />
                             <span><b>STARTING FROM </b></span>
@@ -103,7 +107,7 @@
     <script>
         function myMap() {
         var mapProp= {
-            center:new google.maps.LatLng(-34.397,150.644),
+            center:new google.maps.LatLng(<?php echo $data_detail[0]->lat ?>, <?php echo  $data_detail[0]->long ?>),
             zoom:5,
         };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);

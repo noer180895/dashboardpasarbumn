@@ -36,7 +36,7 @@
                                       <a href="<?php echo base_url(); ?>transaction/detailorder/<?php echo $value->no_order; ?>" class="buttonactivebook button3">Detail</a>
                                   </div>
                                   <div class="col-sm-2" style="width: 78px;">
-                                      <h5 style="font-size: 11px;color: #4eb1e7;"><strong>Details<a style="color:#ff4700; "> * </a></strong><h5>
+                                      <h5 style="font-size: 11px;color: #4eb1e7;"><a href="<?php echo base_url(); ?>transaction/detailorder/<?php echo $value->no_order; ?>"><strong>Details* </a></strong><h5>
                                   </div>
                                   <div class="col-md-2">
                                       <h5><i class="fa fa-ellipsis-h" style="color:#4eb1e7" aria-hidden="true"></i></h5>

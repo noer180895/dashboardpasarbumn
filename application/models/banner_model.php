@@ -4,8 +4,8 @@ class Banner_model extends CI_Model
 {
 
     var $table = 'tbl_banner';
-    var $column_order = array('name',null); //set column field database for datatable orderable
-    var $column_search = array('name'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+    var $column_order = array('name', 'type',null); //set column field database for datatable orderable
+    var $column_search = array('name', 'type'); //set column field database for datatable searchable just firstname , lastname , address are searchable
     var $order = array('bannerId' => 'desc'); // default order 
 
     public function __construct()

@@ -31,7 +31,11 @@
                     <thead>
                         <tr>
                             <th>Role</th>
-                            <th>Access Role</th>
+                            <th>Access All Fitur</th>
+                            <th>Access Delete</th>
+                            <th>Access Edit</th>
+                            <th>Access Read</th>
+                            <th>Access Create</th>
                             <th>CreatedAt</th>
                             <th>UpdatedAt</th>
                             <th style="width:125px;">Action</th>

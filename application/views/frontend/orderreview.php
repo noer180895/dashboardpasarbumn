@@ -20,17 +20,42 @@
                             <div class="col-md-4"><b>Check-out</b>
                                 <br /><?php echo $checkOut; ?></div>
                             <div class="col-md-4"><b>Duration of Stay</b>
-                                <br />1 Night</div>
+                                <br /> <?php 
+                                        $startTimeStamp = strtotime($checkIn);
+                                        $endTimeStamp = strtotime($checkOut);
+
+                                        $timeDiff = abs($endTimeStamp - $startTimeStamp);
+
+                                        $numberDays = $timeDiff/86400;  // 86400 seconds in one day
+
+                                        // and you might want to convert to integer
+                                        $numberDays = intval($numberDays);
+
+                                        echo $numberDays . ' Night';
+                                    ?></div>
                             <div class="col-md-12">
                                 <b>Guest Name</b>
-                                <br /> <?php echo $contact_name; ?>
+                                <br /> <?php echo $fullname; ?>
                                 <hr />
                                 <br />
                             </div>
                             <div class="col-md-12">
                                 <h4>ROOM DETAILS</h4>
                                 <p align="justify" style="padding: 2px;">
-                                    Duration of Stay 1 Night
+                                    Duration of Stay    <?php 
+                                        $startTimeStamp = strtotime($checkIn);
+                                        $endTimeStamp = strtotime($checkOut);
+
+                                        $timeDiff = abs($endTimeStamp - $startTimeStamp);
+
+                                        $numberDays = $timeDiff/86400;  // 86400 seconds in one day
+
+                                        // and you might want to convert to integer
+                                        $numberDays = intval($numberDays);
+
+                                        echo $numberDays . ' Night';
+                                    ?>
+
                                     <br /> Check-in, <?php echo $checkIn; ?>
                                     <br /> Check-out, <?php echo $checkOut; ?>
                                     <br /> Room Type Business Twin Bed - Room Only

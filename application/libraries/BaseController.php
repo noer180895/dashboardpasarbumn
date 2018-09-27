@@ -43,10 +43,20 @@ class BaseController extends CI_Controller {
 			$this->vendorId = $this->session->userdata ( 'userId' );
 			$this->username = $this->session->userdata ( 'username' );
 			$this->roleText = $this->session->userdata ( 'roleText' );
+			$this->isall = $this->session->userdata ( 'isall' );
+			$this->isread = $this->session->userdata ( 'isread' );
+			$this->isedit = $this->session->userdata ( 'isedit' );
+			$this->iscreate = $this->session->userdata ( 'iscreate' );
+			$this->isdelete = $this->session->userdata ( 'isdelete' );
 			
 			$this->global ['username'] = $this->username;
 			$this->global ['role'] = $this->role;
 			$this->global ['role_text'] = $this->roleText;
+			$this->global ['isall'] = $this->isall;
+			$this->global ['isread'] = $this->isread;
+			$this->global ['iscreate'] = $this->iscreate;
+			$this->global ['isedit'] = $this->isedit;
+			$this->global ['isdelete'] = $this->isdelete;
 			
 		}
 	}

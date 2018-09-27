@@ -32,6 +32,14 @@ class manage_steporder extends BaseController
         $base_url = base_url();
 
 
+           $role = $this->session->userdata ( 'role' );
+        $isall = $this->session->userdata ( 'isall' );
+          $isread = $this->session->userdata ( 'isread' );
+                $iscreate = $this->session->userdata ( 'iscreate' );
+        $isedit = $this->session->userdata ( 'isedit' );
+        $isdelete = $this->session->userdata ( 'isdelete' );
+
+
         foreach ($list as $steporder) {
             $no++;
             $row = array();
@@ -43,8 +51,18 @@ class manage_steporder extends BaseController
 
 
             //add html for action
-            $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_steporder/addsteporder/'."".$steporder->id."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+            if($role == 'Admin' || $role == 'admin' || $isall == "1"){ 
+                $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_steporder/addsteporder/'."".$steporder->id."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                   <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_steporder/delete/'."".$steporder->id."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+            }else if($isedit == "1" && $isdelete == "0"){
+                $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_steporder/addsteporder/'."".$steporder->id."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>';
+            }else if($isedit == "1" && $isdelete == "1"){
+                $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_steporder/addsteporder/'."".$steporder->id."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                  <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_steporder/delete/'."".$steporder->id."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+             }else if($isedit == "0" && $isdelete == "1"){
+                  $row[] = '
+                  <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_promo/delete/'."".$promo->idPromo."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+            }
         
             $data[] = $row;
         }

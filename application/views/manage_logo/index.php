@@ -24,9 +24,18 @@
         </div>
         <div class="row">
             <div class="box-header" >
+                   <?php
+            // jika is create == 1
+            if($role == 'Admin' || $role == 'admin' || $isall == "1" || $iscreate == "1"){ 
+            ?>
                 <a href="<?php echo base_url() ?>manage_logo/addlogo"><button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add logo</button></a>
+            <?php } ?>
                 <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
                 <br /><br />
+                 <?php
+                // jika is readnya == 1
+            if($role == 'Admin' || $role == 'admin' || $isall == "1" || $isread == "1"){ 
+            ?>
                 <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
@@ -42,6 +51,7 @@
 
                    
                 </table>
+            <?php } ?>
             </div>
         </div>
     </section>

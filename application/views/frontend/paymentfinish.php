@@ -48,8 +48,10 @@
                 
             </div>
 
+            <?php if($isLogin == "1"){ ?>
             <div class="col-md-10"></div>
             <div class="col-md-2">  <div class="btn-group btn-group-lg"><a href="<?php echo base_url(); ?>user/dashboard/"><button class="btn btn-success">Finish</button></a></div></div>
+          <?php } ?>
             
         </div>
     </div>

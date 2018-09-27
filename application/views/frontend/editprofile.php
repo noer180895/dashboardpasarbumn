@@ -1,4 +1,4 @@
-   <br /><br />  
+<br /><br />   <br /><br />  <br /><br />
            <section class="hotel-inner">
             <div class="container">
                 <div class="row">

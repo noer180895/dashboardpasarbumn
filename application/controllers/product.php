@@ -72,7 +72,7 @@ class product extends BaseController
         $logo = $this->banner->main_logo(); 
 
 
-        $our_fasilitas = explode(',', $product_hotel[0]->fasilitas_id);
+  
         $this->session->set_userdata('product_gambar',$product_hotel[0]->image0);
 
   
@@ -81,7 +81,7 @@ class product extends BaseController
          $dataImage['data_detail'] = $product_hotel;
          $dataImage['url_banner'] = base_url() . '/assets/uploads/banner/' . $banner[0]->image;
          $dataImage['url_logo'] = base_url() . '/assets/uploads/banner/' . $logo[0]->image;
-         $dataImage['fasilitas'] = $our_fasilitas;
+        
          
          // var_dump($data[0]->image);
         $this->loadViewsFrontend("frontend/hoteldetail", $this->global, $dataImage , NULL);

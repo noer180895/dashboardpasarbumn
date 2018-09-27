@@ -34,7 +34,11 @@ class manage_role extends BaseController
             $no++;
             $row = array();
             $row[] = $role->role;
-            $row[] = $role->access_role;
+            $row[] = $role->is_all == 1 ? 'Yes' : 'No'; 
+            $row[] = $role->is_delete == 1 ? 'Yes' : 'No';
+            $row[] = $role->is_edit == 1 ? 'Yes' : 'No';
+            $row[] = $role->is_read == 1 ? 'Yes' : 'No';
+            $row[] = $role->is_create == 1 ? 'Yes' : 'No';
             $row[] = $role->createdAt;
             $row[] = $role->updatedAt;
 
@@ -79,13 +83,19 @@ class manage_role extends BaseController
     {
         $data = array(
                 'role' => $this->input->post('role'),
-                'access_role' => $this->input->post('access_role'),
+                'is_all' => $this->input->post('is_all'),
+                'is_create' => $this->input->post('is_create'),
+                'is_edit' => $this->input->post('is_edit'),
+                'is_read' => $this->input->post('is_read'),
+                'is_delete' => $this->input->post('is_delete'),
                 'createdAt' => date("Y-m-d H:i:s"),
                 'updatedAt' => date("Y-m-d H:i:s"),
             );
+
         
         
         if($this->input->post('roleId') != NULL){ // FOR UPDATE
+
             if($this->rolemodel->update(array('roleId' => $this->input->post('roleId')), $data)){
                 $this->session->set_flashdata('success', 'Success Update Data role');
                 redirect('manage_role/');

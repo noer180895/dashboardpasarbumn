@@ -31,6 +31,13 @@ class manage_product extends BaseController
         $no = $_POST['start'];
         $base_url = base_url();
 
+          $role = $this->session->userdata ( 'role' );
+        $isall = $this->session->userdata ( 'isall' );
+          $isread = $this->session->userdata ( 'isread' );
+                $iscreate = $this->session->userdata ( 'iscreate' );
+        $isedit = $this->session->userdata ( 'isedit' );
+        $isdelete = $this->session->userdata ( 'isdelete' );
+
 
         foreach ($list as $product) {
             $no++;
@@ -45,9 +52,18 @@ class manage_product extends BaseController
 
 
             //add html for action
+
+             if($role == 'Admin' || $role == 'admin' || $isall == "1"){ 
             $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_product/addproduct/'."".$product->productId."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                   <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_product/delete/'."".$product->productId."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
-        
+             }else if($isedit == "1" && $isdelete == "0"){
+                  $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_product/addproduct/'."".$product->productId."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>';
+             }else if($isedit == "1" && $isdelete == "1"){
+                $row[] = '<a class="btn btn-sm btn-primary" href="'.$base_url.'manage_product/addproduct/'."".$product->productId."".'" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                  <a class="btn btn-sm btn-danger" href="'.$base_url.'manage_product/delete/'."".$product->productId."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+             }else if($isedit == "0" && $isdelete == "1"){
+                 $row[] = '<a class="btn btn-sm btn-danger" href="'.$base_url.'manage_product/delete/'."".$product->productId."".'" title="Hapus"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+            }
             $data[] = $row;
         }
 
@@ -76,7 +92,7 @@ class manage_product extends BaseController
         $data['type'] = array("train"=>"Train","hotel"=>"Hotel", "pesawat" => "Pesawat"); 
 
 
-        $data['fasilitas'] = array("wifi"=>"Wifi","coffeebreak"=>"Coffee Break", "swimingpool" => "Swiming pool"); 
+        $data['fasilitas'] = array("wifi","coffeebreak", "swimingpool"); 
 
         $this->global['pageTitle'] = 'Manage Add product';
             
@@ -92,11 +108,11 @@ class manage_product extends BaseController
 
         
 
-        if($this->input->post('fasilitas_id') != null){
-            $dataImplode = implode(",",$this->input->post('fasilitas_id'));    
-        }else{
-            $dataImplode = NULL;
-        }
+        // if($this->input->post('fasilitas_id') != null){
+        //     $dataImplode = implode(",",$this->input->post('fasilitas_id'));    
+        // }else{
+        //     $dataImplode = NULL;
+        // }
 
 
 
@@ -106,12 +122,14 @@ class manage_product extends BaseController
                 'lat' => $this->input->post('lat'),
                 'long' => $this->input->post('long'),
                 'type' => $this->input->post('type'),
-                 'description' => $this->input->post('description'),
+                'description' => $this->input->post('description'),
                 'disc' => $this->input->post('disc'),
                 'price' => $this->input->post('price'),
-                'fasilitas_id' => $dataImplode,
+                'fasilitas1' => $this->input->post('fasilitas0'),
+                'fasilitas2' => $this->input->post('fasilitas1'),
+                'fasilitas3' => $this->input->post('fasilitas2'),
                 'createdAt' => date("Y-m-d H:i:s"),
-                'updatedAt' => date("Y-m-d H:i:s")
+                'updatedAt' => date("Y-m-d H:i:s"),
             );
 
 
@@ -125,7 +143,7 @@ class manage_product extends BaseController
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
-        if(!empty($_FILES['userfile']['name'])) {
+        if($_FILES['userfile']['name'][0] != "") {
 
                 $files = $_FILES;
                 $cpt = count($_FILES['userfile']['name']);

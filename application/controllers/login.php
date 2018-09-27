@@ -65,6 +65,11 @@ class Login extends CI_Controller
                     $sessionArray = array('userId'=>$res->userId,                    
                                             'role'=>$res->roleId,
                                             'roleText'=>$res->role,
+                                            'isall' =>$res->is_all,
+                                            'isread' =>$res->is_read,
+                                            'isedit' =>$res->is_edit,
+                                            'isdelete' =>$res->is_delete,
+                                            'iscreate' =>$res->is_create,
                                             'username'=>$res->username,
                                             'isLoggedIn' => TRUE
                                     );

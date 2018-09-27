@@ -5,10 +5,14 @@
                 <div class="row">
                     <div class="col-md-9 col-sm-8">
                         <form action="<?php echo base_url(); ?>transaction/order_review/" method="post" enctype="multipart/form-data" onsubmit="savedata()">
-                            <h2>Your Hotel Booking</h2>
+                                <?php if($isLogin == 0){ ?>
+                            <h2>Your Hotel Booking </h2>
+
+                        
                             <div class="sidber-box cats-widget" style="padding: 15px;">
-                                <p><a href="#">Login</a> to your account and enjoy exclusive deals, faster booking. Points and other member-only benefits.</p>
+                                <p><a href="<?php echo base_url(); ?>user/login/">Login</a> to your account and enjoy exclusive deals, faster booking. Points and other member-only benefits.</p>
                             </div>
+                        <?php } ?>
                             <h2>Your Information</h2>
                             <div class="sidber-box cats-widget" style="padding: 15px;">
                                 <div class="col-md-12">
@@ -102,10 +106,24 @@
                             <br />
                             <div class="col-md-12">
                                 <p align="justify" style="padding: 2px;">
-                                    Duration of Stay 1 Night
-                                    <br /> Check-in <?php echo $checkIn; ?>
-                                    <br /> Check-out Wed, <?php echo $checkOut; ?>
-                                    <br /> Room Type Business Twin Bed - Room Only
+                                    Duration of Stay 
+                                    <?php 
+                                        $startTimeStamp = strtotime($checkIn);
+                                        $endTimeStamp = strtotime($checkOut);
+
+                                        $timeDiff = abs($endTimeStamp - $startTimeStamp);
+
+                                        $numberDays = $timeDiff/86400;  // 86400 seconds in one day
+
+                                        // and you might want to convert to integer
+                                        $numberDays = intval($numberDays);
+
+                                        echo $numberDays . ' Night';
+                                    ?>
+
+
+                                    <br /> Check-in, <?php echo $checkIn; ?>
+                                    <br /> Check-out, <?php echo $checkOut; ?>
                                     <br /> No. of rooms <?php echo $room; ?> Room
                                     <br /> Guest per Room <?php echo $guest; ?> Guest s
                                 </p>

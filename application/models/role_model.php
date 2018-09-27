@@ -4,8 +4,8 @@ class Role_model extends CI_Model
 {
 
     var $table = 'tbl_roles';
-    var $column_order = array('role','access_role','createdAt',null); //set column field database for datatable orderable
-    var $column_search = array('role','access_role','createdAt'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+    var $column_order = array('role','is_all', 'is_delete', 'is_edit', 'is_read', 'is_create', 'createdAt',null); //set column field database for datatable orderable
+    var $column_search = array('role','is_all', 'is_delete', 'is_edit', 'is_read', 'is_create','createdAt'); //set column field database for datatable searchable just firstname , lastname , address are searchable
     var $order = array('roleId' => 'desc'); // default order 
 
     public function __construct()

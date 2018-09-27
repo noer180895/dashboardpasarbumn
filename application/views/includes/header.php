@@ -100,6 +100,12 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
           <li class="header">Navigasi Utama</li>
+          <!-- jika akses untuk admin -->
+            <?php
+
+            if($role == 'Admin' || $role == 'admin' || $isall == "1"){ 
+            ?>
+
           <li class="treeview">
             <a href="<?php echo base_url(); ?>manage_admin/">
             <i class="fa fa-file"></i>
@@ -116,6 +122,9 @@
             <span>Manage Role Permision</span>
             </a>
           </li>
+        
+         <?php } ?>
+         <!-- end akses admin  -->
 
 
           <li class="treeview">
@@ -136,12 +145,12 @@
 
 
 
-          <li class="treeview">
+          <!-- <li class="treeview">
             <a href="<?php echo base_url(); ?>manage_contact/">
             <i class="fa fa-file"></i>
             <span>Manage Contact</span>
             </a>
-          </li>
+          </li> -->
 
              <li class="treeview">
             <a href="<?php echo base_url(); ?>manage_contact_user/">
@@ -184,7 +193,10 @@
             </a>
           </li>
 
+             <?php
 
+            if($role == 'Admin' || $role == 'admin' || $isall == "1"){ 
+            ?>
 
             <li class="treeview">
             <a href="<?php echo base_url(); ?>manage_transaction/">
@@ -192,6 +204,7 @@
             <span>Manage Transactions</span>
             </a>
           </li>
+        <?php } ?>
 
 
 
